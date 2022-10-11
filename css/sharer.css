@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+body #sharer-by-KP {
+  width: 100vw;
+  min-height: 100vh;
+  -webkit-backdrop-filter: blur(0px);
+          backdrop-filter: blur(0px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  transition: left 0.4s ease, opacity 0.2s ease, top 0.2s ease, -webkit-backdrop-filter 1s ease;
+  transition: left 0.4s ease, opacity 0.2s ease, top 0.2s ease, backdrop-filter 1s ease;
+  transition: left 0.4s ease, opacity 0.2s ease, top 0.2s ease, backdrop-filter 1s ease, -webkit-backdrop-filter 1s ease;
+  top: 5%;
+}
+body #sharer-by-KP .main-content {
+  box-shadow: 0 16px 64px 0 rgba(128, 128, 128, 0.4);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 448px;
+  min-height: 500px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body #sharer-by-KP .main-content .header {
+  position: fixed;
+  border-bottom: 1px solid black;
+  width: inherit;
+  max-width: inherit;
+  height: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+body #sharer-by-KP .main-content .header .header-content {
+  width: 96%;
+  display: flex;
+  justify-content: space-between;
+}
+body #sharer-by-KP .main-content .header .header-content .icon-n-title {
+  display: flex;
+}
+body #sharer-by-KP .main-content .header .header-content .icon-n-title .sharer-icon {
+  margin-right: 4px;
+}
+body #sharer-by-KP .main-content .header .header-content #sharer-close-btn {
+  height: 20px;
+}
+body #sharer-by-KP .main-content .space {
+  height: 52px;
+}
+body #sharer-by-KP.show {
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  top: 0%;
+  pointer-events: all;
+  opacity: 1;
+}/*# sourceMappingURL=sharer.css.map */
