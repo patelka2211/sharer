@@ -21,6 +21,7 @@ body #sharer-by-KP .main-content {
   border-radius: 10px;
   width: 100%;
   max-width: 448px;
+  height: 100%;
   min-height: 500px;
   background-color: white;
   display: flex;
@@ -28,7 +29,6 @@ body #sharer-by-KP .main-content {
   align-items: center;
 }
 body #sharer-by-KP .main-content .header {
-  position: fixed;
   border-bottom: 1px solid black;
   width: inherit;
   max-width: inherit;
@@ -52,8 +52,9 @@ body #sharer-by-KP .main-content .header .header-content .icon-n-title .sharer-i
 body #sharer-by-KP .main-content .header .header-content #sharer-close-btn {
   height: 20px;
 }
-body #sharer-by-KP .main-content .space {
-  height: 52px;
+body #sharer-by-KP .main-content .modal-body {
+  height: 20%;
+  overflow-y: auto;
 }
 body #sharer-by-KP.show {
   -webkit-backdrop-filter: blur(10px);
