@@ -3,72 +3,53 @@ body {
     padding: 0;
     #sharer-by-KP {
         width: 100vw;
-        min-height: 100vh;
-
-        backdrop-filter: blur(0px);
+        height: 100vh;
+        // background-color: blue;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
 
-        // position: fixed;
-        // opacity: 0;
-        // pointer-events: none;
-
-        transition: left 0.4s ease, opacity 0.2s ease, top 0.2s ease,
-            backdrop-filter 1s ease;
-
-        top: 5%;
-        .main-content {
-            box-shadow: 0 16px 64px 0 rgba(128, 128, 128, 0.4);
-            border-radius: 10px;
-            width: 100%;
-            max-width: 448px;
-            height: 100%;
-            min-height: 500px;
+        .modal-content {
+            width: 448px;
+            height: 500px;
             background-color: white;
+            box-shadow: 0 16px 64px 0 rgba(128, 128, 128, 0.6);
+            border-radius: 12px;
+            transition: all 0.4s ease;
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            .header {
-                border-bottom: 1px solid black;
-                width: inherit;
-                max-width: inherit;
-                height: 52px;
-
+            .modal-header {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-around;
-                .header-content {
-                    width: 96%;
-                    display: flex;
-                    justify-content: space-between;
-                    .icon-n-title {
-                        display: flex;
-                        .sharer-icon {
-                            margin-right: 4px;
-                        }
-                    }
-                    #sharer-close-btn {
-                        height: 20px;
-                    }
-                }
+                border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+                height: 50px;
             }
 
             .modal-body {
-                height: 20%;
+                padding: 10px;
+                transition: all 0.4s ease;
+                height: 420px;
                 overflow-y: auto;
             }
         }
+    }
+}
 
-        &.show {
-            backdrop-filter: blur(10px);
-            top: 0%;
-            pointer-events: all;
-            opacity: 1;
-            // left: 0%;
+@media (max-width: 600px) {
+    body {
+        #sharer-by-KP {
+            .modal-content {
+                width: 100vw;
+                height: 100vh;
+                box-shadow: none;
+                border-radius: 0;
+
+                .modal-body {
+                    height: calc(100vh - 70px);
+                }
+            }
         }
     }
 }

@@ -31,4 +31,4 @@ class sharer {
     }
 }
 
-// let sharer_by_KP = new sharer();
+let sharer_by_KP = new sharer();
