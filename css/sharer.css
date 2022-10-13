@@ -26,11 +26,61 @@ body #sharer-by-KP .modal-content .modal-header {
   border-bottom: 1px solid rgba(128, 128, 128, 0.1);
   height: 50px;
 }
+body #sharer-by-KP .modal-content .modal-header .header-content {
+  width: calc(100% - 20px);
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  --close-btn-size: 30px;
+}
+body #sharer-by-KP .modal-content .modal-header .header-content .header-empty-space {
+  width: var(--close-btn-size);
+}
+body #sharer-by-KP .modal-content .modal-header .header-content .header-close-btn {
+  width: var(--close-btn-size);
+  height: var(--close-btn-size);
+  background-color: rgba(128, 128, 128, 0.1);
+  border-radius: 8px;
+}
 body #sharer-by-KP .modal-content .modal-body {
   padding: 10px;
   transition: all 0.4s ease;
-  height: 420px;
+  height: 430px;
   overflow-y: auto;
+}
+body #sharer-by-KP .modal-content .modal-body .share-on-platform-btn {
+  --padding-size: 4px;
+  padding: var(--padding-size);
+  width: calc(100% - var(--padding-size) * 2);
+  height: calc(50px - var(--padding-size) * 2);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: rgba(128, 128, 128, 0.1);
+  display: flex;
+  align-items: center;
+  --icon-size: calc(50px - calc(var(--padding-size) * 2));
+}
+body #sharer-by-KP .modal-content .modal-body .share-on-platform-btn .icon-box {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-color: rgba(128, 128, 128, 0.6);
+  border-radius: 6px;
+}
+body #sharer-by-KP .modal-content .modal-body .share-on-platform-btn .share-on-platform-text {
+  width: calc(100% - var(--padding-size) * 2 - var(--icon-size));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+body #sharer-by-KP .modal-content .modal-body .share-on-platform-btn:last-child {
+  margin-bottom: 0;
+}
+body #sharer-by-KP .modal-content .modal-body .share-on-platform-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 16px 0 rgba(0, 128, 0, 0.2);
+  transition: all 0.4s ease-in-out;
 }
 
 @media (max-width: 600px) {
