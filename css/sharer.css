@@ -49,43 +49,41 @@ body #sharer-by-KP .modal-content .modal-body {
   height: 430px;
   overflow-y: auto;
 }
-body #sharer-by-KP .modal-content .modal-body .share-on-platform-btn {
-  --padding-size: 4px;
-  padding: var(--padding-size);
-  width: calc(100% - var(--padding-size) * 2);
-  height: calc(50px - var(--padding-size) * 2);
-  border-radius: 12px;
-  margin-bottom: 10px;
+body #sharer-by-KP .modal-content .modal-body .share-btn-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+body #sharer-by-KP .modal-content .modal-body .share-btn-row .share-btn {
+  width: 20%;
+  aspect-ratio: 1/1;
+  padding: 4px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+body #sharer-by-KP .modal-content .modal-body .share-btn-row .share-btn .icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+body #sharer-by-KP .modal-content .modal-body .share-btn-row .share-btn .icon-box svg {
+  width: 84%;
+  height: 84%;
+}
+body #sharer-by-KP .modal-content .modal-body .share-btn-row .share-btn:hover {
   background-color: rgba(128, 128, 128, 0.1);
-  display: flex;
-  align-items: center;
-  --icon-size: calc(50px - calc(var(--padding-size) * 2));
-}
-body #sharer-by-KP .modal-content .modal-body .share-on-platform-btn .icon-box {
-  width: var(--icon-size);
-  height: var(--icon-size);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-body #sharer-by-KP .modal-content .modal-body .share-on-platform-btn .icon-box svg {
-  width: calc(var(--icon-size) / 1.414);
-  height: calc(var(--icon-size) / 1.414);
-}
-body #sharer-by-KP .modal-content .modal-body .share-on-platform-btn .share-on-platform-text {
-  width: calc(100% - var(--padding-size) * 2 - var(--icon-size));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-body #sharer-by-KP .modal-content .modal-body .share-on-platform-btn:last-child {
-  margin-bottom: 0;
-}
-body #sharer-by-KP .modal-content .modal-body .share-on-platform-btn:hover {
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+}
+body #sharer-by-KP .modal-content .modal-body .share-btn-row .share-btn.hide .icon-box {
+  display: none;
+}
+body #sharer-by-KP .modal-content .modal-body .share-btn-row .share-btn.hide:hover {
+  background-color: transparent;
+  cursor: default;
 }
 
 @media (max-width: 600px) {

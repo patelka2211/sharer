@@ -53,51 +53,46 @@ body {
                 height: 430px;
                 overflow-y: auto;
 
-                .share-on-platform-btn {
-                    --padding-size: 4px;
-                    padding: var(--padding-size);
-                    width: calc(100% - calc(var(--padding-size) * 2));
-                    height: calc(50px - calc(var(--padding-size) * 2));
-                    border-radius: 12px;
-                    margin-bottom: 10px;
-                    background-color: rgba(128, 128, 128, 0.1);
+                .share-btn-row {
                     display: flex;
-                    align-items: center;
-
-                    --icon-size: calc(50px - calc(var(--padding-size) * 2));
-                    .icon-box {
-                        width: var(--icon-size);
-                        height: var(--icon-size);
-                        // background-color: rgba(128, 128, 128, 0.6);
-                        // border-radius: 10px;
-
+                    justify-content: space-between;
+                    margin-bottom: 8px;
+                    .share-btn {
+                        width: 20%;
+                        aspect-ratio: 1/1;
+                        padding: 4px;
+                        // border: 1px solid black;
+                        border-radius: 10px;
                         display: flex;
                         flex-direction: column;
                         align-items: center;
                         justify-content: space-around;
-                        svg {
-                            width: calc(var(--icon-size) / 1.414);
-                            height: calc(var(--icon-size) / 1.414);
+                        .icon-box {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-evenly;
+                            svg {
+                                width: 84%;
+                                height: 84%;
+                            }
                         }
-                    }
 
-                    .share-on-platform-text {
-                        width: calc(
-                            calc(100% - calc(var(--padding-size) * 2)) -
-                                var(--icon-size)
-                        );
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: space-around;
-                    }
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
+                        &:hover {
+                            background-color: rgba(128, 128, 128, 0.1);
+                            cursor: pointer;
+                        }
 
-                    &:hover {
-                        cursor: pointer;
-                        transition: all 0.4s ease-in-out;
+                        &.hide {
+                            .icon-box {
+                                display: none;
+                            }
+
+                            &:hover {
+                                background-color: transparent;
+                                cursor: default;
+                            }
+                        }
                     }
                 }
             }
