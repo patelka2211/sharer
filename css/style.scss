@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+    --sharer-text-pri: black;
+    --sharer-text-sec: black;
+    --sharer-btn-hover: rgb(107, 160, 249);
+    --sharer-common-bg: rgb(234, 234, 234);
+    --sharer-menu-bg: rgb(234, 234, 234);
+    --border-n-shadow: rgba(128, 128, 128, 0.4);
+    --seperator-color: rgba(211, 211, 211);
+}
+
+.sharer-dark-mode {
+    --sharer-text-pri: black;
+    --sharer-text-sec: black;
+    --sharer-btn-hover: rgb(107, 155, 230);
+    --sharer-common-bg: rgb(37, 37, 38);
+    --sharer-menu-bg: rgb(37, 37, 38);
+    --border-n-shadow: var(--sharer-menu-bg);
+    --seperator-color: black;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+
+    #sharer-by-kp {
+        font-family: "Inter", sans-serif;
+        width: 100vw;
+        height: 100vh;
+        // background-color: rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        .sharer-window {
+            width: 100%;
+            height: 100%;
+            max-width: 968px;
+            max-height: 571px;
+            border-radius: 10px;
+            background-color: var(--sharer-bg);
+            border: 0.2px solid var(--border-n-shadow);
+            box-shadow: 0 16px 64px 0 var(--border-n-shadow);
+            display: flex;
+            transition: max-width 0.4s ease, max-height 0.4s ease;
+
+            --sharer-menu-width: 310px;
+            .sharer-menu {
+                width: var(--sharer-menu-width);
+                height: 100%;
+                // background-color: rgb(228, 228, 228);
+
+                .sharer-menu-header {
+                    width: 100%;
+                    height: 50px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-around;
+                    .sharer-menu-header-container {
+                        width: calc(100% - 20px);
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        --close-btn-size: 12px;
+                        #sharer-close-btn {
+                            width: var(--close-btn-size);
+                            height: var(--close-btn-size);
+                            background-color: rgb(234, 106, 94);
+                            border-radius: var(--close-btn-size);
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+
+                            // Color of x in close btn
+                            // background-color: rgb(134, 28, 19);
+                        }
+
+                        .title {
+                            color: black;
+                        }
+
+                        .space {
+                            width: var(--close-btn-size);
+                            // height: var(--close-btn-size);
+                            // background-color: var(--border-n-shadow);
+                            // border-radius: 4px;
+                        }
+                    }
+                    // background-color: red;
+                }
+            }
+
+            .seperator {
+                height: 100%;
+                width: 0.1px;
+                background-color: var(--seperator-color);
+            }
+            .sharer-info {
+                position: static;
+                width: calc(100% - var(--sharer-menu-width));
+                height: 100%;
+                // background-color: blue;
+                left: 100%;
+                transition: left 1s ease;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    body {
+        #sharer-by-kp {
+            .sharer-window {
+                max-width: 710px;
+            }
+        }
+    }
+}
+
+@media (max-width: 742px) {
+    body {
+        #sharer-by-kp {
+            .sharer-window {
+                max-width: 568px;
+                --sharer-menu-width: 210px;
+                .sharer-menu {
+                    width: var(--sharer-menu-width);
+                }
+                .sharer-info {
+                    width: calc(100% - var(--sharer-menu-width));
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        #sharer-by-kp {
+            .sharer-window {
+                max-width: 100vw;
+                max-height: 100vh;
+                border-radius: 0;
+                .sharer-menu {
+                    width: 100%;
+                }
+
+                .seperator {
+                    display: none;
+                }
+                .sharer-info {
+                    position: fixed;
+                    left: 100%;
+                    width: 100%;
+                    // transition: right 0.4s ease;
+                }
+            }
+        }
+    }
+}
