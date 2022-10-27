@@ -6,7 +6,7 @@
   --sharer-btn-opened: rgb(107, 160, 249);
   --sharer-bg: rgb(255, 255, 255);
   --border-n-shadow: rgba(128, 128, 128, 0.4);
-  --seperator-color: var(--border-n-shadow);
+  --separator-color: var(--border-n-shadow);
 }
 
 .sharer-dark-mode {
@@ -16,7 +16,7 @@
   --sharer-btn-opened: rgb(107, 155, 230);
   --sharer-bg: rgb(37, 37, 38);
   --border-n-shadow: rgba(71, 71, 71);
-  --seperator-color: var(--border-n-shadow);
+  --separator-color: var(--border-n-shadow);
 }
 
 body {
@@ -151,15 +151,15 @@ body #sharer-by-kp .sharer-window .sharer-menu .sharer-menu-footer .sharer-menu-
   background-color: var(--sharer-btn-hover);
   cursor: pointer;
 }
-body #sharer-by-kp .sharer-window .sharer-menu .sharer-menu-footer .sharer-menu-footer-container .seperator {
+body #sharer-by-kp .sharer-window .sharer-menu .sharer-menu-footer .sharer-menu-footer-container .separator {
   height: 100%;
   width: 0.6px;
   background-color: var(--border-n-shadow);
 }
-body #sharer-by-kp .sharer-window .seperator {
+body #sharer-by-kp .sharer-window .separator {
   height: 100%;
   width: 0.6px;
-  background-color: var(--seperator-color);
+  background-color: var(--separator-color);
 }
 body #sharer-by-kp .sharer-window .sharer-info {
   position: static;
@@ -242,7 +242,7 @@ body #sharer-by-kp .sharer-window .sharer-info .sharer-info-content iframe {
   body #sharer-by-kp .sharer-window .sharer-menu {
     width: 100%;
   }
-  body #sharer-by-kp .sharer-window .seperator {
+  body #sharer-by-kp .sharer-window .separator {
     display: none;
   }
   body #sharer-by-kp .sharer-window .sharer-info {
