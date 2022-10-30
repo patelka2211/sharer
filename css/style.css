@@ -195,7 +195,7 @@ body #sharer-by-KP .sharer-window .separator {
   width: 0.6px;
   background-color: var(--separator-color);
 }
-body #sharer-by-KP .sharer-window .sharer-info {
+body #sharer-by-KP .sharer-window #sharer-info {
   position: static;
   width: calc(100% - var(--sharer-menu-width));
   height: 100%;
@@ -205,7 +205,7 @@ body #sharer-by-KP .sharer-window .sharer-info {
   flex-direction: column;
   align-items: center;
 }
-body #sharer-by-KP .sharer-window .sharer-info .sharer-info-header {
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-header {
   width: 100%;
   height: var(--header-height);
   display: flex;
@@ -214,14 +214,14 @@ body #sharer-by-KP .sharer-window .sharer-info .sharer-info-header {
   justify-content: space-around;
   border-bottom: 0.6px solid var(--border-n-shadow);
 }
-body #sharer-by-KP .sharer-window .sharer-info .sharer-info-header .sharer-info-header-container {
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-header .sharer-info-header-container {
   width: calc(100% - 20px);
   display: flex;
   align-items: center;
   justify-content: space-between;
   --back-btn-size: 20px;
 }
-body #sharer-by-KP .sharer-window .sharer-info .sharer-info-header .sharer-info-header-container .back-btn {
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-header .sharer-info-header-container #close-sharer-info {
   width: var(--back-btn-size);
   height: var(--back-btn-size);
   background-color: var(--border-n-shadow);
@@ -229,26 +229,60 @@ body #sharer-by-KP .sharer-window .sharer-info .sharer-info-header .sharer-info-
   opacity: 0;
   pointer-events: none;
 }
-body #sharer-by-KP .sharer-window .sharer-info .sharer-info-header .sharer-info-header-container .back-btn:hover {
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-header .sharer-info-header-container #close-sharer-info:hover {
   cursor: pointer;
 }
-body #sharer-by-KP .sharer-window .sharer-info .sharer-info-header .sharer-info-header-container .title {
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-header .sharer-info-header-container .title {
   color: var(--sharer-text-pri);
 }
-body #sharer-by-KP .sharer-window .sharer-info .sharer-info-header .sharer-info-header-container .space {
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-header .sharer-info-header-container .space {
   width: var(--back-btn-size);
 }
-body #sharer-by-KP .sharer-window .sharer-info .sharer-info-content {
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-content {
   width: calc(100% - 20px);
   height: calc(100% - var(--header-height) - 20px);
   padding: 10px;
   overflow-x: auto;
 }
-body #sharer-by-KP .sharer-window .sharer-info .sharer-info-content iframe {
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-content .sharer-info-content-container {
   width: 100%;
-  height: 100%;
-  border-radius: 6px;
-  border: none;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-content .sharer-info-content-container .app-logo {
+  width: 100px;
+  aspect-ratio: 1;
+}
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-content .sharer-info-content-container .title {
+  margin: 16px 0;
+  font-size: 26px;
+  font-weight: 400;
+}
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-content .sharer-info-content-container .inputs {
+  margin: 8px 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-n-shadow);
+}
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-content .sharer-info-content-container .inputs:focus {
+  outline: none;
+  border-color: var(--sharer-btn-selected);
+}
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-content .sharer-info-content-container #share-btn {
+  margin: 8px 0;
+  padding: 8px 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--sharer-btn-selected);
+  color: var(--sharer-btn-selected);
+  background-color: transparent;
+}
+body #sharer-by-KP .sharer-window #sharer-info .sharer-info-content .sharer-info-content-container #share-btn:hover {
+  cursor: pointer;
+  background-color: var(--sharer-btn-selected);
+  color: white;
 }
 
 @media (max-width: 1000px) {
@@ -264,7 +298,7 @@ body #sharer-by-KP .sharer-window .sharer-info .sharer-info-content iframe {
   body #sharer-by-KP .sharer-window .sharer-menu {
     width: var(--sharer-menu-width);
   }
-  body #sharer-by-KP .sharer-window .sharer-info {
+  body #sharer-by-KP .sharer-window #sharer-info {
     width: calc(100% - var(--sharer-menu-width));
   }
 }
@@ -286,14 +320,14 @@ body #sharer-by-KP .sharer-window .sharer-info .sharer-info-content iframe {
   body #sharer-by-KP .sharer-window .separator {
     display: none;
   }
-  body #sharer-by-KP .sharer-window .sharer-info {
+  body #sharer-by-KP .sharer-window #sharer-info {
     position: fixed;
     left: 100%;
     left: 0;
     width: 100%;
     background-color: var(--sharer-bg);
   }
-  body #sharer-by-KP .sharer-window .sharer-info .sharer-info-header .sharer-info-header-container .back-btn {
+  body #sharer-by-KP .sharer-window #sharer-info .sharer-info-header .sharer-info-header-container #close-sharer-info {
     opacity: 1;
     pointer-events: all;
   }

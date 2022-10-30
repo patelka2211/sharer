@@ -32,7 +32,9 @@ j2h.add(
                                     name: "clickables",
                                     type: "radio",
                                     id: `${applist[appid].id}-btn`,
-                                    onclick: `alert('open ${applist[appid].name}');`,
+                                    // onclick: `alert('open ${applist[appid].name}');`,
+                                    onclick:
+                                        "let sharer_info = document.querySelector('#sharer-info'); sharer_info.style.left='0';",
                                 }),
                                 j2h.label({ for: `${applist[appid].id}-btn` }, [
                                     j2h.div({ class: "icon-name" }, [
@@ -59,7 +61,9 @@ j2h.add(
                             name: "clickables",
                             type: "radio",
                             id: "feedback-btn",
-                            onclick: `alert('open feedback');`,
+                            // onclick: `alert('open feedback');`,
+                            onclick:
+                                "let sharer_info = document.querySelector('#sharer-info'); sharer_info.style.left='0';",
                         }),
                         j2h.label(
                             { for: "feedback-btn" },
@@ -70,7 +74,9 @@ j2h.add(
                             name: "clickables",
                             type: "radio",
                             id: "developer-btn",
-                            onclick: `alert('open developer tab');`,
+                            // onclick: `alert('open developer tab');`,
+                            onclick:
+                                "let sharer_info = document.querySelector('#sharer-info'); sharer_info.style.left='0';",
                         }),
                         j2h.label(
                             { for: "developer-btn" },
@@ -80,7 +86,7 @@ j2h.add(
                 ),
             ]),
             j2h.div({ class: "separator" }),
-            j2h.div({ class: "sharer-info" }, wa),
+            j2h.div({ id: "sharer-info" }, wa),
         ])
     )
 );
