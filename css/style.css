@@ -323,7 +323,6 @@ body #sharer-by-KP .sharer-window #sharer-info .sharer-info-content .sharer-info
   body #sharer-by-KP .sharer-window #sharer-info {
     position: fixed;
     left: 100%;
-    left: 0;
     width: 100%;
     background-color: var(--sharer-bg);
   }

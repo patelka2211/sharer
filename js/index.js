@@ -1,5 +1,5 @@
-import json2html from "https://patelka2211.github.io/json2html/source/json2html.min.js";
-import applist from "./applist.js";
+import json2html from "./json2html.js";
+import { applist_componenents } from "./components/applist.js";
 import wa from "./wa.js";
 
 let j2h = new json2html();
@@ -22,37 +22,7 @@ j2h.add(
                 ),
                 j2h.div(
                     { class: "sharer-menu-applist" },
-                    (() => {
-                        let appids = Object.keys(applist),
-                            output = [];
-                        for (let index = 0; index < appids.length; index++) {
-                            let appid = appids[index];
-                            output.push(
-                                j2h.input({
-                                    name: "clickables",
-                                    type: "radio",
-                                    id: `${applist[appid].id}-btn`,
-                                    // onclick: `alert('open ${applist[appid].name}');`,
-                                    onclick:
-                                        "let sharer_info = document.querySelector('#sharer-info'); sharer_info.style.left='0';",
-                                }),
-                                j2h.label({ for: `${applist[appid].id}-btn` }, [
-                                    j2h.div({ class: "icon-name" }, [
-                                        j2h.div(
-                                            { class: "icon" },
-                                            applist[appid].svg
-                                        ),
-                                        j2h.div(
-                                            { class: "name" },
-                                            applist[appid].name
-                                        ),
-                                    ]),
-                                    j2h.div({ class: "open-arrow" }, ""),
-                                ])
-                            );
-                        }
-                        return output;
-                    })()
+                    applist_componenents()
                 ),
                 j2h.div(
                     { class: "sharer-menu-footer" },
@@ -86,7 +56,7 @@ j2h.add(
                 ),
             ]),
             j2h.div({ class: "separator" }),
-            j2h.div({ id: "sharer-info" }, wa),
+            j2h.div({ id: "sharer-info" }, "wa"),
         ])
     )
 );

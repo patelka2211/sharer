@@ -1,5 +1,5 @@
-import json2html from "https://patelka2211.github.io/json2html/source/json2html.min.js";
-import applist from "./applist.js";
+import json2html from "./json2html.js";
+import { applist } from "./components/applist.js";
 
 let j2h = new json2html();
 
