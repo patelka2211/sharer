@@ -1,62 +1,49 @@
 import json2html from "./json2html.js";
-import { applist_componenents } from "./components/applist.js";
-import wa from "./wa.js";
 
 let j2h = new json2html();
 
 j2h.add(
     j2h.div(
         { id: "sharer-by-KP" },
-        j2h.div({ class: "sharer-window" }, [
-            j2h.div({ class: "sharer-menu" }, [
+        j2h.div({ id: "sharer-window" }, [
+            j2h.div(
+                { class: "sharer-header" },
                 j2h.div(
-                    { class: "sharer-menu-header" },
-                    j2h.div({ class: "sharer-menu-header-container" }, [
-                        j2h.div({
-                            id: "sharer-close-btn",
-                            onclick: `alert('close sharer.');`,
-                        }),
-                        j2h.div({ class: "title" }, "Sharer by KP"),
-                        j2h.div({ class: "space" }),
-                    ])
-                ),
-                j2h.div(
-                    { class: "sharer-menu-applist" },
-                    applist_componenents()
-                ),
-                j2h.div(
-                    { class: "sharer-menu-footer" },
-                    j2h.div({ class: "sharer-menu-footer-container" }, [
-                        j2h.input({
-                            name: "clickables",
-                            type: "radio",
-                            id: "feedback-btn",
-                            // onclick: `alert('open feedback');`,
-                            onclick:
-                                "let sharer_info = document.querySelector('#sharer-info'); sharer_info.style.left='0';",
-                        }),
-                        j2h.label(
-                            { for: "feedback-btn" },
-                            j2h.div({ class: "title" }, "Feedback")
-                        ),
-                        j2h.div({ class: "separator" }),
-                        j2h.input({
-                            name: "clickables",
-                            type: "radio",
-                            id: "developer-btn",
-                            // onclick: `alert('open developer tab');`,
-                            onclick:
-                                "let sharer_info = document.querySelector('#sharer-info'); sharer_info.style.left='0';",
-                        }),
-                        j2h.label(
-                            { for: "developer-btn" },
-                            j2h.div({ class: "title" }, "Developer")
-                        ),
-                    ])
-                ),
+                    { class: "sharer-header-container" },
+                    j2h.div({ id: "back-btn" })
+                )
+            ),
+            j2h.div({ class: "sharer-content" }, [
+                j2h.div({ class: "space" }),
+                j2h.div({ class: "applist" }),
+                j2h.div({ class: "space" }),
             ]),
-            j2h.div({ class: "separator" }),
-            j2h.div({ id: "sharer-info" }, "wa"),
+            j2h.div(
+                { class: "sharer-footer" },
+                j2h.div({ class: "sharer-footer-container" }, [
+                    j2h.div(
+                        { id: "feedback-btn", class: "footer-btns" },
+                        j2h.div(
+                            {
+                                class: "footer-btn-container",
+                                onclick: "console.log('open Feedback');",
+                            },
+                            "Feedback"
+                        )
+                    ),
+                    j2h.div({ class: "separator" }),
+                    j2h.div(
+                        { id: "developer-btn", class: "footer-btns" },
+                        j2h.div(
+                            {
+                                class: "footer-btn-container",
+                                onclick: "console.log('open Developer');",
+                            },
+                            "Developer"
+                        )
+                    ),
+                ])
+            ),
         ])
     )
 );
