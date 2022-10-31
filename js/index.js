@@ -1,3 +1,5 @@
+import { get_applist_html } from "./component/applist.js";
+import closeButton from "./component/closeButton.js";
 import json2html from "./json2html.js";
 
 let j2h = new json2html();
@@ -10,12 +12,12 @@ j2h.add(
                 { class: "sharer-header" },
                 j2h.div(
                     { class: "sharer-header-container" },
-                    j2h.div({ id: "back-btn" })
+                    j2h.div({ id: "back-btn" }, closeButton)
                 )
             ),
             j2h.div({ class: "sharer-content" }, [
                 j2h.div({ class: "space" }),
-                j2h.div({ class: "applist" }),
+                j2h.div({ class: "applist" }, get_applist_html()),
                 j2h.div({ class: "space" }),
             ]),
             j2h.div(

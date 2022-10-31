@@ -17,7 +17,6 @@ body {
         position: fixed;
         width: 100vw;
         height: 100vh;
-        // min-height: 591px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -57,18 +56,28 @@ body {
                         100% - var(--header-n-footer-height) +
                             var(--back-btn-size)
                     );
-                    // height: 100% ;
-                    // background-color: blue;
-                    // border: 1px solid var(--sharer-border-n-shadow-color);
 
                     #back-btn {
                         width: var(--back-btn-size);
                         height: var(--back-btn-size);
-                        background-color: var(--sharer-border-n-shadow-color);
+                        // background-color: var(--sharer-border-n-shadow-color);
                         border-radius: 9px;
 
-                        &:hover {
-                            cursor: pointer;
+                        --back-btn-bg: #d9d9d9;
+                        --back-btn-line-stroke: #838287;
+                        .close-btn {
+                            .back-btn-bg {
+                                fill: var(--back-btn-bg);
+                                fill: var(--sharer-border-n-shadow-color);
+                            }
+
+                            .back-btn-line {
+                                stroke: var(--back-btn-line-stroke);
+                            }
+
+                            &:hover {
+                                cursor: pointer;
+                            }
                         }
                     }
                 }
@@ -88,10 +97,62 @@ body {
                     --padding: 10px;
                     padding: var(--padding);
                     min-height: calc(
-                        200% - 2 * var(--header-n-footer-height) - 2 *
+                        100% - 2 * var(--header-n-footer-height) - 2 *
                             var(--padding)
                     );
                     width: calc(100% - 2 * var(--padding));
+
+                    .applist-item {
+                        width: calc(100% - 20px);
+                        height: 30px;
+                        padding: 10px;
+                        background-color: transparent;
+                        border-radius: 9px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        --icon-size: 30px;
+                        .icon-n-name {
+                            display: flex;
+                            align-items: center;
+
+                            .app-icon {
+                                width: var(--icon-size);
+                                height: var(--icon-size);
+                                // background-color: var(
+                                //     --sharer-border-n-shadow-color
+                                // );
+                                margin-right: 10px;
+                                border-radius: 9px;
+                            }
+
+                            .app-name {
+                                color: var(--font-primary);
+                            }
+                        }
+
+                        .open-arrow {
+                            width: var(--icon-size);
+                            height: var(--icon-size);
+                            // background-color: var(
+                            //     --sharer-border-n-shadow-color
+                            // );
+                            margin-right: 4px;
+                            border-radius: 9px;
+                            transition: margin-right 0.2s ease;
+                        }
+
+                        &:hover {
+                            background-color: var(
+                                --sharer-border-n-shadow-color
+                            );
+                            cursor: pointer;
+                            .open-arrow {
+                                margin-right: 0px;
+                            }
+                        }
+                    }
                 }
 
                 .space {
@@ -115,6 +176,7 @@ body {
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-around;
+                background-color: var(--primary-bg);
 
                 .sharer-footer-container {
                     --footer-btns-height: 30px;
@@ -126,7 +188,6 @@ body {
                             var(--footer-btns-height)
                     );
                     height: var(--footer-btns-height);
-                    background-color: var(--primary-bg);
                     border-radius: 9px;
                     .footer-btns {
                         width: calc(50% - 10px);

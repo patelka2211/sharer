@@ -57,10 +57,18 @@ body #sharer-by-KP #sharer-window .sharer-header .sharer-header-container {
 body #sharer-by-KP #sharer-window .sharer-header .sharer-header-container #back-btn {
   width: var(--back-btn-size);
   height: var(--back-btn-size);
-  background-color: var(--sharer-border-n-shadow-color);
   border-radius: 9px;
+  --back-btn-bg: #d9d9d9;
+  --back-btn-line-stroke: #838287;
 }
-body #sharer-by-KP #sharer-window .sharer-header .sharer-header-container #back-btn:hover {
+body #sharer-by-KP #sharer-window .sharer-header .sharer-header-container #back-btn .close-btn .back-btn-bg {
+  fill: var(--back-btn-bg);
+  fill: var(--sharer-border-n-shadow-color);
+}
+body #sharer-by-KP #sharer-window .sharer-header .sharer-header-container #back-btn .close-btn .back-btn-line {
+  stroke: var(--back-btn-line-stroke);
+}
+body #sharer-by-KP #sharer-window .sharer-header .sharer-header-container #back-btn .close-btn:hover {
   cursor: pointer;
 }
 body #sharer-by-KP #sharer-window .sharer-content {
@@ -75,8 +83,46 @@ body #sharer-by-KP #sharer-window .sharer-content {
 body #sharer-by-KP #sharer-window .sharer-content .applist {
   --padding: 10px;
   padding: var(--padding);
-  min-height: calc(200% - 2 * var(--header-n-footer-height) - 2 * var(--padding));
+  min-height: calc(100% - 2 * var(--header-n-footer-height) - 2 * var(--padding));
   width: calc(100% - 2 * var(--padding));
+}
+body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item {
+  width: calc(100% - 20px);
+  height: 30px;
+  padding: 10px;
+  background-color: transparent;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  --icon-size: 30px;
+}
+body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item .icon-n-name {
+  display: flex;
+  align-items: center;
+}
+body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item .icon-n-name .app-icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  margin-right: 10px;
+  border-radius: 9px;
+}
+body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item .icon-n-name .app-name {
+  color: var(--font-primary);
+}
+body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item .open-arrow {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  margin-right: 4px;
+  border-radius: 9px;
+  transition: margin-right 0.2s ease;
+}
+body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item:hover {
+  background-color: var(--sharer-border-n-shadow-color);
+  cursor: pointer;
+}
+body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item:hover .open-arrow {
+  margin-right: 0px;
 }
 body #sharer-by-KP #sharer-window .sharer-content .space {
   height: var(--header-n-footer-height);
@@ -98,6 +144,7 @@ body #sharer-by-KP #sharer-window .sharer-footer {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  background-color: var(--primary-bg);
 }
 body #sharer-by-KP #sharer-window .sharer-footer .sharer-footer-container {
   --footer-btns-height: 30px;
@@ -106,7 +153,6 @@ body #sharer-by-KP #sharer-window .sharer-footer .sharer-footer-container {
   justify-content: space-between;
   width: calc(100% - var(--header-n-footer-height) + var(--footer-btns-height));
   height: var(--footer-btns-height);
-  background-color: var(--primary-bg);
   border-radius: 9px;
 }
 body #sharer-by-KP #sharer-window .sharer-footer .sharer-footer-container .footer-btns {
