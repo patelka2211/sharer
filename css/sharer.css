@@ -80,15 +80,14 @@ body #sharer-by-KP #sharer-window .sharer-content {
   width: 100%;
   height: 100%;
 }
-body #sharer-by-KP #sharer-window .sharer-content .applist {
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main {
   --padding: 10px;
   padding: var(--padding);
   min-height: calc(100% - 2 * var(--header-n-footer-height) - 2 * var(--padding));
   width: calc(100% - 2 * var(--padding));
 }
-body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item {
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .applist-item {
   width: calc(100% - 20px);
-  height: 30px;
   padding: 10px;
   background-color: transparent;
   border-radius: 9px;
@@ -97,31 +96,31 @@ body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item {
   justify-content: space-between;
   --icon-size: 30px;
 }
-body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item .icon-n-name {
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .applist-item .icon-n-name {
   display: flex;
   align-items: center;
 }
-body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item .icon-n-name .app-icon {
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .applist-item .icon-n-name .app-icon {
   width: var(--icon-size);
   height: var(--icon-size);
   margin-right: 10px;
   border-radius: 9px;
 }
-body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item .icon-n-name .app-name {
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .applist-item .icon-n-name .app-name {
   color: var(--font-primary);
 }
-body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item .open-arrow {
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .applist-item .open-arrow {
   width: var(--icon-size);
   height: var(--icon-size);
   margin-right: 4px;
   border-radius: 9px;
   transition: margin-right 0.2s ease;
 }
-body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item:hover {
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .applist-item:hover {
   background-color: var(--sharer-border-n-shadow-color);
   cursor: pointer;
 }
-body #sharer-by-KP #sharer-window .sharer-content .applist .applist-item:hover .open-arrow {
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .applist-item:hover .open-arrow {
   margin-right: 0px;
 }
 body #sharer-by-KP #sharer-window .sharer-content .space {
