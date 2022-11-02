@@ -1,32 +1,33 @@
 import json2html from "../json2html.js";
 import { get_applist_html } from "./applist.js";
-import closeButton from "./closeButton.js";
+import { closeButton } from "./closeButton.js";
 
-let j2h = new json2html();
+let home_html = new json2html();
 
-j2h.add(
-    j2h.div(
-        { class: "sharer-header" },
-        j2h.div(
-            { class: "sharer-header-container" },
-            j2h.div({ id: "back-btn" }, closeButton)
+home_html
+    .add(
+        home_html.div(
+            { class: "sharer-header" },
+            home_html.div(
+                { class: "sharer-header-container" },
+                home_html.div({ id: "back-btn" }, closeButton)
+            )
         )
     )
-)
     .add(
-        j2h.div({ class: "sharer-content" }, [
-            j2h.div({ class: "space" }),
-            j2h.div({ class: "sharer-content-main" }, get_applist_html()),
-            j2h.div({ class: "space" }),
+        home_html.div({ class: "sharer-content" }, [
+            home_html.div({ class: "space" }),
+            home_html.div({ class: "sharer-content-main" }, get_applist_html()),
+            home_html.div({ class: "space" }),
         ])
     )
     .add(
-        j2h.div(
+        home_html.div(
             { class: "sharer-footer" },
-            j2h.div({ class: "sharer-footer-container" }, [
-                j2h.div(
+            home_html.div({ class: "sharer-footer-container" }, [
+                home_html.div(
                     { id: "feedback-btn", class: "footer-btns" },
-                    j2h.div(
+                    home_html.div(
                         {
                             class: "footer-btn-container",
                             onclick: "console.log('open Feedback');",
@@ -34,10 +35,10 @@ j2h.add(
                         "Feedback"
                     )
                 ),
-                j2h.div({ class: "separator" }),
-                j2h.div(
+                home_html.div({ class: "separator" }),
+                home_html.div(
                     { id: "developer-btn", class: "footer-btns" },
-                    j2h.div(
+                    home_html.div(
                         {
                             class: "footer-btn-container",
                             onclick: "console.log('open Developer');",
@@ -49,4 +50,4 @@ j2h.add(
         )
     );
 
-export default j2h.list;
+export default home_html.list;

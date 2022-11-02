@@ -1,8 +1,6 @@
 import json2html from "../json2html.js";
 import openArrow from "./openArrow.js";
 
-let j2h = new json2html();
-
 let applist = {
     wa: {
         id: "wa",
@@ -22,27 +20,33 @@ let applist = {
 };
 
 function get_applist_html() {
-    let appids = Object.keys(applist),
-        output = [];
+    let app_list_obj = new json2html(),
+        appids = Object.keys(applist);
     for (let index = 0; index < appids.length; index++) {
         let appid = appids[index];
-        output.push(
-            j2h.div(
+        app_list_obj.add(
+            app_list_obj.div(
                 {
                     class: "applist-item",
                     onclick: `alert('Share on ${applist[appid].name}');`,
                 },
                 [
-                    j2h.div({ class: "icon-n-name" }, [
-                        j2h.div({ class: "app-icon" }, applist[appid].svg),
-                        j2h.div({ class: "app-name" }, applist[appid].name),
+                    app_list_obj.div({ class: "icon-n-name" }, [
+                        app_list_obj.div(
+                            { class: "app-icon" },
+                            applist[appid].svg
+                        ),
+                        app_list_obj.div(
+                            { class: "app-name" },
+                            applist[appid].name
+                        ),
                     ]),
-                    j2h.div({ class: "open-arrow" }, openArrow),
+                    app_list_obj.div({ class: "open-arrow" }, openArrow),
                 ]
             )
         );
     }
-    return output;
+    return app_list_obj.list;
 }
 
 export { applist, get_applist_html };
