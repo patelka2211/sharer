@@ -1,7 +1,8 @@
-import { applist } from "./applist";
-
-// applist
+import json2html from "../json2html.js";
+import { applist } from "./applist.js";
 
 export default function openApp(appid) {
-    alert(appid);
+    if (appid == applist.wa.id) {
+        let wa_html = json2html();
+    }
 }

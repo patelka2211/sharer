@@ -28,7 +28,7 @@ function get_applist_html() {
             app_list_obj.div(
                 {
                     class: "applist-item",
-                    onclick: `alert('Share on ${applist[appid].name}');`,
+                    id: `open-${applist[appid].id}-btn`,
                 },
                 [
                     app_list_obj.div({ class: "icon-n-name" }, [
