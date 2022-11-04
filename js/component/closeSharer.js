@@ -9,8 +9,8 @@ function close_sharer() {
 
         setTimeout(() => {
             sharer_by_KP.style.transition = "top 0.2s ease, opacity 1s ease";
-
             sharer_by_KP.remove();
+            document.body.style.overflow = "auto";
         }, 200);
     }, 200);
 }
