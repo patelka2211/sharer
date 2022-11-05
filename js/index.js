@@ -1,6 +1,7 @@
 import { applist } from "./component/applist.js";
 import { close_sharer } from "./component/closeSharer.js";
 import home from "./component/homepage.js";
+import { openApp } from "./component/openApp.js";
 import json2html from "./json2html.js";
 
 function set_homepage() {
@@ -10,8 +11,9 @@ function set_homepage() {
         document.getElementById("back-btn").onclick = () => close_sharer();
 
         Object.keys(applist).forEach((element) => {
-            document.getElementById(`open-${element}-btn`).onclick =
-                applist[element].open_app;
+            document.getElementById(`open-${element}-btn`).onclick = () => {
+                openApp(element);
+            };
         });
     }, 200);
 }

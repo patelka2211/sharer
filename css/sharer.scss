@@ -169,6 +169,53 @@ body {
                             }
                         }
                     }
+
+                    .share-on-app-container {
+                        .app-icon-container {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-around;
+                            width: 100%;
+
+                            .app-icon {
+                                width: 74px;
+                                // width: 64px;
+                                aspect-ratio: 1;
+                                margin-bottom: 10px;
+                            }
+                        }
+
+                        // .title {
+                        //     width: 100%;
+                        //     text-align: center;
+                        //     font-size: 32px;
+                        //     font-weight: 500;
+                        //     margin-bottom: 10px;
+                        // }
+
+                        .share-btn-container {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: space-around;
+
+                            .share-btn {
+                                padding: 6px 10px;
+                                background-color: var(
+                                    --sharer-border-n-shadow-color
+                                );
+                                border-radius: 9px;
+                                // font-size: 20px;
+                                font-weight: 500;
+
+                                &:hover {
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
                 }
 
                 .space {
