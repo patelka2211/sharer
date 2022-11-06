@@ -1,6 +1,6 @@
 import json2html from "../json2html.js";
 import { get_applist_html } from "./applist.js";
-import { closeButton } from "./closeButton.js";
+import { closeButton } from "../assets/closeButton.js";
 import { get_sharer_content } from "./sharerContent.js";
 import { get_sharer_footer } from "./sharerFooter.js";
 import { get_sharer_header } from "./sharerHeader.js";

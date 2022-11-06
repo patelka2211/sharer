@@ -1,5 +1,5 @@
 function close_sharer() {
-    // sessionStorage.removeItem('temp-sharer-url')
+    sessionStorage.removeItem("temp-sharer-url");
 
     let sharer_by_KP = document.getElementById("sharer-by-KP");
 

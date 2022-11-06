@@ -18,8 +18,9 @@ function set_homepage() {
     }, 200);
 }
 
-function open_sharer(url = "https://patelka2211.github.io/sharer") {
-    // sessionStorage.setItem("temp-sharer-url", url);
+function open_sharer(url = "https://patelka2211.github.io/sharer", title = "") {
+    sessionStorage.setItem("temp-sharer-url", url);
+    sessionStorage.setItem("temp-sharer-title", title);
 
     let sharer_by_KP_innerHTML = new json2html();
 
