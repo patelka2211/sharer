@@ -18,6 +18,12 @@ function set_homepage() {
     }, 200);
 }
 
+const resize_ob = new ResizeObserver(function (entries) {
+    setTimeout(() => {
+        entries[0].target.style.height = `${window.innerHeight}px`;
+    }, 200);
+});
+
 function open_sharer(url = "https://patelka2211.github.io/sharer", title = "") {
     sessionStorage.setItem("temp-sharer-url", url);
     sessionStorage.setItem("temp-sharer-title", title);
@@ -40,6 +46,16 @@ function open_sharer(url = "https://patelka2211.github.io/sharer", title = "") {
         set_homepage();
         sharer_by_KP.classList.add("show");
         sharer_by_KP.style.height = `${window.innerHeight}px`;
+
+        // Listen for orientation changes
+        window.addEventListener("orientationchange", () => {
+            setTimeout(() => {
+                sharer_by_KP.style.height = `${window.innerHeight}px`;
+            }, 100);
+        });
+
+        // start observing for resize
+        resize_ob.observe(sharer_by_KP);
     }, 200);
 
     document.body.style.overflow = "hidden";
