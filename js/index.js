@@ -39,6 +39,7 @@ function open_sharer(url = "https://patelka2211.github.io/sharer", title = "") {
     setTimeout(() => {
         set_homepage();
         sharer_by_KP.classList.add("show");
+        sharer_by_KP.style.height = `${window.innerHeight}px`;
     }, 200);
 
     document.body.style.overflow = "hidden";
