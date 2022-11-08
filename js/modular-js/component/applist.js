@@ -4,8 +4,8 @@ import { koo_icon } from "../assets/koo.js";
 import { linkedin_icon } from "../assets/lnkdn.js";
 import { pinterest_icon } from "../assets/pntrst.js";
 import { reddit_icon } from "../assets/rdt.js";
-import { sms_icon } from "../assets/sms.js";
 import { snapchat_icon } from "../assets/snpcht.js";
+import { tg_icon } from "../assets/tg.js";
 import { twitter_icon } from "../assets/tw.js";
 import { whatsapp_icon } from "../assets/wa.js";
 import json2html from "../json2html.js";
@@ -23,7 +23,7 @@ let applist = {
     fb: {
         id: "fb",
         name: "Facebook",
-        theme: { bg: "#17A9FD", fg: "white" },
+        theme: { bg: "#0c87ef", fg: "white" },
         svg: fb_icon,
         description:
             "Facebook is an online social media and social networking service owned by American company Meta Platforms.",
@@ -84,14 +84,14 @@ let applist = {
         description:
             "Koo is an Indian microblogging and social networking service, based in Bengaluru, India.",
     },
-    // sms: {
-    //     id: "sms",
-    //     name: "SMS",
-    //     theme: { bg: "#33d94f", fg: "white" },
-    //     svg: sms_icon,
-    //     description:
-    //         "Short Message/Messaging Service, commonly abbreviated as SMS, is a text messaging service component of most telephone, Internet and mobile device systems. E.g. iMessage",
-    // },
+    tg: {
+        id: "tg",
+        name: "Telegram",
+        theme: { bg: "#2aa1da", fg: "white" },
+        svg: tg_icon,
+        description:
+            "Telegram Messenger, or simply Telegram, is an globally accessible freemium, cross-platform, encrypted, cloud-based and centralized instant messaging (IM) service.",
+    },
 };
 
 function get_applist_html() {

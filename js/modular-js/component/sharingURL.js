@@ -44,16 +44,12 @@ function get_sharing_URL(appid) {
         output_url = `https://www.pinterest.com/pin/create/button/?description=${encodeURIComponent(
             title
         )}&url=${encodeURIComponent(input_url)}&method=button`;
-        // output_url = `https://www.pinterest.com/pin/create/button/?description=${encodeURIComponent(
-        //     title
-        // )}&url=${encodeURIComponent(
-        //     input_url
-        // )}&media=${"https://raw.githubusercontent.com/patelka2211/gdocs/main/assets/opengraph.jpg"}&method=button`;
+        //&media=${"https://raw.githubusercontent.com/patelka2211/gdocs/main/assets/opengraph.jpg"}
+    } else if (appid == applist.tg.id) {
+        output_url = `https://t.me/share/url?url=${encodeURIComponent(
+            input_url
+        )}&text=${encodeURIComponent(title)}&to=`;
     }
-    // else if (appid == applist.sms.id) {
-    //     if (title != "") title += "\n";
-    //     output_url = `sms:?body=${encodeURIComponent(`${title}${input_url}`)}`;
-    // }
 
     return output_url;
 }
