@@ -1,22 +1,5 @@
-import { applist } from "./component/applist.js";
-import { close_sharer } from "./component/closeSharer.js";
-import home from "./component/homepage.js";
-import { openApp } from "./component/openApp.js";
+import { set_homepage } from "./component/openApp.js";
 import json2html from "./json2html.js";
-
-function set_homepage() {
-    document.getElementById("sharer-window").innerHTML =
-        new json2html().get_html(home);
-    setTimeout(() => {
-        document.getElementById("back-btn").onclick = () => close_sharer();
-
-        Object.keys(applist).forEach((element) => {
-            document.getElementById(`open-${element}-btn`).onclick = () => {
-                openApp(element);
-            };
-        });
-    }, 200);
-}
 
 const resize_ob = new ResizeObserver(function (entries) {
     setTimeout(() => {

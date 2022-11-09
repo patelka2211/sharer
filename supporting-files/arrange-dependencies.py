@@ -7,19 +7,14 @@ file_list = [
     [
         "json2html.js",
         "applist.js",
-        "closeButton.js",
-        "sharerContent.js",
-        "sharerFooter.js",
-        "sharerHeader.js",
-        "homepage.js",
-    ],
-    [
-        "index.js",
-        "json2html.js",
-        "applist.js",
         "backButton.js",
         "sharerContent.js",
         "sharerHeader.js",
+        "sharingURL.js",
+        "openWindow.js",
+        "closeSharer.js",
+        "closeButton.js",
+        "sharerFooter.js",
         "openApp.js",
     ],
     [
@@ -35,9 +30,6 @@ file_list = [
         "sharerHeader.js",
     ],
     [
-        "applist.js",
-        "closeSharer.js",
-        "homepage.js",
         "openApp.js",
         "json2html.js",
         "index.js",
@@ -45,37 +37,40 @@ file_list = [
 ]
 
 
-def merge_files(file_dependencies):
-    if len(file_dependencies) == 0:
-        print('No files in file dependencies.')
+def merge_list(left_list, right_list):
+    common = list(set(left_list) & set(right_list))
+    if left_list[-1] in common and right_list[-1] in common:
+        print(
+            f'{left_list[-1]} and {right_list[-1]} are dependent on each other.')
+        return False
+    elif left_list[-1] in common or right_list[-1] in common:
+        dependent = left_list
+        independent = right_list
 
-    while not len(file_dependencies) < 2:
+        if left_list[-1] in common:
+            dependent = right_list
+            independent = left_list
 
-        # print(file_dependencies[0])
+        for item in common:
+            del dependent[dependent.index(item)]
 
-        left_list = file_dependencies[0]
-        right_list = file_dependencies[1]
-
-        if left_list[-1] in right_list[0:-1] and right_list[-1] in left_list[0:-1]:
-            print(
-                f'{left_list[-1]} and {right_list[-1]} are dependent on each other.')
-            return
-        elif left_list[-1] in right_list[0:-1] or right_list[-1] in left_list[0:-1]:
-            dependent = left_list
-            independent = right_list
-            if left_list[-1] in right_list[0:-1]:
-                dependent = right_list
-                independent = left_list
-
-            file_dependencies[1] = independent + \
-                list(set(dependent[0:-1])-set(independent))+list(dependent[-1])
-
-            del file_dependencies[0]
-        else:
-            file_dependencies[1] = file_dependencies[0]+file_dependencies[1]
-            del file_dependencies[0]
-
-    return file_dependencies
+        return independent + dependent
+    else:
+        return left_list+right_list
 
 
-print(merge_files(file_list))
+def arrange_dependencies(file_dependencies):
+    while len(file_dependencies) > 1:
+        merged_list = merge_list(file_dependencies[0], file_dependencies[1])
+
+        if merge_list == False:
+            return False
+
+        file_dependencies[1] = merged_list
+
+        del file_dependencies[0]
+
+    return file_dependencies[0]
+
+
+print(arrange_dependencies(file_list))

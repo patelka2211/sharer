@@ -1,12 +1,34 @@
-import { set_homepage } from "../index.js";
 import json2html from "../json2html.js";
-import { applist } from "./applist.js";
+import { applist, get_applist_html } from "./applist.js";
 import { backButton } from "../assets/backButton.js";
+import { closeButton } from "../assets/closeButton.js";
 import { get_sharer_content } from "./sharerContent.js";
 import { get_sharer_header } from "./sharerHeader.js";
 import { get_sharing_URL } from "./sharingURL.js";
 import { open_window } from "./openWindow.js";
 import { close_sharer } from "./closeSharer.js";
+import { get_sharer_footer } from "./sharerFooter.js";
+
+function set_homepage() {
+    let homepage_html = new json2html();
+
+    homepage_html
+        .add(get_sharer_header(closeButton))
+        .add(get_sharer_content(get_applist_html()))
+        .add(get_sharer_footer());
+
+    document.getElementById("sharer-window").innerHTML =
+        homepage_html.get_html();
+    setTimeout(() => {
+        document.getElementById("back-btn").onclick = () => close_sharer();
+
+        Object.keys(applist).forEach((element) => {
+            document.getElementById(`open-${element}-btn`).onclick = () => {
+                openApp(element);
+            };
+        });
+    }, 200);
+}
 
 function openApp(appid) {
     let app_html = new json2html();
@@ -66,11 +88,6 @@ function openApp(appid) {
             }, 200);
         };
         document.getElementById("show-qr").onclick = () => {
-            console.log(
-                `https://api.qrserver.com/v1/create-qr-code/?size=154x154&data=${encodeURIComponent(
-                    get_sharing_URL(appid)
-                )}`
-            );
             document.getElementById("qr-container").innerHTML =
                 app_html.get_html(
                     app_html.img(
@@ -84,4 +101,4 @@ function openApp(appid) {
     }, 100);
 }
 
-export { openApp };
+export { openApp, set_homepage };
