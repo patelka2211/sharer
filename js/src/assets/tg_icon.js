@@ -1,4 +1,4 @@
-let tg_icon = `<svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+export default `<svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="512" height="512" rx="116" fill="white" />
     <path
         d="M256 456C366.457 456 456 366.457 456 256C456 145.543 366.457 56 256 56C145.543 56 56 145.543 56 256C56 366.457 145.543 456 256 456Z"
@@ -19,5 +19,3 @@ let tg_icon = `<svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2
         </linearGradient>
     </defs>
 </svg>`;
-
-export { tg_icon };

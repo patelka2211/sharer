@@ -1,4 +1,4 @@
-let koo_icon = `<svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+export default `<svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="512" height="512" rx="116" fill="white" />
     <g clip-path="url(#clip0_55_22)">
         <path
@@ -29,5 +29,3 @@ let koo_icon = `<svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/
         </clipPath>
     </defs>
 </svg>`;
-
-export { koo_icon };

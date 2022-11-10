@@ -1,4 +1,4 @@
-function open_window(url, width_percent = 0.84, height_percent = 0.84) {
+function open_URL_window(url, width_percent = 0.84, height_percent = 0.84) {
     if (sessionStorage.hasOwnProperty("window_features")) {
         window.open(url, "_blank", sessionStorage.window_features);
         return;
@@ -14,4 +14,4 @@ function open_window(url, width_percent = 0.84, height_percent = 0.84) {
     sessionStorage.window_features = window_features;
 }
 
-export { open_window };
+export { open_URL_window };

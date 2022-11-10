@@ -1,13 +1,13 @@
-import { email_icon } from "../assets/eml.js";
-import { fb_icon } from "../assets/fb.js";
-import { koo_icon } from "../assets/koo.js";
-import { linkedin_icon } from "../assets/lnkdn.js";
-import { pinterest_icon } from "../assets/pntrst.js";
-import { reddit_icon } from "../assets/rdt.js";
-import { snapchat_icon } from "../assets/snpcht.js";
-import { tg_icon } from "../assets/tg.js";
-import { twitter_icon } from "../assets/tw.js";
-import { whatsapp_icon } from "../assets/wa.js";
+import email_icon from "../assets/eml_icon.js";
+import fb_icon from "../assets/fb_icon.js";
+import koo_icon from "../assets/koo_icon.js";
+import linkedin_icon from "../assets/lnkdn_icon.js";
+import pinterest_icon from "../assets/pntrst_icon.js";
+import reddit_icon from "../assets/rdt_icon.js";
+import snapchat_icon from "../assets/snpcht_icon.js";
+import tg_icon from "../assets/tg_icon.js";
+import twitter_icon from "../assets/tw_icon.js";
+import whatsapp_icon from "../assets/wa_icon.js";
 import json2html from "../json2html.js";
 import openArrow from "./openArrow.js";
 

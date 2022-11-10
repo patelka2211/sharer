@@ -47,5 +47,3 @@ function open_sharer(url = "https://patelka2211.github.io/sharer", title = "") {
 document.getElementById("open-sharer").onclick = () => {
     open_sharer();
 };
-
-export { set_homepage };

@@ -1,11 +1,11 @@
 import json2html from "../json2html.js";
 import { applist, get_applist_html } from "./applist.js";
-import { backButton } from "../assets/backButton.js";
-import { closeButton } from "../assets/closeButton.js";
+import backButton from "../assets/backButton.js";
+import closeButton from "../assets/closeButton.js";
 import { get_sharer_content } from "./sharerContent.js";
 import { get_sharer_header } from "./sharerHeader.js";
 import { get_sharing_URL } from "./sharingURL.js";
-import { open_window } from "./openWindow.js";
+import { open_URL_window } from "./openURLWindow.js";
 import { close_sharer } from "./closeSharer.js";
 import { get_sharer_footer } from "./sharerFooter.js";
 
@@ -82,7 +82,7 @@ function openApp(appid) {
             set_homepage();
         };
         document.getElementById("share-to-platform").onclick = () => {
-            open_window(get_sharing_URL(appid));
+            open_URL_window(get_sharing_URL(appid));
             setTimeout(() => {
                 close_sharer();
             }, 200);
