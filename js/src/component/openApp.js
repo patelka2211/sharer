@@ -36,10 +36,20 @@ function openApp(appid) {
     app_html.add(get_sharer_header(backButton)).add(
         get_sharer_content(
             app_html.div({ class: "share-on-app-container" }, [
-                app_html.div(
-                    { class: "app-icon-container" },
-                    app_html.div({ class: "app-icon" }, applist[appid].svg)
-                ),
+                app_html.div({ id: "icon-n-qr" }, [
+                    app_html.img(
+                        `https://api.qrserver.com/v1/create-qr-code/?size=340x320&data=${encodeURIComponent(
+                            get_sharing_URL(appid)
+                        )}&qzone=2&color=${(() => {
+                            if (applist[appid].theme.fg == "white")
+                                return "ffffff";
+                            return applist[appid].theme.fg.substring(1);
+                        })()}&bgcolor=${applist[appid].theme.bg.substring(1)}`,
+                        "Error loading QR",
+                        { id: "sharer-qr" }
+                    ),
+                    app_html.div({ id: "app-icon" }, applist[appid].svg),
+                ]),
                 app_html.div(
                     { class: "title" },
                     `Share on ${applist[appid].name}`
@@ -67,7 +77,7 @@ function openApp(appid) {
                             id: "show-qr",
                             style: `color: ${applist[appid].theme.fg}; background-color: ${applist[appid].theme.bg};`,
                         },
-                        "Get QR"
+                        "Show QR"
                     ),
                 ]),
                 app_html.div({ id: "qr-container" }),
@@ -88,15 +98,13 @@ function openApp(appid) {
             }, 200);
         };
         document.getElementById("show-qr").onclick = () => {
-            document.getElementById("qr-container").innerHTML =
-                app_html.get_html(
-                    app_html.img(
-                        `https://api.qrserver.com/v1/create-qr-code/?size=154x154&data=${encodeURIComponent(
-                            get_sharing_URL(appid)
-                        )}`,
-                        "Sharer QR"
-                    )
-                );
+            let icon_n_qr = document.getElementById("icon-n-qr");
+            if (icon_n_qr.classList.contains("show-qr")) {
+                document.getElementById("show-qr").innerText = "Show QR";
+            } else {
+                document.getElementById("show-qr").innerText = "Hide QR";
+            }
+            icon_n_qr.classList.toggle("show-qr");
         };
     }, 100);
 }
