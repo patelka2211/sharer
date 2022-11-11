@@ -138,17 +138,41 @@ body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on
   flex-direction: column;
   align-items: center;
 }
-body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container .app-icon-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-}
-body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container .app-icon-container .app-icon {
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container #icon-n-qr {
   width: 74px;
   aspect-ratio: 1;
   margin-bottom: 10px;
+  position: relative;
+  transition: width 0.8s ease;
+}
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container #icon-n-qr #sharer-qr {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1;
+  transition: opacity 0.8s ease-in;
+  opacity: 0;
+  border-radius: 16px;
+}
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container #icon-n-qr #app-icon {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1;
+  top: 0%;
+  left: 0%;
+  transition: left 0.8s ease, top 0.8s ease, width 0.8s ease;
+}
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container #icon-n-qr.show-qr {
+  width: 64%;
+}
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container #icon-n-qr.show-qr #sharer-qr {
+  transition: opacity 0.4s ease-in;
+  opacity: 1;
+}
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container #icon-n-qr.show-qr #app-icon {
+  --icon-width: 12%;
+  width: var(--icon-width);
+  top: 44%;
+  left: 44%;
 }
 body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container .title {
   width: 100%;

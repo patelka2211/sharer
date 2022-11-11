@@ -28,7 +28,6 @@ body {
         opacity: 0;
         pointer-events: none;
         transition: top 0.2s ease, opacity 1s ease;
-        // transition: top 1s ease, opacity 0.2s ease;
 
         &.show {
             top: 0;
@@ -36,18 +35,11 @@ body {
             pointer-events: all;
         }
 
-        // &.hide {
-        //     top: 50px;
-        //     opacity: 0;
-        //     pointer-events: none;
-        // }
-
         #sharer-window {
             width: 484px;
             height: 591px;
             border-radius: 18px;
             border: 1px solid var(--sharer-border-n-shadow-color);
-            // box-shadow: 0 16px 64px 0 var(--sharer-border-n-shadow-color);
             box-shadow: 0 16px 64px 0 rgba(0, 0, 0, 0.2);
             position: relative;
             transition: width 0.4s ease, height 0.4s ease;
@@ -105,7 +97,6 @@ body {
                 left: 0;
                 width: 100%;
                 height: 100%;
-                // background-color: red;
 
                 .sharer-content-main {
                     --padding: 10px;
@@ -118,7 +109,6 @@ body {
 
                     .applist-item {
                         width: calc(100% - 20px);
-                        // height: 30px;
                         padding: 10px;
                         background-color: transparent;
                         border-radius: 9px;
@@ -134,9 +124,6 @@ body {
                             .app-icon {
                                 width: var(--icon-size);
                                 height: var(--icon-size);
-                                // background-color: var(
-                                //     --sharer-border-n-shadow-color
-                                // );
                                 margin-right: 10px;
                                 border-radius: 9px;
                             }
@@ -149,9 +136,6 @@ body {
                         .open-arrow {
                             width: var(--icon-size);
                             height: var(--icon-size);
-                            // background-color: var(
-                            //     --sharer-border-n-shadow-color
-                            // );
                             margin-right: 4px;
                             border-radius: 9px;
                             transition: margin-right 0.2s ease;
@@ -172,18 +156,48 @@ body {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
-                        .app-icon-container {
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            justify-content: space-around;
-                            width: 100%;
 
-                            .app-icon {
-                                width: 74px;
-                                // width: 64px;
+                        #icon-n-qr {
+                            width: 74px;
+                            aspect-ratio: 1;
+                            margin-bottom: 10px;
+                            position: relative;
+
+                            transition: width 0.8s ease;
+
+                            #sharer-qr {
+                                position: absolute;
+                                width: 100%;
                                 aspect-ratio: 1;
-                                margin-bottom: 10px;
+                                transition: opacity 0.8s ease-in;
+                                opacity: 0;
+                                border-radius: 16px;
+                            }
+
+                            #app-icon {
+                                position: absolute;
+                                width: 100%;
+                                aspect-ratio: 1;
+                                top: 0%;
+                                left: 0%;
+                                transition: left 0.8s ease, top 0.8s ease,
+                                    width 0.8s ease;
+                            }
+
+                            &.show-qr {
+                                width: 64%;
+
+                                #sharer-qr {
+                                    transition: opacity 0.4s ease-in;
+                                    opacity: 1;
+                                }
+
+                                #app-icon {
+                                    --icon-width: 12%;
+                                    width: var(--icon-width);
+                                    top: 44%;
+                                    left: 44%;
+                                }
                             }
                         }
 
@@ -198,7 +212,6 @@ body {
                         .description {
                             width: 84%;
                             width: 100%;
-                            // width: calc(100% - 20px);
                             text-align: center;
                             font-size: 14px;
                             margin-bottom: 32px;
@@ -206,12 +219,8 @@ body {
 
                         .sharing-options {
                             width: 100%;
-                            // width: 84%;
-                            // width: calc(100% - 20px);
                             height: 30px;
-                            // background-color: black;
                             display: flex;
-                            // flex-direction: column;
                             align-items: center;
                             justify-content: space-between;
                             margin-bottom: 64px;

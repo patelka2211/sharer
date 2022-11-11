@@ -90,7 +90,7 @@ let applist = {
         theme: { bg: "#2aa1da", fg: "white" },
         svg: tg_icon,
         description:
-            "Telegram Messenger, or simply Telegram, is an globally accessible freemium, cross-platform, encrypted, cloud-based and centralized instant messaging (IM) service.",
+            "Telegram is an globally accessible freemium, cross-platform, encrypted, cloud-based and centralized instant messaging (IM) service.",
     },
 };
 
