@@ -169,6 +169,20 @@ body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on
 body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container #icon-n-qr #app-icon:hover {
   cursor: pointer;
 }
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container #icon-n-qr #touch-gif {
+  z-index: 2;
+  width: 100%;
+  aspect-ratio: 1;
+  position: absolute;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  top: 0;
+  left: 0;
+  border-radius: 14px;
+}
+body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container #icon-n-qr #touch-gif.hide {
+  opacity: 0;
+}
 body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container #icon-n-qr.show-qr {
   width: 64%;
 }

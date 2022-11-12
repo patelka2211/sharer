@@ -209,6 +209,22 @@ body {
                                 }
                             }
 
+                            #touch-gif {
+                                z-index: 2;
+                                width: 100%;
+                                aspect-ratio: 1;
+                                position: absolute;
+                                opacity: 1;
+                                transition: opacity 0.4s ease;
+                                top: 0;
+                                left: 0;
+                                border-radius: 14px;
+
+                                &.hide {
+                                    opacity: 0;
+                                }
+                            }
+
                             &.show-qr {
                                 width: 64%;
 

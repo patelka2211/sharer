@@ -42,6 +42,9 @@ function openApp(appid) {
                     app_html.img("", `${applist[appid].name} QR`, {
                         id: "sharer-qr",
                     }),
+                    app_html.img("./assets/touch-icon.gif", `Touch here`, {
+                        id: "touch-gif",
+                    }),
                 ]),
                 app_html.div(
                     { class: "title" },
@@ -119,7 +122,12 @@ function openApp(appid) {
 
         let show_qr = document.getElementById("show-qr");
         let icon_n_qr = document.getElementById("icon-n-qr");
-        let toggle_qr_elements = ["show-qr", "sharer-qr", "app-icon"];
+        let toggle_qr_elements = [
+            "show-qr",
+            "sharer-qr",
+            "app-icon",
+            "touch-gif",
+        ];
 
         toggle_qr_elements.forEach((element_id) => {
             document.getElementById(element_id).onclick = () => {
@@ -137,8 +145,20 @@ function openApp(appid) {
                     show_qr.innerText = "Hide QR";
                 }
                 icon_n_qr.classList.toggle("show-qr");
+
+                document.getElementById("touch-gif").remove();
             };
         });
+
+        setTimeout(() => {
+            try {
+                let touch_gif = document.getElementById("touch-gif");
+                touch_gif.classList.add("hide");
+                setTimeout(() => {
+                    touch_gif.remove();
+                }, 400);
+            } catch (error) {}
+        }, 1600);
     }, 100);
 }
 
