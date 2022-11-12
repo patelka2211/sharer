@@ -45,7 +45,7 @@ body #sharer-by-KP #sharer-window {
   background-color: var(--primary-bg);
   --header-n-footer-height: 50px;
 }
-body #sharer-by-KP #sharer-window .sharer-header {
+body #sharer-by-KP #sharer-window #sharer-header {
   position: absolute;
   z-index: 1;
   top: 0;
@@ -62,23 +62,23 @@ body #sharer-by-KP #sharer-window .sharer-header {
   align-items: center;
   justify-content: space-around;
 }
-body #sharer-by-KP #sharer-window .sharer-header .sharer-header-container {
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-container {
   --back-btn-size: 30px;
   width: calc(100% - var(--header-n-footer-height) + var(--back-btn-size));
 }
-body #sharer-by-KP #sharer-window .sharer-header .sharer-header-container #back-btn {
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-container #back-btn {
   width: var(--back-btn-size);
   height: var(--back-btn-size);
   background-color: var(--sharer-border-n-shadow-color);
   border-radius: 9px;
   --back-btn-line-stroke: #838287;
 }
-body #sharer-by-KP #sharer-window .sharer-header .sharer-header-container #back-btn .close-btn {
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-container #back-btn .close-btn {
   width: 100%;
   height: 100%;
   fill: var(--back-btn-line-stroke);
 }
-body #sharer-by-KP #sharer-window .sharer-header .sharer-header-container #back-btn .close-btn:hover {
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-container #back-btn .close-btn:hover {
   cursor: pointer;
 }
 body #sharer-by-KP #sharer-window .sharer-content {

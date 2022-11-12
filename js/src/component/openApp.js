@@ -8,6 +8,7 @@ import { get_sharing_URL } from "./sharingURL.js";
 import { open_URL_window } from "./openURLWindow.js";
 import { close_sharer } from "./closeSharer.js";
 import { get_sharer_footer } from "./sharerFooter.js";
+import QRCode from "../qrcode.js";
 
 function set_homepage() {
     let homepage_html = new json2html();
@@ -37,17 +38,7 @@ function openApp(appid) {
         get_sharer_content(
             app_html.div({ class: "share-on-app-container" }, [
                 app_html.div({ id: "icon-n-qr" }, [
-                    app_html.img(
-                        `https://api.qrserver.com/v1/create-qr-code/?size=340x320&data=${encodeURIComponent(
-                            get_sharing_URL(appid)
-                        )}&qzone=2&color=${(() => {
-                            if (applist[appid].theme.fg == "white")
-                                return "ffffff";
-                            return applist[appid].theme.fg.substring(1);
-                        })()}&bgcolor=${applist[appid].theme.bg.substring(1)}`,
-                        "Error loading QR",
-                        { id: "sharer-qr" }
-                    ),
+                    app_html.img("", "Error loading QR", { id: "sharer-qr" }),
                     app_html.div({ id: "app-icon" }, applist[appid].svg),
                 ]),
                 app_html.div(
@@ -91,18 +82,54 @@ function openApp(appid) {
         document.getElementById("back-btn").onclick = () => {
             set_homepage();
         };
+
+        var svgNode = QRCode({
+            msg: get_sharing_URL(appid),
+            // dim: 300,
+            // pad: 40,
+            // mtx: 7,
+            // ecl: "H",
+            // ecb: 0,
+            pal: [applist[appid].theme.fg, applist[appid].theme.bg],
+            // vrb: 1,
+        });
+
+        setTimeout(() => {
+            let s = new XMLSerializer();
+
+            let sharer_qr = document.getElementById("sharer-qr");
+
+            sharer_qr.setAttribute(
+                "src",
+                `data:image/svg+xml;base64,${btoa(
+                    s.serializeToString(svgNode)
+                )}`
+            );
+            sharer_qr.style.boxShadow = `0 0px 128px 0 ${applist[appid].theme.bg}66`;
+        }, 100);
+
         document.getElementById("share-to-platform").onclick = () => {
             open_URL_window(get_sharing_URL(appid));
             setTimeout(() => {
                 close_sharer();
             }, 200);
         };
-        document.getElementById("show-qr").onclick = () => {
+
+        let show_qr = document.getElementById("show-qr");
+
+        show_qr.onclick = () => {
             let icon_n_qr = document.getElementById("icon-n-qr");
             if (icon_n_qr.classList.contains("show-qr")) {
-                document.getElementById("show-qr").innerText = "Show QR";
+                show_qr.innerText = "Show QR";
+                setTimeout(() => {
+                    document.getElementById(
+                        "sharer-header"
+                    ).style.backgroundColor = "var(--header-footer-bg)";
+                }, 500);
             } else {
-                document.getElementById("show-qr").innerText = "Hide QR";
+                document.getElementById("sharer-header").style.backgroundColor =
+                    "#00000000";
+                show_qr.innerText = "Hide QR";
             }
             icon_n_qr.classList.toggle("show-qr");
         };

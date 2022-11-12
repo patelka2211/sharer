@@ -46,7 +46,7 @@ body {
             background-color: var(--primary-bg);
 
             --header-n-footer-height: 50px;
-            .sharer-header {
+            #sharer-header {
                 position: absolute;
                 z-index: 1;
                 top: 0;
@@ -162,7 +162,6 @@ body {
                             aspect-ratio: 1;
                             margin-bottom: 10px;
                             position: relative;
-
                             transition: width 0.8s ease;
 
                             #sharer-qr {

@@ -15,7 +15,7 @@ let applist = {
     wa: {
         id: "wa",
         name: "WhatsApp",
-        theme: { bg: "#25D366", fg: "white" },
+        theme: { bg: "#25D366", fg: "#fff" },
         svg: whatsapp_icon,
         description:
             "WhatsApp is an internationally available freeware, cross-platform centralized instant messaging (IM) and voice-over-IP (VoIP) service owned by American company Meta Platforms (formerly Facebook).",
@@ -23,7 +23,7 @@ let applist = {
     fb: {
         id: "fb",
         name: "Facebook",
-        theme: { bg: "#0c87ef", fg: "white" },
+        theme: { bg: "#0c87ef", fg: "#fff" },
         svg: fb_icon,
         description:
             "Facebook is an online social media and social networking service owned by American company Meta Platforms.",
@@ -31,7 +31,7 @@ let applist = {
     tw: {
         id: "tw",
         name: "Twitter",
-        theme: { bg: "#1D9BF0", fg: "white" },
+        theme: { bg: "#1D9BF0", fg: "#fff" },
         svg: twitter_icon,
         description:
             'Twitter is a microblogging and social networking service owned by American company Twitter, Inc., on which users post and interact with messages known as "tweets".',
@@ -39,7 +39,7 @@ let applist = {
     email: {
         id: "email",
         name: "Email",
-        theme: { bg: "#EA4335", fg: "white" },
+        theme: { bg: "#EA4335", fg: "#fff" },
         svg: email_icon,
         description:
             'Email is a method of exchanging messages ("mail") between people using electronic devices. E.g. Gmail',
@@ -47,7 +47,7 @@ let applist = {
     lnkdn: {
         id: "lnkdn",
         name: "LinkedIn",
-        theme: { bg: "#0A66C2", fg: "white" },
+        theme: { bg: "#0A66C2", fg: "#fff" },
         svg: linkedin_icon,
         description:
             "LinkedIn is an American business and employment-oriented online service that operates via websites and mobile apps.",
@@ -55,7 +55,7 @@ let applist = {
     pntrst: {
         id: "pntrst",
         name: "Pinterest",
-        theme: { bg: "#E60123", fg: "white" },
+        theme: { bg: "#E60123", fg: "#fff" },
         svg: pinterest_icon,
         description:
             'Pinterest is an image sharing and social media service designed to enable saving and discovery of information (specifically "ideas") on the internet using images, and on a smaller scale, animated GIFs and videos, in the form of pinboards.',
@@ -63,7 +63,7 @@ let applist = {
     rdt: {
         id: "rdt",
         name: "Reddit",
-        theme: { bg: "#e45b34", fg: "white" },
+        theme: { bg: "#e45b34", fg: "#fff" },
         svg: reddit_icon,
         description:
             "Reddit is an American social news aggregation, content rating, and discussion website.",
@@ -71,7 +71,7 @@ let applist = {
     snpcht: {
         id: "snpcht",
         name: "Snapchat",
-        theme: { bg: "#FFFC00", fg: "black" },
+        theme: { bg: "#FFFC00", fg: "#000" },
         svg: snapchat_icon,
         description:
             "Snapchat is an American multimedia instant messaging app and service developed by Snap Inc., originally Snapchat Inc.",
@@ -87,7 +87,7 @@ let applist = {
     tg: {
         id: "tg",
         name: "Telegram",
-        theme: { bg: "#2aa1da", fg: "white" },
+        theme: { bg: "#2aa1da", fg: "#fff" },
         svg: tg_icon,
         description:
             "Telegram is an globally accessible freemium, cross-platform, encrypted, cloud-based and centralized instant messaging (IM) service.",
