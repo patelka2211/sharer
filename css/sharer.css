@@ -171,7 +171,7 @@ body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on
 }
 body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .share-on-app-container #icon-n-qr #touch-gif {
   z-index: 2;
-  width: 100%;
+  width: 101%;
   aspect-ratio: 1;
   position: absolute;
   opacity: 1;
