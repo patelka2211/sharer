@@ -38,8 +38,10 @@ function openApp(appid) {
         get_sharer_content(
             app_html.div({ class: "share-on-app-container" }, [
                 app_html.div({ id: "icon-n-qr" }, [
-                    app_html.img("", "Error loading QR", { id: "sharer-qr" }),
                     app_html.div({ id: "app-icon" }, applist[appid].svg),
+                    app_html.img("", `${applist[appid].name} QR`, {
+                        id: "sharer-qr",
+                    }),
                 ]),
                 app_html.div(
                     { class: "title" },
@@ -116,23 +118,27 @@ function openApp(appid) {
         };
 
         let show_qr = document.getElementById("show-qr");
+        let icon_n_qr = document.getElementById("icon-n-qr");
+        let toggle_qr_elements = ["show-qr", "sharer-qr", "app-icon"];
 
-        show_qr.onclick = () => {
-            let icon_n_qr = document.getElementById("icon-n-qr");
-            if (icon_n_qr.classList.contains("show-qr")) {
-                show_qr.innerText = "Show QR";
-                setTimeout(() => {
+        toggle_qr_elements.forEach((element_id) => {
+            document.getElementById(element_id).onclick = () => {
+                if (icon_n_qr.classList.contains("show-qr")) {
+                    show_qr.innerText = "Show QR";
+                    setTimeout(() => {
+                        document.getElementById(
+                            "sharer-header"
+                        ).style.backgroundColor = "var(--header-footer-bg)";
+                    }, 500);
+                } else {
                     document.getElementById(
                         "sharer-header"
-                    ).style.backgroundColor = "var(--header-footer-bg)";
-                }, 500);
-            } else {
-                document.getElementById("sharer-header").style.backgroundColor =
-                    "#00000000";
-                show_qr.innerText = "Hide QR";
-            }
-            icon_n_qr.classList.toggle("show-qr");
-        };
+                    ).style.backgroundColor = "#00000000";
+                    show_qr.innerText = "Hide QR";
+                }
+                icon_n_qr.classList.toggle("show-qr");
+            };
+        });
     }, 100);
 }
 
