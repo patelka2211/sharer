@@ -7,7 +7,10 @@ const resize_ob = new ResizeObserver(function (entries) {
     }, 200);
 });
 
-function open_sharer(url = "https://patelka2211.github.io/sharer", title = "") {
+export default function open_sharer(
+    url = "https://patelka2211.github.io/sharer",
+    title = ""
+) {
     sessionStorage.setItem("temp-sharer-url", url);
     sessionStorage.setItem("temp-sharer-title", title);
 
@@ -44,6 +47,6 @@ function open_sharer(url = "https://patelka2211.github.io/sharer", title = "") {
     document.body.style.overflow = "hidden";
 }
 
-document.getElementById("open-sharer").onclick = () => {
-    open_sharer();
-};
+// document.getElementById("open-sharer").onclick = () => {
+//     open_sharer();
+// };

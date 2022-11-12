@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * MIT License
  * Copyright (c) 2022 Kartavya Patel
@@ -21,8 +23,6 @@
  * SOFTWARE.
  */
 
-"use strict";
-
 /**
  * Helps to create HTML in JavaScript. Uses JSON to store attributes and elements.
  */
@@ -34,7 +34,7 @@ class json2html {
     /**
      * Creates string of attributes from attributes object.
      */
-    #get_attrs(attrs_obj) {
+    get_attrs(attrs_obj) {
         let output = "";
 
         let handle_object = (attrs_object) => {
@@ -86,15 +86,15 @@ class json2html {
                 const element = array[index];
                 if (element[1].length == 2) {
                     if (typeof element[1][1] == "object") {
-                        output += `<${element[0]} ${this.#get_attrs(
+                        output += `<${element[0]} ${this.get_attrs(
                             element[1][0]
                         )}>${this.get_html(element[1][1])}</${element[0]}>`;
                     } else
-                        output += `<${element[0]} ${this.#get_attrs(
+                        output += `<${element[0]} ${this.get_attrs(
                             element[1][0]
                         )}>${element[1][1]}</${element[0]}>`;
                 } else
-                    output += `<${element[0]} ${this.#get_attrs(
+                    output += `<${element[0]} ${this.get_attrs(
                         element[1][0]
                     )}/>`;
             }
@@ -600,10 +600,7 @@ function get_sharer_footer() {
                 sharer_footer.div(
                     { id: "feedback-btn", class: "footer-btns" },
                     sharer_footer.div(
-                        {
-                            class: "footer-btn-container",
-                            onclick: "console.log('open Feedback');",
-                        },
+                        { class: "footer-btn-container" },
                         "Feedback"
                     )
                 ),
@@ -611,10 +608,7 @@ function get_sharer_footer() {
                 sharer_footer.div(
                     { id: "developer-btn", class: "footer-btns" },
                     sharer_footer.div(
-                        {
-                            class: "footer-btn-container",
-                            onclick: "console.log('open Developer');",
-                        },
+                        { class: "footer-btn-container" },
                         "Developer"
                     )
                 ),
@@ -1137,6 +1131,38 @@ function QRCode(r) {
     })();
 }
 
+function open_feedback() {
+    let app_html = new json2html();
+
+    app_html
+        .add(get_sharer_header(backButton))
+        .add(get_sharer_content("Feedback coming soon"));
+
+    document.getElementById("sharer-window").innerHTML = app_html.get_html();
+
+    setTimeout(() => {
+        document.getElementById("back-btn").onclick = () => {
+            set_homepage();
+        };
+    }, 100);
+}
+
+function open_developer() {
+    let app_html = new json2html();
+
+    app_html
+        .add(get_sharer_header(backButton))
+        .add(get_sharer_content("Developer content coming soon"));
+
+    document.getElementById("sharer-window").innerHTML = app_html.get_html();
+
+    setTimeout(() => {
+        document.getElementById("back-btn").onclick = () => {
+            set_homepage();
+        };
+    }, 100);
+}
+
 function set_homepage() {
     let homepage_html = new json2html();
 
@@ -1155,6 +1181,9 @@ function set_homepage() {
                 openApp(element);
             };
         });
+
+        document.getElementById("feedback-btn").onclick = open_feedback;
+        document.getElementById("developer-btn").onclick = open_developer;
     }, 200);
 }
 
@@ -1165,8 +1194,18 @@ function openApp(appid) {
         get_sharer_content(
             app_html.div({ class: "share-on-app-container" }, [
                 app_html.div({ id: "icon-n-qr" }, [
-                    app_html.img("", "Error loading QR", { id: "sharer-qr" }),
                     app_html.div({ id: "app-icon" }, applist[appid].svg),
+                    app_html.img("", `${applist[appid].name} QR`, {
+                        id: "sharer-qr",
+                    }),
+                    app_html.img(
+                        "https://raw.githubusercontent.com/patelka2211/sharer/main" +
+                            "/assets/touch-icon.gif",
+                        `Touch here`,
+                        {
+                            id: "touch-gif",
+                        }
+                    ),
                 ]),
                 app_html.div(
                     { class: "title" },
@@ -1243,23 +1282,46 @@ function openApp(appid) {
         };
 
         let show_qr = document.getElementById("show-qr");
+        let icon_n_qr = document.getElementById("icon-n-qr");
+        let toggle_qr_elements = [
+            "show-qr",
+            "sharer-qr",
+            "app-icon",
+            "touch-gif",
+        ];
 
-        show_qr.onclick = () => {
-            let icon_n_qr = document.getElementById("icon-n-qr");
-            if (icon_n_qr.classList.contains("show-qr")) {
-                show_qr.innerText = "Show QR";
-                setTimeout(() => {
+        toggle_qr_elements.forEach((element_id) => {
+            document.getElementById(element_id).onclick = () => {
+                if (icon_n_qr.classList.contains("show-qr")) {
+                    show_qr.innerText = "Show QR";
+                    setTimeout(() => {
+                        document.getElementById(
+                            "sharer-header"
+                        ).style.backgroundColor = "var(--header-footer-bg)";
+                    }, 500);
+                } else {
                     document.getElementById(
                         "sharer-header"
-                    ).style.backgroundColor = "var(--header-footer-bg)";
-                }, 500);
-            } else {
-                document.getElementById("sharer-header").style.backgroundColor =
-                    "#00000000";
-                show_qr.innerText = "Hide QR";
-            }
-            icon_n_qr.classList.toggle("show-qr");
-        };
+                    ).style.backgroundColor = "#00000000";
+                    show_qr.innerText = "Hide QR";
+                }
+                icon_n_qr.classList.toggle("show-qr");
+
+                try {
+                    document.getElementById("touch-gif").remove();
+                } catch (error) {}
+            };
+        });
+
+        setTimeout(() => {
+            try {
+                let touch_gif = document.getElementById("touch-gif");
+                touch_gif.classList.add("hide");
+                setTimeout(() => {
+                    touch_gif.remove();
+                }, 400);
+            } catch (error) {}
+        }, 1600);
     }, 100);
 }
 
@@ -1306,6 +1368,6 @@ function open_sharer(url = "https://patelka2211.github.io/sharer", title = "") {
     document.body.style.overflow = "hidden";
 }
 
-document.getElementById("open-sharer").onclick = () => {
-    open_sharer();
-};
+// document.getElementById("open-sharer").onclick = () => {
+//     open_sharer();
+// };

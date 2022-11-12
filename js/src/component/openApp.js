@@ -9,6 +9,8 @@ import { open_URL_window } from "./openURLWindow.js";
 import { close_sharer } from "./closeSharer.js";
 import { get_sharer_footer } from "./sharerFooter.js";
 import QRCode from "../qrcode.js";
+import { open_feedback } from "./openFeedback.js";
+import { open_developer } from "./openDeveloper.js";
 
 function set_homepage() {
     let homepage_html = new json2html();
@@ -28,6 +30,9 @@ function set_homepage() {
                 openApp(element);
             };
         });
+
+        document.getElementById("feedback-btn").onclick = open_feedback;
+        document.getElementById("developer-btn").onclick = open_developer;
     }, 200);
 }
 
@@ -42,9 +47,14 @@ function openApp(appid) {
                     app_html.img("", `${applist[appid].name} QR`, {
                         id: "sharer-qr",
                     }),
-                    app_html.img("./assets/touch-icon.gif", `Touch here`, {
-                        id: "touch-gif",
-                    }),
+                    app_html.img(
+                        "https://raw.githubusercontent.com/patelka2211/sharer/main" +
+                            "/assets/touch-icon.gif",
+                        `Touch here`,
+                        {
+                            id: "touch-gif",
+                        }
+                    ),
                 ]),
                 app_html.div(
                     { class: "title" },
@@ -146,7 +156,9 @@ function openApp(appid) {
                 }
                 icon_n_qr.classList.toggle("show-qr");
 
-                document.getElementById("touch-gif").remove();
+                try {
+                    document.getElementById("touch-gif").remove();
+                } catch (error) {}
             };
         });
 

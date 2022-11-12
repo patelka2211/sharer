@@ -32,7 +32,7 @@ export default class json2html {
     /**
      * Creates string of attributes from attributes object.
      */
-    #get_attrs(attrs_obj) {
+    get_attrs(attrs_obj) {
         let output = "";
 
         let handle_object = (attrs_object) => {
@@ -84,15 +84,15 @@ export default class json2html {
                 const element = array[index];
                 if (element[1].length == 2) {
                     if (typeof element[1][1] == "object") {
-                        output += `<${element[0]} ${this.#get_attrs(
+                        output += `<${element[0]} ${this.get_attrs(
                             element[1][0]
                         )}>${this.get_html(element[1][1])}</${element[0]}>`;
                     } else
-                        output += `<${element[0]} ${this.#get_attrs(
+                        output += `<${element[0]} ${this.get_attrs(
                             element[1][0]
                         )}>${element[1][1]}</${element[0]}>`;
                 } else
-                    output += `<${element[0]} ${this.#get_attrs(
+                    output += `<${element[0]} ${this.get_attrs(
                         element[1][0]
                     )}/>`;
             }

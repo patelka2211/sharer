@@ -10,10 +10,7 @@ function get_sharer_footer() {
                 sharer_footer.div(
                     { id: "feedback-btn", class: "footer-btns" },
                     sharer_footer.div(
-                        {
-                            class: "footer-btn-container",
-                            onclick: "console.log('open Feedback');",
-                        },
+                        { class: "footer-btn-container" },
                         "Feedback"
                     )
                 ),
@@ -21,10 +18,7 @@ function get_sharer_footer() {
                 sharer_footer.div(
                     { id: "developer-btn", class: "footer-btns" },
                     sharer_footer.div(
-                        {
-                            class: "footer-btn-container",
-                            onclick: "console.log('open Developer');",
-                        },
+                        { class: "footer-btn-container" },
                         "Developer"
                     )
                 ),
