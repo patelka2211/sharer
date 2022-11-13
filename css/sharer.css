@@ -12,6 +12,7 @@ body {
   margin: 0;
 }
 body #sharer-by-KP {
+  z-index: 1000;
   font-family: "Inter", sans-serif;
   position: fixed;
   width: 100vw;
@@ -20,7 +21,7 @@ body #sharer-by-KP {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
   -webkit-backdrop-filter: blur(6px);
           backdrop-filter: blur(6px);
   top: 50px;
@@ -94,10 +95,8 @@ body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main {
   --padding: 10px;
   padding: var(--padding);
   min-height: calc(100% - 2 * var(--header-n-footer-height) - 2 * var(--padding));
-  width: calc(100% - 2 * var(--padding));
 }
 body #sharer-by-KP #sharer-window .sharer-content .sharer-content-main .applist-item {
-  width: calc(100% - 20px);
   padding: 10px;
   background-color: transparent;
   border-radius: 9px;
