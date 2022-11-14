@@ -47,6 +47,6 @@ export default function open_sharer(
     document.body.style.overflow = "hidden";
 }
 
-// document.getElementById("open-sharer").onclick = () => {
-//     open_sharer();
-// };
+document.getElementById("open-sharer").onclick = () => {
+    open_sharer();
+};

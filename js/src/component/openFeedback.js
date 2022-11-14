@@ -9,7 +9,16 @@ export function open_feedback() {
 
     app_html
         .add(get_sharer_header(backButton))
-        .add(get_sharer_content("Feedback coming soon"));
+        .add(
+            get_sharer_content(
+                app_html.div(
+                    { id: "feedback-form" },
+                    app_html.iframe(
+                        "https://docs.google.com/forms/d/e/1FAIpQLSeI8_vYyaJgM7SJM4Y9AWfLq-tglWZh6yt7bEXEOJr_L-hV1A/viewform?formkey=dGx0b1ZrTnoyZDgtYXItMWVBdVlQQWc6MQ"
+                    )
+                )
+            )
+        );
 
     document.getElementById("sharer-window").innerHTML = app_html.get_html();
 
