@@ -1,3 +1,5 @@
+// @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 :root {
     --primary-light: #ffffff;
 }
@@ -7,6 +9,7 @@ body {
     margin: 0;
 
     #sharer-by-KP {
+        font-family: "Inter", sans-serif;
         width: 100vw;
         height: 100vh;
         position: relative;
@@ -17,6 +20,7 @@ body {
         #sharer-window {
             position: absolute;
             width: 400px;
+            min-width: 300px;
             margin: auto;
             aspect-ratio: 3 / 4;
             left: calc(50% - 200px);
@@ -31,42 +35,37 @@ body {
             flex-direction: column;
             align-items: center;
 
-            .header-container {
-                width: calc(100% - 20px);
-                height: 62px;
-                // background-color: blue;
+            #header-icon-container {
+                margin: 10px;
+                margin-bottom: 0;
+                width: 42px;
+                aspect-ratio: 1;
+                position: relative;
 
-                --close-btn-size: 13px;
-                --icon-size: 42px;
+                div {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
 
-                display: flex;
+                #temp-header-icon {
+                    z-index: 0;
 
-                justify-content: space-between;
-
-                #header-icon-container {
-                    width: var(--icon-size);
-                    aspect-ratio: 1;
-                    margin-top: 10px;
-
-                    div {
-                        width: 100%;
-                        height: 100%;
+                    &.show {
+                        z-index: 2;
                     }
                 }
-
-                #sharer-close-btn {
-                    margin-top: 10px;
-                    width: var(--close-btn-size);
-                    aspect-ratio: 1;
-
-                    svg {
-                        width: 100%;
-                    }
+                .default-icon {
+                    z-index: 1;
                 }
+            }
 
-                .null-icon-space {
-                    width: var(--close-btn-size);
-                }
+            #sharer-temp-description {
+                margin: 10px;
+                margin-bottom: 0;
+                font-size: 24px;
             }
         }
     }
