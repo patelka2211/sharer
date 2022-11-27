@@ -1,4 +1,4 @@
-// @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 :root {
     --primary-light: #ffffff;
@@ -12,76 +12,111 @@ body {
         font-family: "Inter", sans-serif;
         width: 100vw;
         height: 100vh;
-        position: relative;
+        position: fixed;
         z-index: 100000;
-        // background-color: rgba(0, 0, 0, 0.4);
-        backdrop-filter: blur(10px);
+        // background-color: blue;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
 
         #sharer-window {
-            position: absolute;
-            width: 400px;
-            min-width: 300px;
-            margin: auto;
-            aspect-ratio: 3 / 4;
-            left: calc(50% - 200px);
-            bottom: calc(50% - calc(3 * 400px / 4));
-            background-color: var(--primary-light);
-            border-radius: 12px;
+            position: relative;
+            width: 375px;
+            // aspect-ratio: 2/3;
+            max-height: 562px;
+            // background-color: blue;
+            // border: 0.2px solid #808080;
             box-shadow: 0 8px 32px 0 rgba(128, 128, 128, 0.4);
+            border-radius: 16px;
 
-            transition: left 0.8s ease, bottom 0.8s ease, box-shadow 0.8s ease;
+            #sharer-header {
+                --padding-size: 10px;
+                padding: var(--padding-size);
+                width: calc(100% - 2 * var(--padding-size));
+                height: calc(90px - 2 * var(--padding-size));
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
 
-            #header-icon-container {
-                margin: 10px;
-                margin-bottom: 0;
-                width: 42px;
-                aspect-ratio: 1;
-                position: relative;
-
-                div {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
+                .sharer-header-subpart {
                     width: 100%;
-                    height: 100%;
-                }
+                    height: 30px;
+                    // background-color: blue;
 
-                #temp-header-icon {
-                    z-index: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
 
-                    // &.show {
-                    //     z-index: 2;
-                    // }
-                }
-                .default-icon {
-                    z-index: 0;
-                }
-            }
+                    .icon-n-title {
+                        display: flex;
+                        align-items: center;
+                        #header-icon {
+                            width: 30px;
+                            height: 30px;
+                            margin-right: 10px;
+                            background-color: #e3e3e8;
+                            border-radius: 6px;
+                        }
 
-            #sharer-temp-description {
-                margin: 10px;
-                margin-bottom: 0;
-                font-size: 24px;
+                        #header-title {
+                            font-size: 22px;
+                            font-weight: 500;
+                        }
+                    }
+                    #sharer-close-btn {
+                        width: 30px;
+                        height: 30px;
+                        background-color: #e3e3e8;
+                        border-radius: 6px;
+                    }
+
+                    .search-bar {
+                        width: calc(100% - 10px);
+                        height: calc(100% - 10px);
+                        background-color: #e3e3e8;
+                        border-radius: 6px;
+                        padding: 5px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        div {
+                            width: 20px;
+                            height: 20px;
+                        }
+
+                        #search-bar-clear {
+                            // opacity: 0;
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+
+                        input {
+                            height: 20px;
+                            width: calc(100% - 40px);
+                            border: none;
+                            padding: 0;
+                            background-color: transparent;
+                            color: #808080;
+                            font-size: 18px;
+                            &:focus {
+                                color: #000;
+                                outline: none;
+                            }
+                            // border: 1px solid black;
+                        }
+                    }
+                }
             }
         }
     }
 }
 
-@media (max-width: 460px) {
-    body {
-        #sharer-by-KP {
-            #sharer-window {
-                border-bottom-left-radius: 0;
-                border-bottom-right-radius: 0;
-                width: 100%;
-                left: 0;
-                bottom: 0;
-                box-shadow: 0 -8px 64px 0 rgba(128, 128, 128, 0.4);
-            }
-        }
-    }
-}
+// @media (max-width: 460px) {
+//     body {
+//     }
+// }

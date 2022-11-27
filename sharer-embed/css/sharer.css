@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 :root {
   --primary-light: #ffffff;
 }
@@ -10,63 +11,85 @@ body #sharer-by-KP {
   font-family: "Inter", sans-serif;
   width: 100vw;
   height: 100vh;
-  position: relative;
+  position: fixed;
   z-index: 100000;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-}
-body #sharer-by-KP #sharer-window {
-  position: absolute;
-  width: 400px;
-  min-width: 300px;
-  margin: auto;
-  aspect-ratio: 3/4;
-  left: calc(50% - 200px);
-  bottom: calc(50% - 300px);
-  background-color: var(--primary-light);
-  border-radius: 12px;
-  box-shadow: 0 8px 32px 0 rgba(128, 128, 128, 0.4);
-  transition: left 0.8s ease, bottom 0.8s ease, box-shadow 0.8s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 }
-body #sharer-by-KP #sharer-window #header-icon-container {
-  margin: 10px;
-  margin-bottom: 0;
-  width: 42px;
-  aspect-ratio: 1;
+body #sharer-by-KP #sharer-window {
   position: relative;
+  width: 375px;
+  max-height: 562px;
+  box-shadow: 0 8px 32px 0 rgba(128, 128, 128, 0.4);
+  border-radius: 16px;
 }
-body #sharer-by-KP #sharer-window #header-icon-container div {
-  position: absolute;
-  top: 0;
-  left: 0;
+body #sharer-by-KP #sharer-window #sharer-header {
+  --padding-size: 10px;
+  padding: var(--padding-size);
+  width: calc(100% - 2 * var(--padding-size));
+  height: calc(90px - 2 * var(--padding-size));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-subpart {
   width: 100%;
-  height: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-body #sharer-by-KP #sharer-window #header-icon-container #temp-header-icon {
-  z-index: 0;
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-subpart .icon-n-title {
+  display: flex;
+  align-items: center;
 }
-body #sharer-by-KP #sharer-window #header-icon-container #temp-header-icon.show {
-  z-index: 2;
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-subpart .icon-n-title #header-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background-color: #e3e3e8;
+  border-radius: 6px;
 }
-body #sharer-by-KP #sharer-window #header-icon-container .default-icon {
-  z-index: 1;
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-subpart .icon-n-title #header-title {
+  font-size: 22px;
+  font-weight: 500;
 }
-body #sharer-by-KP #sharer-window #sharer-temp-description {
-  margin: 10px;
-  margin-bottom: 0;
-  font-size: 24px;
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-subpart #sharer-close-btn {
+  width: 30px;
+  height: 30px;
+  background-color: #e3e3e8;
+  border-radius: 6px;
 }
-
-@media (max-width: 460px) {
-  body #sharer-by-KP #sharer-window {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    box-shadow: 0 -8px 64px 0 rgba(128, 128, 128, 0.4);
-  }
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-subpart .search-bar {
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  background-color: #e3e3e8;
+  border-radius: 6px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-subpart .search-bar div {
+  width: 20px;
+  height: 20px;
+}
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-subpart .search-bar #search-bar-clear:hover {
+  cursor: pointer;
+}
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-subpart .search-bar input {
+  height: 20px;
+  width: calc(100% - 40px);
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  color: #808080;
+  font-size: 18px;
+}
+body #sharer-by-KP #sharer-window #sharer-header .sharer-header-subpart .search-bar input:focus {
+  color: #000;
+  outline: none;
 }/*# sourceMappingURL=sharer.css.map */
