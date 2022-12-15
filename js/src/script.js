@@ -1,0 +1,101 @@
+import j2h from "../json2html.js";
+import SharerIcon from "./vectors/SharerIcon.js";
+
+async function set_root() {
+    let sharer_html = new j2h();
+
+    sharer_html.append(
+        sharer_html.div({ id: "sharer-root" }, [
+            sharer_html.div(
+                { class: "sharer-header" },
+                sharer_html.div({ class: "header-content" }, [
+                    sharer_html.div({ class: "header-app-icon-container" }, [
+                        sharer_html.div(
+                            { class: "default-header-icon" },
+                            SharerIcon
+                        ),
+                        sharer_html.div({ id: "header-app-icon" }),
+                    ]),
+                    sharer_html.div({ class: "header-text-container" }, [
+                        sharer_html.div(
+                            { class: "default-header-text" },
+                            "Sharer by KP"
+                        ),
+                        sharer_html.div(
+                            { id: "header-text" },
+                            "Sharing on WhatsApp"
+                        ),
+                    ]),
+                    sharer_html.div({ id: "show-qr-btn" }),
+                    sharer_html.div({ id: "close-or-back-btn" }),
+                ])
+            ),
+            sharer_html.div({ id: "applist-n-qr" }, [
+                sharer_html.div({ id: "applist" }),
+                sharer_html.div({ id: "url-qr" }),
+            ]),
+            sharer_html.div({ id: "bottom-operators" }),
+            sharer_html.div({ id: "powered-by-sharer" }, "Powered by Sharer"),
+        ])
+    );
+
+    console.log(sharer_html.render());
+    document.body.innerHTML = sharer_html.render();
+}
+
+function increase_body_height() {
+    if (document.body.offsetHeight < 515) {
+        document.body.style.height = `${document.body.offsetHeight + 1}px`;
+        setTimeout(() => {
+            increase_body_height();
+        }, 10);
+    }
+}
+
+function decrease_body_height() {
+    if (document.body.offsetHeight > 480) {
+        document.body.style.height = `${document.body.offsetHeight - 1}px`;
+        setTimeout(() => {
+            decrease_body_height();
+        }, 10);
+    }
+}
+
+set_root()
+    .then(() => {
+        document.getElementById("close-or-back-btn").onclick = () =>
+            window.close();
+
+        document.getElementById("show-qr-btn").onclick = () => {
+            document.getElementById("header-app-icon").classList.toggle("show");
+            document.getElementById("header-text").classList.toggle("show");
+
+            decrease_body_height();
+            document
+                .getElementById("powered-by-sharer")
+                .classList.remove("show");
+            document.getElementById("powered-by-sharer").style.display = "none";
+        };
+
+        document.getElementById("bottom-operators").onclick = () => {
+            increase_body_height();
+            setTimeout(() => {
+                document.getElementById("powered-by-sharer").style.display =
+                    "block";
+            }, 600);
+            setTimeout(() => {
+                document
+                    .getElementById("powered-by-sharer")
+                    .classList.add("show");
+            }, 800);
+        };
+
+        // chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
+        //     let url = tabs[0].url;
+        //     // use `url` here inside the callback because it's asynchronous!
+        //     document.getElementById("url-qr").innerText = url;
+        // });
+    })
+    .catch((err) => {
+        console.log(err);
+    });
