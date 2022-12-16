@@ -1,4 +1,9 @@
 import j2h from "../json2html.js";
+import applist from "./applist.js";
+import arrowIcon from "./vectors/arrowIcon.js";
+import closeIcon from "./vectors/closeIcon.js";
+import homeIcon from "./vectors/homeIcon.js";
+import qrIcon from "./vectors/qrIcon.js";
 import SharerIcon from "./vectors/SharerIcon.js";
 
 async function set_root() {
@@ -26,12 +31,48 @@ async function set_root() {
                             "Sharing on WhatsApp"
                         ),
                     ]),
-                    sharer_html.div({ id: "show-qr-btn" }),
-                    sharer_html.div({ id: "close-or-back-btn" }),
+                    sharer_html.div({ id: "show-qr-btn" }, qrIcon),
+                    sharer_html.div({ class: "close-or-home-btn" }, [
+                        sharer_html.div({ id: "default-close-btn" }, closeIcon),
+                        sharer_html.div({ id: "home-btn" }, homeIcon),
+                    ]),
                 ])
             ),
-            sharer_html.div({ id: "applist-n-qr" }, [
-                sharer_html.div({ id: "applist" }),
+            sharer_html.div({ class: "applist-n-qr" }, [
+                sharer_html.div(
+                    { id: "applist" },
+                    (() => {
+                        let list = [],
+                            app_ids = Object.keys(applist);
+
+                        for (let index = 0; index < app_ids.length; index++) {
+                            list.push(
+                                sharer_html.div(
+                                    {
+                                        class: "list-item",
+                                        id: `open-${applist[app_ids[index]]}`,
+                                    },
+                                    [
+                                        sharer_html.div(
+                                            { class: "applist-app-icon" },
+                                            applist[app_ids[index]].svg
+                                        ),
+                                        sharer_html.div(
+                                            { class: "applist-app-name" },
+                                            applist[app_ids[index]].name
+                                        ),
+                                        sharer_html.div(
+                                            { class: "open-app-arrow" },
+                                            arrowIcon
+                                        ),
+                                    ]
+                                )
+                            );
+                        }
+
+                        return list;
+                    })()
+                ),
                 sharer_html.div({ id: "url-qr" }),
             ]),
             sharer_html.div({ id: "bottom-operators" }),
@@ -44,7 +85,7 @@ async function set_root() {
 }
 
 function increase_body_height() {
-    if (document.body.offsetHeight < 515) {
+    if (document.body.offsetHeight < 516) {
         document.body.style.height = `${document.body.offsetHeight + 1}px`;
         setTimeout(() => {
             increase_body_height();
@@ -53,7 +94,7 @@ function increase_body_height() {
 }
 
 function decrease_body_height() {
-    if (document.body.offsetHeight > 480) {
+    if (document.body.offsetHeight > 481) {
         document.body.style.height = `${document.body.offsetHeight - 1}px`;
         setTimeout(() => {
             decrease_body_height();
@@ -63,20 +104,25 @@ function decrease_body_height() {
 
 set_root()
     .then(() => {
-        document.getElementById("close-or-back-btn").onclick = () =>
+        document.getElementById("default-close-btn").onclick = () =>
             window.close();
+
+        document.getElementById("show-qr-btn").onclick = () => {
+            document
+                .getElementById("default-close-btn")
+                .classList.toggle("hide");
+            document.getElementById("home-btn").classList.toggle("show");
+        };
 
         document.getElementById("show-qr-btn").onclick = () => {
             document.getElementById("header-app-icon").classList.toggle("show");
             document.getElementById("header-text").classList.toggle("show");
-
             decrease_body_height();
             document
                 .getElementById("powered-by-sharer")
                 .classList.remove("show");
             document.getElementById("powered-by-sharer").style.display = "none";
         };
-
         document.getElementById("bottom-operators").onclick = () => {
             increase_body_height();
             setTimeout(() => {
