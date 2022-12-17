@@ -75,7 +75,24 @@ async function set_root() {
                 ),
                 sharer_html.div({ id: "url-qr" }),
             ]),
-            sharer_html.div({ id: "bottom-operators" }),
+            sharer_html.div({ class: "bottom-operators-container" }, [
+                sharer_html.div({ id: "default-bottom-operators" }, [
+                    sharer_html.div(
+                        { id: "feedback-btn" },
+                        sharer_html.div({}, "Feedback")
+                    ),
+                    sharer_html.div(
+                        { id: "developer-btn" },
+                        sharer_html.div({}, "Developer")
+                    ),
+                ]),
+                sharer_html.div({ id: "bottom-operators" }, [
+                    sharer_html.div(
+                        { id: "open-app-btn" },
+                        sharer_html.div({}, "Open WhatsApp")
+                    ),
+                ]),
+            ]),
             sharer_html.div({ id: "powered-by-sharer" }, "Powered by Sharer"),
         ])
     );
@@ -109,32 +126,42 @@ set_root()
 
         document.getElementById("show-qr-btn").onclick = () => {
             document
-                .getElementById("default-close-btn")
+                .getElementById("default-bottom-operators")
                 .classList.toggle("hide");
-            document.getElementById("home-btn").classList.toggle("show");
+            document
+                .getElementById("bottom-operators")
+                .classList.toggle("show");
         };
 
-        document.getElementById("show-qr-btn").onclick = () => {
-            document.getElementById("header-app-icon").classList.toggle("show");
-            document.getElementById("header-text").classList.toggle("show");
-            decrease_body_height();
-            document
-                .getElementById("powered-by-sharer")
-                .classList.remove("show");
-            document.getElementById("powered-by-sharer").style.display = "none";
-        };
-        document.getElementById("bottom-operators").onclick = () => {
-            increase_body_height();
-            setTimeout(() => {
-                document.getElementById("powered-by-sharer").style.display =
-                    "block";
-            }, 600);
-            setTimeout(() => {
-                document
-                    .getElementById("powered-by-sharer")
-                    .classList.add("show");
-            }, 800);
-        };
+        // document.getElementById("show-qr-btn").onclick = () => {
+        //     document
+        //         .getElementById("default-close-btn")
+        //         .classList.toggle("hide");
+        //     document.getElementById("home-btn").classList.toggle("show");
+        // };
+
+        // document.getElementById("show-qr-btn").onclick = () => {
+        //     document.getElementById("header-app-icon").classList.toggle("show");
+        //     document.getElementById("header-text").classList.toggle("show");
+        //     decrease_body_height();
+        //     document
+        //         .getElementById("powered-by-sharer")
+        //         .classList.remove("show");
+        //     document.getElementById("powered-by-sharer").style.display = "none";
+        // };
+
+        // document.getElementById("bottom-operators").onclick = () => {
+        //     increase_body_height();
+        //     setTimeout(() => {
+        //         document.getElementById("powered-by-sharer").style.display =
+        //             "block";
+        //     }, 600);
+        //     setTimeout(() => {
+        //         document
+        //             .getElementById("powered-by-sharer")
+        //             .classList.add("show");
+        //     }, 800);
+        // };
 
         // chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
         //     let url = tabs[0].url;

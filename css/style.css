@@ -11,6 +11,7 @@ body #sharer-root {
   width: 100%;
   height: 100%;
   background-color: white;
+  border-radius: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,7 +104,7 @@ body #sharer-root .sharer-header .header-content .header-text-container #header-
 body #sharer-root .sharer-header .header-content #show-qr-btn {
   height: 100%;
   border-radius: 100%;
-  background-color: #f7f7f5;
+  background-color: #f7f2ff;
   opacity: 1;
   pointer-events: all;
   transition: opacity 0.4s ease;
@@ -118,6 +119,9 @@ body #sharer-root .sharer-header .header-content #show-qr-btn.hide {
 body #sharer-root .sharer-header .header-content #show-qr-btn svg {
   width: 100%;
   height: 100%;
+}
+body #sharer-root .sharer-header .header-content #show-qr-btn svg .qr-svg-path {
+  fill: #a06eff;
 }
 body #sharer-root .sharer-header .header-content .close-or-home-btn {
   height: 100%;
@@ -139,19 +143,27 @@ body #sharer-root .sharer-header .header-content .close-or-home-btn #default-clo
   z-index: 1;
   opacity: 1;
   transition: opacity 0.4s ease;
+  background-color: #f7f2ff;
 }
 body #sharer-root .sharer-header .header-content .close-or-home-btn #default-close-btn.hide {
   z-index: 0;
   opacity: 0;
 }
+body #sharer-root .sharer-header .header-content .close-or-home-btn #default-close-btn svg .close-svg-path {
+  fill: #a06eff;
+}
 body #sharer-root .sharer-header .header-content .close-or-home-btn #home-btn {
   z-index: 0;
   opacity: 0;
   transition: opacity 0.4s ease;
+  background-color: #f7f2ff;
 }
 body #sharer-root .sharer-header .header-content .close-or-home-btn #home-btn.show {
   z-index: 1;
   opacity: 1;
+}
+body #sharer-root .sharer-header .header-content .close-or-home-btn #home-btn svg .home-svg-path {
+  fill: #a06eff;
 }
 body #sharer-root .applist-n-qr {
   width: calc(100% - 32px);
@@ -195,8 +207,15 @@ body #sharer-root .applist-n-qr #applist .list-item {
   transition: background-color 0.4s ease;
 }
 body #sharer-root .applist-n-qr #applist .list-item:hover {
-  background-color: #f7f7f5;
+  background-color: #f9f6ff;
   cursor: pointer;
+}
+body #sharer-root .applist-n-qr #applist .list-item:hover .open-app-arrow {
+  width: 28px;
+  height: 28px;
+}
+body #sharer-root .applist-n-qr #applist .list-item:hover .open-app-arrow svg .arrow-svg-path {
+  fill: #a06eff;
 }
 body #sharer-root .applist-n-qr #applist .list-item .applist-app-icon {
   width: 28px;
@@ -216,6 +235,9 @@ body #sharer-root .applist-n-qr #applist .list-item .open-app-arrow {
   width: 28px;
   height: 28px;
 }
+body #sharer-root .applist-n-qr #applist .list-item .open-app-arrow svg .arrow-svg-path {
+  transition: fill 0.4s ease;
+}
 body #sharer-root .applist-n-qr #url-qr {
   border-radius: 14px;
   position: absolute;
@@ -231,15 +253,66 @@ body #sharer-root .applist-n-qr #url-qr.show {
   z-index: 1;
   opacity: 1;
 }
-body #sharer-root #bottom-operators {
+body #sharer-root .bottom-operators-container {
   width: calc(100% - 32px);
   height: 46px;
   margin-bottom: 16px;
-  background-color: #f7f7f5;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+}
+body #sharer-root .bottom-operators-container div {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body #sharer-root .bottom-operators-container div div {
+  position: relative;
+  height: 100%;
+  background-color: #f9f6ff;
   border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+body #sharer-root .bottom-operators-container div div:hover {
+  cursor: pointer;
+}
+body #sharer-root .bottom-operators-container div div div {
+  color: #a06eff;
+  font-size: 18px;
+  font-weight: 500;
+}
+body #sharer-root .bottom-operators-container #default-bottom-operators {
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+body #sharer-root .bottom-operators-container #default-bottom-operators.hide {
+  z-index: 0;
+  opacity: 0;
+}
+body #sharer-root .bottom-operators-container #default-bottom-operators div {
+  width: calc(50% - 8px);
+}
+body #sharer-root .bottom-operators-container #bottom-operators {
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+body #sharer-root .bottom-operators-container #bottom-operators.show {
+  z-index: 1;
+  opacity: 1;
+}
+body #sharer-root .bottom-operators-container #bottom-operators div {
+  width: 100%;
 }
 body #sharer-root #powered-by-sharer {
   display: none;
