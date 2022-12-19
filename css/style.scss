@@ -74,8 +74,7 @@ body {
                         z-index: 1;
                         opacity: 0;
                         transition: opacity 0.4s ease;
-                        background-color: blue;
-                        border-radius: 7px;
+                        // border-radius: 7px;
 
                         &.show {
                             opacity: 1;

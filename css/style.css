@@ -61,8 +61,6 @@ body #sharer-root .sharer-header .header-content .header-app-icon-container #hea
   z-index: 1;
   opacity: 0;
   transition: opacity 0.4s ease;
-  background-color: blue;
-  border-radius: 7px;
 }
 body #sharer-root .sharer-header .header-content .header-app-icon-container #header-app-icon.show {
   opacity: 1;
