@@ -168,6 +168,18 @@ export default class j2h {
     }
 
     /**
+     * \<p\> tag
+     * @param attributes Object
+     * @param innerHTML Object or string
+     * @returns \<p\> tag
+     */
+    p(innerHTML = "", attributes = {}) {
+        return {
+            p: [attributes, innerHTML],
+        };
+    }
+
+    /**
      * \<label\> tag
      * @param attributes Object
      * @param innerHTML Object or string
@@ -186,5 +198,16 @@ export default class j2h {
     iframe(src = "", attributes = {}) {
         attributes.src = src;
         return { iframe: [attributes] };
+    }
+
+    /**
+     * \<lottie-player\> tag
+     * @param src String
+     * @param attributes Object
+     * @returns \<lottie-player\> tag
+     */
+    LottiePlayer(src = "", attributes = {}) {
+        attributes.src = src;
+        return { "lottie-player": [attributes] };
     }
 }

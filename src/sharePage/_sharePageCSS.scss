@@ -1,0 +1,59 @@
+@mixin qr_container_css() {
+    #qr-frame {
+        border-radius: 14px;
+
+        #qr-svg {
+            width: 312px;
+            height: 312px;
+            top: 16px;
+            left: 16px;
+            border-radius: 7px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            svg {
+                width: 16%;
+                height: 16%;
+            }
+        }
+
+        .powered-by-sharer {
+            // width: 189px;
+            height: 32px;
+            width: auto;
+            top: 340px;
+            left: 77px;
+            display: flex;
+            align-items: center;
+            // position: relative;
+
+            .sharer-icon-container {
+                margin-right: 12px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                width: 32px;
+                height: 32px;
+                background-color: $secondary-light;
+                border-radius: 8px;
+
+                svg {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: 400;
+
+                &:hover {
+                    cursor: default;
+                }
+            }
+        }
+    }
+}

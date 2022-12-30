@@ -1,0 +1,6 @@
+@mixin displayFlex($jc: space-around, $direction: column) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: $jc;
+}

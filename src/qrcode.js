@@ -23,7 +23,7 @@
  SOFTWARE.
 */
 
-export default function QRCode(r) {
+function QRCode(r) {
     var n,
         t,
         o,
@@ -531,4 +531,21 @@ export default function QRCode(r) {
             o
         );
     })();
+}
+
+export function qr_svg(input_data, dim = 512) {
+    let svgNode = QRCode({
+            msg: input_data,
+            dim: dim,
+            pad: 0,
+            // pad: 40,
+            // mtx: 7,
+            // ecl: "H",
+            // ecb: 0,
+            pal: ["#000000", "#ffffff"],
+            // vrb: 1,
+        }),
+        _ = new XMLSerializer();
+
+    return `data:image/svg+xml;base64,${btoa(_.serializeToString(svgNode))}`;
 }
