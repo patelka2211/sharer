@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+
 @import "../fixsizeText";
 @import "../applist/applistCSS";
 @import "../sharePage/sharePageCSS";
@@ -11,6 +13,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: black;
+    font-family: "Inter", sans-serif;
 
     #sharer-by-KP {
         width: 376px - 32px;

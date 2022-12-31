@@ -4,7 +4,7 @@ import { static_id_elements } from "../getElement.js";
 import html2canvas from "../html2canvas.js";
 import { qr_svg } from "../qrcode.js";
 
-function open_url(url) {
+export function open_url(url) {
     window.open(
         url,
         "_blank",
@@ -19,7 +19,9 @@ function download_qr() {
         var link = document.createElement("a");
         link.style.display = "none";
         document.body.prepend(link);
-        link.download = `SharerCard_${new Date()}.png`;
+        link.download = ((date = new Date()) => {
+            return `SharerCard_${date.toDateString()}_${date.toLocaleTimeString()}.png`;
+        })();
         link.href = canvas.toDataURL("image/png");
         link.target = "_blank";
         link.innerHTML = "download";

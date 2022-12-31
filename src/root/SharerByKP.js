@@ -13,6 +13,7 @@ import { qr_svg } from "../qrcode.js";
 import {
     close_sharer_page,
     open_sharer_page_for,
+    open_url,
 } from "../sharePage/ShareLink.js";
 
 async function setHome() {
@@ -117,4 +118,15 @@ setHome().then(() => {
     };
 
     assignApplistAction();
+
+    static_id_elements.feedback_btn().onclick = () => {
+        open_url(
+            "https://patelka2211.github.io/sharer/redirect/?action=feedback"
+        );
+    };
+    static_id_elements.developer_btn().onclick = () => {
+        open_url(
+            "https://patelka2211.github.io/sharer/redirect/?action=developer"
+        );
+    };
 });
