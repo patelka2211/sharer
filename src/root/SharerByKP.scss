@@ -3,6 +3,7 @@
 @import "../fixsizeText";
 @import "../applist/applistCSS";
 @import "../sharePage/sharePageCSS";
+@import "../feedbackPage/feedbackPage";
 
 $primary-light: white;
 $secondary-light: #f7f7f5;
@@ -181,6 +182,7 @@ body {
 
             @include applist_css();
             @include qr_container_css();
+            @include feedbackPage();
         }
 
         .action-btns-container {
@@ -225,6 +227,7 @@ body {
                     p {
                         font-size: 18px;
                         color: $primary-dark;
+                        font-weight: 500;
                     }
                 }
             }
@@ -237,10 +240,6 @@ body {
             #open-app-n-download-btns {
                 .first-div {
                     width: calc(100% - 62px);
-                    p {
-                        font-size: 18px;
-                        font-weight: 500;
-                    }
                 }
                 .second-div {
                     width: 46px;
@@ -270,6 +269,11 @@ body {
                     &.highlight {
                         background-color: #e8dbff;
                     }
+                }
+            }
+            #close-feedback-btn {
+                div {
+                    width: 100%;
                 }
             }
         }

@@ -27,6 +27,9 @@ export const static_id_elements = {
     applist: () => {
         return getElementById("applist");
     },
+    feedback_frame: () => {
+        return getElementById("feedback-frame");
+    },
     qr_frame: () => {
         return getElementById("qr-frame");
     },
@@ -56,5 +59,11 @@ export const static_id_elements = {
     },
     download_animation: () => {
         return getElementById("download-animation");
+    },
+    close_feedback_btn: () => {
+        return getElementById("close-feedback-btn");
+    },
+    feedback_done: () => {
+        return getElementById("feedback-done");
     },
 };

@@ -33,6 +33,10 @@ function download_qr() {
 }
 
 export function open_sharer_page_for(appid = null) {
+    static_id_elements.home_btn().onclick = () => {
+        close_sharer_page();
+    };
+
     if (appid == null) {
         static_id_elements.open_app_icon().innerHTML = SharerIcon;
         static_id_elements.open_app_title().innerText = "Sharer by KP";

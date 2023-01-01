@@ -1,4 +1,3 @@
-import waIcon from "../applist/appicons/waIcon.js";
 import {
     assignApplistAction,
     GetApplistHtml,
@@ -7,14 +6,11 @@ import closeIcon from "../assets/CloseIcon.js";
 import homeIcon from "../assets/HomeIcon.js";
 import qrIcon from "../assets/QRIcon.js";
 import SharerIcon from "../assets/SharerIcon.js";
+import { open_feedback } from "../feedbackPage/feedbackPage.js";
 import { static_id_elements } from "../getElement.js";
 import j2h from "../json2html.js";
 import { qr_svg } from "../qrcode.js";
-import {
-    close_sharer_page,
-    open_sharer_page_for,
-    open_url,
-} from "../sharePage/ShareLink.js";
+import { open_sharer_page_for, open_url } from "../sharePage/ShareLink.js";
 
 async function setHome() {
     let home_html = new j2h();
@@ -48,15 +44,13 @@ async function setHome() {
         )
         .append(
             home_html.div({ class: "applist-n-qr-container" }, [
-                home_html.div({ id: "applist" }, GetApplistHtml()),
+                home_html.div({ id: "applist", class: "" }, GetApplistHtml()),
+                home_html.div({ id: "feedback-frame", class: "hide" }),
                 home_html.div({ id: "qr-frame", class: "hide" }, [
-                    home_html.div(
-                        {
-                            id: "qr-svg",
-                            style: `background: url(${qr_svg("Hello", 312)})`,
-                        },
-                        waIcon
-                    ),
+                    home_html.div({
+                        id: "qr-svg",
+                        style: `background: url(${qr_svg("Hello", 312)})`,
+                    }),
                     home_html.div({ class: "powered-by-sharer" }, [
                         home_html.div(
                             { class: "sharer-icon-container" },
@@ -91,11 +85,15 @@ async function setHome() {
                                 id: "open-app-btn-label",
                             })
                         ),
-                        home_html.div(
-                            { id: "download-qr", class: "second-div" }
-                            // '<lottie-player id="download-animation" src="./src/assets/download-animation.json" speed="1" autoplay></lottie-player>'
-                        ),
+                        home_html.div({
+                            id: "download-qr",
+                            class: "second-div",
+                        }),
                     ]
+                ),
+                home_html.div(
+                    { id: "close-feedback-btn", class: "hide" },
+                    home_html.div({ id: "feedback-done" }, home_html.p("Done"))
                 ),
             ])
         );
@@ -109,10 +107,6 @@ async function setHome() {
 setHome().then(() => {
     static_id_elements.close_btn().onclick = () => window.close();
 
-    static_id_elements.home_btn().onclick = () => {
-        close_sharer_page();
-    };
-
     static_id_elements.show_qr().onclick = () => {
         open_sharer_page_for();
     };
@@ -120,10 +114,9 @@ setHome().then(() => {
     assignApplistAction();
 
     static_id_elements.feedback_btn().onclick = () => {
-        open_url(
-            "https://patelka2211.github.io/sharer/redirect/?action=feedback"
-        );
+        open_feedback();
     };
+
     static_id_elements.developer_btn().onclick = () => {
         open_url(
             "https://patelka2211.github.io/sharer/redirect/?action=developer"
