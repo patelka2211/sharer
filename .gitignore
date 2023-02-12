@@ -1,4 +1,2 @@
 .ds_store
-local
-.vscode
-node_modules
+**/.ds_store
