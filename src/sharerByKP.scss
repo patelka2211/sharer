@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+
+    #sharer-by-KP {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0px;
+        left: 0px;
+        pointer-events: all;
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.32);
+        backdrop-filter: blur(10px);
+
+        transition: background-color 0.4s ease, backdrop-filter 0.4s ease,
+            opacity 1s ease, top 1s ease;
+
+        &.hide {
+            top: 100vh;
+            opacity: 0;
+            pointer-events: none;
+            background-color: #00000000;
+            backdrop-filter: blur(0px);
+        }
+    }
+}
