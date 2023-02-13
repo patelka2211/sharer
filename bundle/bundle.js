@@ -86,13 +86,16 @@ const j2h = {
 
 const setSharerRoot = () => {
     const Sharer_By_KP = document.createElement("div");
-    j2h.setAttribute(Sharer_By_KP, { id: "sharer-by-KP", class: "" });
+    j2h.setAttribute(Sharer_By_KP, { id: "sharer-by-KP" });
     const sharer_root = j2h.setRoot(Sharer_By_KP);
+    sharer_root.append(j2h.element("div", { id: "sharer-window" }, [
+        j2h.element("div", { id: "sharer-header" }),
+        j2h.element("div", { id: "sharer-content" }),
+        j2h.element("div", { id: "sharer-footer" }),
+    ]));
     document.body.prepend(Sharer_By_KP);
     sharer_root.render();
-    setTimeout(() => {
-        Sharer_By_KP.classList.add("hide");
-    }, 1000);
+    // Sharer_By_KP.classList.add("hide");
 };
 
 // (document.getElementById("share-this") as HTMLElement).onclick = setSharerRoot;

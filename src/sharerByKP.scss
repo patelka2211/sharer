@@ -1,3 +1,5 @@
+@import "./sharerWindow";
+
 body {
     margin: 0;
 
@@ -10,17 +12,21 @@ body {
         pointer-events: all;
         opacity: 1;
         background-color: rgba(0, 0, 0, 0.32);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(6px);
 
-        transition: background-color 0.4s ease, backdrop-filter 0.4s ease,
-            opacity 1s ease, top 1s ease;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
 
-        &.hide {
-            top: 100vh;
-            opacity: 0;
-            pointer-events: none;
-            background-color: #00000000;
-            backdrop-filter: blur(0px);
+        @include sharerWindow();
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        #sharer-by-KP {
+            align-items: end;
         }
     }
 }
