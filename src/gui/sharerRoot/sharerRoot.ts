@@ -1,4 +1,4 @@
-import j2h from "../j2h";
+import j2h from "../../j2h";
 
 export const setSharerRoot = () => {
     const Sharer_By_KP = document.createElement("div");
@@ -9,7 +9,15 @@ export const setSharerRoot = () => {
 
     sharer_root.append(
         j2h.element("div", { id: "sharer-window" }, [
-            j2h.element("div", { id: "sharer-header" }),
+            j2h.element("div", { class: "sharer-header" }, [
+                j2h.element(
+                    "div",
+                    { id: "header-icon-container" },
+                    j2h.element("div", { id: "header-icon" })
+                ),
+                j2h.element("div", { id: "header-title" }, "Sharer by KP"),
+                j2h.element("div", { id: "header-close-icon" }),
+            ]),
             j2h.element("div", { id: "sharer-content" }),
             j2h.element("div", { id: "sharer-footer" }),
         ])
