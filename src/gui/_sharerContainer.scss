@@ -1,0 +1,31 @@
+@import "./sharerWindow";
+
+@mixin sharerContainer {
+    #sharer-container {
+        position: absolute;
+        width: calc(100% - 12px);
+        height: calc(100% - 12px);
+        // background-color: wheat;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        top: 6px;
+
+        transition: top 0.2s ease;
+        &.hide {
+            top: calc(100% - 6px);
+        }
+
+        @include sharerWindow();
+    }
+}
+@mixin sharerContainer_mobile {
+    #sharer-container {
+        align-items: end;
+        // justify-content: space-around;
+        // @include sharerWindow();
+    }
+}

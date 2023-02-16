@@ -5,17 +5,26 @@
 @mixin sharerWindow {
     #sharer-window {
         background-color: white;
+        width: calc(100% - 42px);
+        max-height: calc(100% - 42px);
+        max-width: calc(480px - 42px);
         padding: 21px;
-        margin: 6px;
-        width: calc(100% - 54px);
-        max-width: 438px;
         border-radius: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
 
-        @include sharerHeader();
-        @include sharerContent();
-        @include sharerFooter();
+        aspect-ratio: 3 / 4;
+
+        // background-color: white;
+        // padding: 21px;
+        // margin: 6px;
+        // width: calc(100% - 54px);
+        // max-width: 438px;
+        // border-radius: 30px;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+
+        // @include sharerHeader();
+        // @include sharerContent();
+        // @include sharerFooter();
     }
 }

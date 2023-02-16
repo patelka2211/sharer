@@ -1,12 +1,18 @@
 import j2h from "../j2h";
+
 let continue_to_close = false;
+
 const closeSharer = () => {
     document.getElementById("sharer-window");
 };
+
 export const setSharerRoot = () => {
     const Sharer_By_KP = document.createElement("div");
+
     j2h.setAttribute(Sharer_By_KP, { id: "sharer-by-KP", class: "hide" });
+
     const sharer_root = j2h.setRoot(Sharer_By_KP);
+
     // sharer_root.append(
     //     j2h.element("div", { id: "sharer-window" }, [
     //         j2h.element("div", { class: "sharer-header" }, [
@@ -22,24 +28,36 @@ export const setSharerRoot = () => {
     //         j2h.element("div", { id: "sharer-footer" }),
     //     ])
     // );
-    sharer_root.append(j2h.element("div", { id: "sharer-container", class: "hide" }, j2h.element("div", { id: "sharer-window" })));
+
+    sharer_root.append(
+        j2h.element(
+            "div",
+            { id: "sharer-container", class: "hide" },
+            j2h.element("div", { id: "sharer-window" })
+        )
+    );
+
     document.body.prepend(Sharer_By_KP);
     sharer_root.render();
+
     setTimeout(() => {
         Sharer_By_KP.classList.remove("hide");
+
         setTimeout(() => {
-            var _a;
-            (_a = document
-                .getElementById("sharer-container")) === null || _a === void 0 ? void 0 : _a.classList.remove("hide");
+            document
+                .getElementById("sharer-container")
+                ?.classList.remove("hide");
         }, 300);
     }, 10);
-    document.getElementById("sharer-window").onclick = () => {
+
+    (document.getElementById("sharer-window") as HTMLElement).onclick = () => {
         continue_to_close = false;
     };
-    document.getElementById("sharer-container").onclick =
+    (document.getElementById("sharer-container") as HTMLElement).onclick =
         () => {
             // if (continue_to_close)
             continue_to_close = true;
         };
+
     // Sharer_By_KP.classList.add("hide");
 };
