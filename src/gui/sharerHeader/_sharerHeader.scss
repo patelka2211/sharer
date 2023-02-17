@@ -10,8 +10,12 @@
         #header-icon-container {
             height: 100%;
             aspect-ratio: 1;
-            background-color: #eeeef0;
+            background-color: #f6f6f6;
             border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
 
             svg {
                 height: calc(100% - 2px);
@@ -33,8 +37,12 @@
         #header-close-icon {
             height: 100%;
             aspect-ratio: 1;
-            background-color: #eeeef0;
+            background-color: #f6f6f6;
             border-radius: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
 
             &:hover {
                 cursor: pointer;

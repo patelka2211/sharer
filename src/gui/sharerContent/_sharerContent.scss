@@ -1,8 +1,9 @@
 @mixin sharerContent {
     #sharer-content {
         width: 100%;
-        margin-bottom: 21px;
         aspect-ratio: 1;
-        background-color: #eeeef0;
+        overflow: auto;
+        background-color: #f6f6f6;
+        border-radius: 18px;
     }
 }

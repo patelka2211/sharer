@@ -10,11 +10,14 @@
         max-width: calc(480px - 42px);
         padding: 21px;
         border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-        aspect-ratio: 3 / 4;
+        // box-shadow: 0 16px 64px 0 rgba(28, 28, 28, 0.32);
 
-        // @include sharerHeader();
-        // @include sharerContent();
-        // @include sharerFooter();
+        @include sharerHeader();
+        @include sharerContent();
+        @include sharerFooter();
     }
 }

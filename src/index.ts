@@ -1,5 +1,5 @@
-import { setSharerRoot } from "./gui/sharerRoot";
+import { openSharer } from "./gui/sharerRoot";
 
-(document.getElementById("share-this") as HTMLElement).onclick = setSharerRoot;
+(document.getElementById("share-this") as HTMLElement).onclick = openSharer;
 
-// setSharerRoot();
+openSharer();
