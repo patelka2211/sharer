@@ -17,6 +17,10 @@
             align-items: center;
             justify-content: space-around;
 
+            &:hover {
+                cursor: pointer;
+            }
+
             svg {
                 height: calc(100% - 2px);
                 aspect-ratio: inherit;

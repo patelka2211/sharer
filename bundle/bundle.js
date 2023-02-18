@@ -143,11 +143,20 @@ const elements = {
     sharer_container: () => {
         return document.getElementById("sharer-container");
     },
+    sharer_footer: () => {
+        return document.getElementById("sharer-footer");
+    },
     sharer_window: () => {
         return document.getElementById("sharer-window");
     },
     header_close_icon: () => {
         return document.getElementById("header-close-icon");
+    },
+    header_icon_container: () => {
+        return document.getElementById("header-icon-container");
+    },
+    header_title: () => {
+        return document.getElementById("header-title");
     },
 };
 
@@ -314,6 +323,12 @@ const arrowRightIcon = `<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w
         fill="#91918E" />
 </svg>`;
 
+const arrowLeftIcon = `<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M18.3873 8.38747C18.8748 8.87497 18.8748 9.66247 18.3873 10.15L13.5373 15L18.3873 19.85C18.8748 20.3375 18.8748 21.125 18.3873 21.6125C17.8998 22.1 17.1123 22.1 16.6248 21.6125L10.8873 15.875C10.3998 15.3875 10.3998 14.6 10.8873 14.1125L16.6248 8.37497C17.0998 7.89997 17.8998 7.89997 18.3873 8.38747Z"
+        fill="#91918E" />
+</svg>`;
+
 const applist = {
     wa: {
         id: "wa",
@@ -412,17 +427,36 @@ const applist = {
         },
     },
 };
+const openSharerWebsite = () => {
+    window.open("https://patelka2211.github.io/sharer", "_blank");
+};
+const revertBackToRoot = () => {
+    elements.header_icon_container().innerHTML = sharerIcon;
+    elements.header_icon_container().onclick = openSharerWebsite;
+    elements.header_title().innerText = "Sharer by KP";
+};
+const showAppQR = (appid) => {
+    elements.header_icon_container().innerHTML = arrowLeftIcon;
+    elements.header_icon_container().onclick = revertBackToRoot;
+    elements.header_title().innerText = `Share on ${applist[appid].name}`;
+};
 const applistHtml = () => {
     let applist_html = j2h.setRoot(document.createElement("div"));
-    Object.keys(applist).forEach((key) => {
-        applist_html.append(j2h.element("div", { class: "applist-item" }, [
-            j2h.element("div", { class: "applist-icon-container" }, applist[key].svg),
-            j2h.element("div", { class: "applist-app-name" }, applist[key].name),
+    Object.keys(applist).forEach((id) => {
+        applist_html.append(j2h.element("div", { id: `open-${id}-qr`, class: "applist-item" }, [
+            j2h.element("div", { class: "applist-icon-container" }, applist[id].svg),
+            j2h.element("div", { class: "applist-app-name" }, applist[id].name),
             j2h.element("div", { class: "arrow-right-icon" }, arrowRightIcon),
         ]));
     });
     return applist_html.list;
 };
+
+const closeIcon = `<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M21.6894 8.3212C21.2753 7.90709 20.6064 7.90709 20.1923 8.3212L15 13.5028L9.80774 8.31058C9.39363 7.89647 8.72469 7.89647 8.31058 8.31058C7.89647 8.72469 7.89647 9.39363 8.31058 9.80774L13.5028 15L8.31058 20.1923C7.89647 20.6064 7.89647 21.2753 8.31058 21.6894C8.72469 22.1035 9.39363 22.1035 9.80774 21.6894L15 16.4972L20.1923 21.6894C20.6064 22.1035 21.2753 22.1035 21.6894 21.6894C22.1035 21.2753 22.1035 20.6064 21.6894 20.1923L16.4972 15L21.6894 9.80774C22.0929 9.40425 22.0929 8.72469 21.6894 8.3212Z"
+        fill="#848388" />
+</svg>`;
 
 let continue_to_close = true;
 const resizeSharerByKP = () => {
@@ -442,10 +476,10 @@ const setSharerRoot = () => {
         j2h.element("div", { class: "sharer-header" }, [
             j2h.element("div", { id: "header-icon-container" }, sharerIcon),
             j2h.element("div", { id: "header-title" }, "Sharer by KP"),
-            j2h.element("div", { id: "header-close-icon" }),
+            j2h.element("div", { id: "header-close-icon" }, closeIcon),
         ]),
         j2h.element("div", { id: "sharer-content" }, applistHtml()),
-        j2h.element("div", { id: "sharer-footer" }),
+        j2h.element("div", { id: "sharer-footer" }, j2h.element("div", { id: "sharer-footer-text" }, "Powered by Sharer")),
     ])));
     document.body.prepend(Sharer_By_KP);
     sharer_root.render();
@@ -461,6 +495,15 @@ const openSharer = () => {
     };
     elements.sharer_container().onclick = closeSharer;
     elements.header_close_icon().onclick = closeSharer;
+    [elements.header_icon_container(), elements.sharer_footer()].forEach((element) => {
+        element.onclick = openSharerWebsite;
+    });
+    Object.keys(applist).forEach((id) => {
+        document.getElementById(`open-${id}-qr`).onclick =
+            () => {
+                showAppQR(id);
+            };
+    });
     resizeSharerByKP();
     // window.onresize = resizeSharerByKP;
 };

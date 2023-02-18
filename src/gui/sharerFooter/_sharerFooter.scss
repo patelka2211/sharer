@@ -3,7 +3,22 @@
         height: 50px;
         width: 100%;
         margin-top: 21px;
-        background-color: #f6f6f6;
+        background-color: rgba(52, 121, 246, 0.16);
         border-radius: 18px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        #sharer-footer-text {
+            font-size: 20px;
+            font-weight: 600;
+            color: rgb(52, 121, 246);
+        }
     }
 }

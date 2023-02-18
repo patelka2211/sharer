@@ -5,11 +5,20 @@ const elements = {
     sharer_container: () => {
         return document.getElementById("sharer-container") as HTMLElement;
     },
+    sharer_footer: () => {
+        return document.getElementById("sharer-footer") as HTMLElement;
+    },
     sharer_window: () => {
         return document.getElementById("sharer-window") as HTMLElement;
     },
     header_close_icon: () => {
         return document.getElementById("header-close-icon") as HTMLElement;
+    },
+    header_icon_container: () => {
+        return document.getElementById("header-icon-container") as HTMLElement;
+    },
+    header_title: () => {
+        return document.getElementById("header-title") as HTMLElement;
     },
 };
 

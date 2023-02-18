@@ -10,8 +10,11 @@ import kooIcon from "./assets/appicons/kooIcon";
 import tgIcon from "./assets/appicons/tgIcon";
 import j2h from "../../j2h";
 import arrowRightIcon from "./assets/arrowRightIcon";
+import elements from "../element";
+import arrowLeftIcon from "../sharerHeader/assets/arrowLeftIcon";
+import sharerIcon from "../assets/sharerIcon";
 
-const applist: {
+export const applist: {
     [_: string]: {
         id: string;
         name: string;
@@ -138,21 +141,37 @@ const applist: {
     },
 };
 
+export const openSharerWebsite = () => {
+    window.open("https://patelka2211.github.io/sharer", "_blank");
+};
+
+const revertBackToRoot = () => {
+    elements.header_icon_container().innerHTML = sharerIcon;
+    elements.header_icon_container().onclick = openSharerWebsite;
+    elements.header_title().innerText = "Sharer by KP";
+};
+
+export const showAppQR = (appid: string) => {
+    elements.header_icon_container().innerHTML = arrowLeftIcon;
+    elements.header_icon_container().onclick = revertBackToRoot;
+    elements.header_title().innerText = `Share on ${applist[appid].name}`;
+};
+
 export const applistHtml = () => {
     let applist_html = j2h.setRoot(document.createElement("div"));
 
-    Object.keys(applist).forEach((key) => {
+    Object.keys(applist).forEach((id) => {
         applist_html.append(
-            j2h.element("div", { class: "applist-item" }, [
+            j2h.element("div", { id: `open-${id}-qr`, class: "applist-item" }, [
                 j2h.element(
                     "div",
                     { class: "applist-icon-container" },
-                    applist[key].svg
+                    applist[id].svg
                 ),
                 j2h.element(
                     "div",
                     { class: "applist-app-name" },
-                    applist[key].name
+                    applist[id].name
                 ),
                 j2h.element(
                     "div",

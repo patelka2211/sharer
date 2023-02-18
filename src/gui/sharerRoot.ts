@@ -1,7 +1,13 @@
 import j2h from "../j2h";
 import sharerIcon from "./assets/sharerIcon";
 import elements from "./element";
-import { applistHtml } from "./sharerContent/applist";
+import {
+    applist,
+    applistHtml,
+    openSharerWebsite,
+    showAppQR,
+} from "./sharerContent/applist";
+import closeIcon from "./sharerHeader/assets/closeIcon";
 
 let continue_to_close = true,
     resizeLock = false;
@@ -36,10 +42,18 @@ const setSharerRoot = () => {
                         sharerIcon
                     ),
                     j2h.element("div", { id: "header-title" }, "Sharer by KP"),
-                    j2h.element("div", { id: "header-close-icon" }),
+                    j2h.element("div", { id: "header-close-icon" }, closeIcon),
                 ]),
                 j2h.element("div", { id: "sharer-content" }, applistHtml()),
-                j2h.element("div", { id: "sharer-footer" }),
+                j2h.element(
+                    "div",
+                    { id: "sharer-footer" },
+                    j2h.element(
+                        "div",
+                        { id: "sharer-footer-text" },
+                        "Powered by Sharer"
+                    )
+                ),
             ])
         )
     );
@@ -62,6 +76,19 @@ export const openSharer = () => {
 
     elements.sharer_container().onclick = closeSharer;
     elements.header_close_icon().onclick = closeSharer;
+
+    [elements.header_icon_container(), elements.sharer_footer()].forEach(
+        (element) => {
+            element.onclick = openSharerWebsite;
+        }
+    );
+
+    Object.keys(applist).forEach((id) => {
+        (document.getElementById(`open-${id}-qr`) as HTMLElement).onclick =
+            () => {
+                showAppQR(id);
+            };
+    });
 
     resizeSharerByKP();
 
