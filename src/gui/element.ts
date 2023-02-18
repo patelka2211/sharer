@@ -8,6 +8,9 @@ const elements = {
     sharer_window: () => {
         return document.getElementById("sharer-window") as HTMLElement;
     },
+    header_close_icon: () => {
+        return document.getElementById("header-close-icon") as HTMLElement;
+    },
 };
 
 export default elements;

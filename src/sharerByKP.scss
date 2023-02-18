@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 @import "./gui/sharerContainer";
 
 body {
     margin: 0;
 
     #sharer-by-KP {
+        font-family: "Inter", sans-serif;
         position: fixed;
         width: 100vw;
         height: 100vh;

@@ -3,7 +3,52 @@
         width: 100%;
         aspect-ratio: 1;
         overflow: auto;
-        background-color: #f6f6f6;
+        // background-color: #f6f6f6;
         border-radius: 18px;
+
+        .applist-item {
+            width: calc(100% - 20px);
+            height: 30px;
+            padding: 10px;
+            border-radius: 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &:hover {
+                background-color: #f6f6f6;
+                cursor: pointer;
+            }
+
+            .applist-icon-container {
+                height: 100%;
+                aspect-ratio: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                background-color: #f6f6f6;
+                border-radius: 7px;
+
+                svg {
+                    height: calc(100% - 2px);
+                    aspect-ratio: 1;
+                }
+            }
+
+            .applist-app-name {
+                width: calc(100% - 76px);
+                display: inline-block;
+                white-space: nowrap;
+                overflow: hidden !important;
+                text-overflow: ellipsis;
+            }
+
+            .arrow-right-icon {
+                height: 100%;
+                aspect-ratio: 1;
+            }
+        }
     }
 }
