@@ -14,7 +14,7 @@ import elements from "../element";
 import arrowLeftIcon from "../sharerHeader/assets/arrowLeftIcon";
 import sharerIcon from "../assets/sharerIcon";
 
-export const applist: {
+const applist: {
     [_: string]: {
         id: string;
         name: string;
@@ -149,16 +149,20 @@ const revertBackToRoot = () => {
     elements.header_icon_container().innerHTML = sharerIcon;
     elements.header_icon_container().onclick = openSharerWebsite;
     elements.header_title().innerText = "Sharer by KP";
+
+    setApplistHtml();
 };
 
-export const showAppQR = (appid: string) => {
+const showAppQR = (appid: string) => {
     elements.header_icon_container().innerHTML = arrowLeftIcon;
     elements.header_icon_container().onclick = revertBackToRoot;
     elements.header_title().innerText = `Share on ${applist[appid].name}`;
+
+    elements.sharer_content().innerHTML = "";
 };
 
-export const applistHtml = () => {
-    let applist_html = j2h.setRoot(document.createElement("div"));
+export const setApplistHtml = () => {
+    let applist_html = j2h.setRoot(elements.sharer_content());
 
     Object.keys(applist).forEach((id) => {
         applist_html.append(
@@ -182,5 +186,12 @@ export const applistHtml = () => {
         );
     });
 
-    return applist_html.list;
+    applist_html.render();
+
+    Object.keys(applist).forEach((id) => {
+        (document.getElementById(`open-${id}-qr`) as HTMLElement).onclick =
+            () => {
+                showAppQR(id);
+            };
+    });
 };

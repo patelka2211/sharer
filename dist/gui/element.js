@@ -11,6 +11,9 @@ const elements = {
     sharer_window: () => {
         return document.getElementById("sharer-window");
     },
+    sharer_content: () => {
+        return document.getElementById("sharer-content");
+    },
     header_close_icon: () => {
         return document.getElementById("header-close-icon");
     },

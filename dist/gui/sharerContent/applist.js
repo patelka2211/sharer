@@ -13,7 +13,7 @@ import arrowRightIcon from "./assets/arrowRightIcon";
 import elements from "../element";
 import arrowLeftIcon from "../sharerHeader/assets/arrowLeftIcon";
 import sharerIcon from "../assets/sharerIcon";
-export const applist = {
+const applist = {
     wa: {
         id: "wa",
         name: "WhatsApp",
@@ -118,14 +118,16 @@ const revertBackToRoot = () => {
     elements.header_icon_container().innerHTML = sharerIcon;
     elements.header_icon_container().onclick = openSharerWebsite;
     elements.header_title().innerText = "Sharer by KP";
+    setApplistHtml();
 };
-export const showAppQR = (appid) => {
+const showAppQR = (appid) => {
     elements.header_icon_container().innerHTML = arrowLeftIcon;
     elements.header_icon_container().onclick = revertBackToRoot;
     elements.header_title().innerText = `Share on ${applist[appid].name}`;
+    elements.sharer_content().innerHTML = "";
 };
-export const applistHtml = () => {
-    let applist_html = j2h.setRoot(document.createElement("div"));
+export const setApplistHtml = () => {
+    let applist_html = j2h.setRoot(elements.sharer_content());
     Object.keys(applist).forEach((id) => {
         applist_html.append(j2h.element("div", { id: `open-${id}-qr`, class: "applist-item" }, [
             j2h.element("div", { class: "applist-icon-container" }, applist[id].svg),
@@ -133,5 +135,11 @@ export const applistHtml = () => {
             j2h.element("div", { class: "arrow-right-icon" }, arrowRightIcon),
         ]));
     });
-    return applist_html.list;
+    applist_html.render();
+    Object.keys(applist).forEach((id) => {
+        document.getElementById(`open-${id}-qr`).onclick =
+            () => {
+                showAppQR(id);
+            };
+    });
 };

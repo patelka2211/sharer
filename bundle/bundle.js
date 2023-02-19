@@ -149,6 +149,9 @@ const elements = {
     sharer_window: () => {
         return document.getElementById("sharer-window");
     },
+    sharer_content: () => {
+        return document.getElementById("sharer-content");
+    },
     header_close_icon: () => {
         return document.getElementById("header-close-icon");
     },
@@ -434,14 +437,16 @@ const revertBackToRoot = () => {
     elements.header_icon_container().innerHTML = sharerIcon;
     elements.header_icon_container().onclick = openSharerWebsite;
     elements.header_title().innerText = "Sharer by KP";
+    setApplistHtml();
 };
 const showAppQR = (appid) => {
     elements.header_icon_container().innerHTML = arrowLeftIcon;
     elements.header_icon_container().onclick = revertBackToRoot;
     elements.header_title().innerText = `Share on ${applist[appid].name}`;
+    elements.sharer_content().innerHTML = "";
 };
-const applistHtml = () => {
-    let applist_html = j2h.setRoot(document.createElement("div"));
+const setApplistHtml = () => {
+    let applist_html = j2h.setRoot(elements.sharer_content());
     Object.keys(applist).forEach((id) => {
         applist_html.append(j2h.element("div", { id: `open-${id}-qr`, class: "applist-item" }, [
             j2h.element("div", { class: "applist-icon-container" }, applist[id].svg),
@@ -449,7 +454,13 @@ const applistHtml = () => {
             j2h.element("div", { class: "arrow-right-icon" }, arrowRightIcon),
         ]));
     });
-    return applist_html.list;
+    applist_html.render();
+    Object.keys(applist).forEach((id) => {
+        document.getElementById(`open-${id}-qr`).onclick =
+            () => {
+                showAppQR(id);
+            };
+    });
 };
 
 const closeIcon = `<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -458,15 +469,15 @@ const closeIcon = `<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org
         fill="#848388" />
 </svg>`;
 
-let continue_to_close = true;
+let continue_to_close = true, resizeLock = false;
 const resizeSharerByKP = () => {
-    // if (resizeLock) return;
-    // resizeLock = true;
-    // setTimeout(() => {
-    //     resizeLock = false;
-    //     elements.sharer_by_KP().style.height = `${document.documentElement.scrollHeight}px`;
-    // }, 500);
-    elements.sharer_by_KP().style.height = `${document.documentElement.scrollHeight}px`;
+    if (resizeLock)
+        return;
+    resizeLock = true;
+    setTimeout(() => {
+        resizeLock = false;
+        elements.sharer_by_KP().style.height = `${document.documentElement.scrollHeight}px`;
+    }, 500);
 };
 const setSharerRoot = () => {
     const Sharer_By_KP = document.createElement("div");
@@ -478,7 +489,7 @@ const setSharerRoot = () => {
             j2h.element("div", { id: "header-title" }, "Sharer by KP"),
             j2h.element("div", { id: "header-close-icon" }, closeIcon),
         ]),
-        j2h.element("div", { id: "sharer-content" }, applistHtml()),
+        j2h.element("div", { id: "sharer-content" }),
         j2h.element("div", { id: "sharer-footer" }, j2h.element("div", { id: "sharer-footer-text" }, "Powered by Sharer")),
     ])));
     document.body.prepend(Sharer_By_KP);
@@ -498,14 +509,9 @@ const openSharer = () => {
     [elements.header_icon_container(), elements.sharer_footer()].forEach((element) => {
         element.onclick = openSharerWebsite;
     });
-    Object.keys(applist).forEach((id) => {
-        document.getElementById(`open-${id}-qr`).onclick =
-            () => {
-                showAppQR(id);
-            };
-    });
+    setApplistHtml();
     resizeSharerByKP();
-    // window.onresize = resizeSharerByKP;
+    window.addEventListener("resize", resizeSharerByKP);
 };
 const closeSharer = () => {
     if (continue_to_close) {
@@ -514,7 +520,7 @@ const closeSharer = () => {
             elements.sharer_by_KP().classList.add("hide");
             setTimeout(() => {
                 elements.sharer_by_KP().remove();
-                window.onresize = () => { };
+                window.removeEventListener("resize", resizeSharerByKP);
             }, 100);
         }, 300);
     }

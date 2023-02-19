@@ -1,26 +1,20 @@
 import j2h from "../j2h";
 import sharerIcon from "./assets/sharerIcon";
 import elements from "./element";
-import {
-    applist,
-    applistHtml,
-    openSharerWebsite,
-    showAppQR,
-} from "./sharerContent/applist";
+import { openSharerWebsite, setApplistHtml } from "./sharerContent/applist";
 import closeIcon from "./sharerHeader/assets/closeIcon";
 
 let continue_to_close = true,
     resizeLock = false;
 
 const resizeSharerByKP = () => {
-    // if (resizeLock) return;
+    if (resizeLock) return;
 
-    // resizeLock = true;
-    // setTimeout(() => {
-    //     resizeLock = false;
-    //     elements.sharer_by_KP().style.height = `${document.documentElement.scrollHeight}px`;
-    // }, 500);
-    elements.sharer_by_KP().style.height = `${document.documentElement.scrollHeight}px`;
+    resizeLock = true;
+    setTimeout(() => {
+        resizeLock = false;
+        elements.sharer_by_KP().style.height = `${document.documentElement.scrollHeight}px`;
+    }, 500);
 };
 
 const setSharerRoot = () => {
@@ -44,7 +38,7 @@ const setSharerRoot = () => {
                     j2h.element("div", { id: "header-title" }, "Sharer by KP"),
                     j2h.element("div", { id: "header-close-icon" }, closeIcon),
                 ]),
-                j2h.element("div", { id: "sharer-content" }, applistHtml()),
+                j2h.element("div", { id: "sharer-content" }),
                 j2h.element(
                     "div",
                     { id: "sharer-footer" },
@@ -83,16 +77,10 @@ export const openSharer = () => {
         }
     );
 
-    Object.keys(applist).forEach((id) => {
-        (document.getElementById(`open-${id}-qr`) as HTMLElement).onclick =
-            () => {
-                showAppQR(id);
-            };
-    });
+    setApplistHtml();
 
     resizeSharerByKP();
-
-    // window.onresize = resizeSharerByKP;
+    window.addEventListener("resize", resizeSharerByKP);
 };
 
 const closeSharer = () => {
@@ -102,7 +90,7 @@ const closeSharer = () => {
             elements.sharer_by_KP().classList.add("hide");
             setTimeout(() => {
                 elements.sharer_by_KP().remove();
-                window.onresize = () => {};
+                window.removeEventListener("resize", resizeSharerByKP);
             }, 100);
         }, 300);
     }
