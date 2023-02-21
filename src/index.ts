@@ -1,5 +1,15 @@
+import cdn from "./cdn";
 import { openSharer } from "./gui/sharerRoot";
 
-(document.getElementById("share-this") as HTMLElement).onclick = openSharer;
+const link = document.createElement("link");
 
-openSharer();
+link.setAttribute("rel", "stylesheet");
+link.setAttribute("href", cdn.getPath(["bundle", "sharerByKP.css"]));
+
+document.head.appendChild(link);
+
+window.addEventListener("load", () => {
+    (document.getElementById("share-this") as HTMLElement).onclick = openSharer;
+
+    // openSharer();
+});

@@ -1,8 +1,11 @@
 import j2h from "../j2h";
-import sharerIcon from "./assets/sharerIcon";
 import elements from "./element";
-import { openSharerWebsite, setApplistHtml } from "./sharerContent/applist";
-import closeIcon from "./sharerHeader/assets/closeIcon";
+import {
+    isAppQROpen,
+    openSharerWebsite,
+    setApplistHtml,
+} from "./sharerContent/applist";
+import svgs from "./svgs";
 
 let continue_to_close = true,
     resizeLock = false;
@@ -13,7 +16,16 @@ const resizeSharerByKP = () => {
     resizeLock = true;
     setTimeout(() => {
         resizeLock = false;
-        elements.sharer_by_KP().style.height = `${document.documentElement.scrollHeight}px`;
+
+        elements.sharer_container().style.height = `${
+            document.documentElement.clientHeight - 12
+        }px`;
+
+        if (isAppQROpen()) {
+            elements.sharer_content().style.height = `${
+                elements.sharer_content().offsetWidth + 51
+            }px`;
+        }
     }, 500);
 };
 
@@ -33,10 +45,14 @@ const setSharerRoot = () => {
                     j2h.element(
                         "div",
                         { id: "header-icon-container" },
-                        sharerIcon
+                        svgs.sharerIcon
                     ),
                     j2h.element("div", { id: "header-title" }, "Sharer by KP"),
-                    j2h.element("div", { id: "header-close-icon" }, closeIcon),
+                    j2h.element(
+                        "div",
+                        { id: "header-close-icon" },
+                        svgs.closeIcon
+                    ),
                 ]),
                 j2h.element("div", { id: "sharer-content" }),
                 j2h.element(
@@ -57,6 +73,10 @@ const setSharerRoot = () => {
 };
 
 export const openSharer = () => {
+    try {
+        (document.getElementById("sharer-by-KP") as HTMLElement).remove();
+    } catch (error) {}
+
     setSharerRoot();
 
     setTimeout(() => {
@@ -81,6 +101,7 @@ export const openSharer = () => {
 
     resizeSharerByKP();
     window.addEventListener("resize", resizeSharerByKP);
+    document.body.classList.add("sharer-opened");
 };
 
 const closeSharer = () => {
@@ -93,6 +114,7 @@ const closeSharer = () => {
                 window.removeEventListener("resize", resizeSharerByKP);
             }, 100);
         }, 300);
+        document.body.classList.remove("sharer-opened");
     }
 
     continue_to_close = true;

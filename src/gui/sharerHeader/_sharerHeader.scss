@@ -21,7 +21,7 @@
                 cursor: pointer;
             }
 
-            svg {
+            img {
                 height: calc(100% - 2px);
                 aspect-ratio: inherit;
             }
@@ -50,6 +50,11 @@
 
             &:hover {
                 cursor: pointer;
+            }
+
+            img {
+                height: 100%;
+                aspect-ratio: 1;
             }
         }
     }

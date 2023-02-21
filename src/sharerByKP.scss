@@ -31,6 +31,10 @@ body {
 
         @include sharerContainer();
     }
+
+    &.sharer-opened {
+        overflow: hidden;
+    }
 }
 
 @media (max-width: 500px) {

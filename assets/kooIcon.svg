@@ -1,4 +1,4 @@
-const kooIcon = `<svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="512" height="512" rx="116" fill="white" />
     <g clip-path="url(#clip0_55_22)">
         <path
@@ -28,5 +28,4 @@ const kooIcon = `<svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org
             <rect width="299.796" height="430.08" fill="white" transform="translate(106 41)" />
         </clipPath>
     </defs>
-</svg>`;
-export default kooIcon;
+</svg>

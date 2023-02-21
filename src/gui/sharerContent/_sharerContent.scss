@@ -31,7 +31,8 @@
                 background-color: #f6f6f6;
                 border-radius: 7px;
 
-                svg {
+                // svg {
+                img {
                     height: calc(100% - 2px);
                     aspect-ratio: 1;
                 }
@@ -48,6 +49,11 @@
             .arrow-right-icon {
                 height: 100%;
                 aspect-ratio: 1;
+
+                img {
+                    height: 100%;
+                    aspect-ratio: 1;
+                }
             }
         }
     }

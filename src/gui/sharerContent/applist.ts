@@ -1,25 +1,26 @@
-import waIcon from "./assets/appicons/waIcon";
-import fbIcon from "./assets/appicons/fbIcon";
-import twIcon from "./assets/appicons/twIcon";
-import emlIcon from "./assets/appicons/emlIcon";
-import lnkdnIcon from "./assets/appicons/lnkdnIcon";
-import pntrstIcon from "./assets/appicons/pntrstIcon";
-import rdtIcon from "./assets/appicons/rdtIcon";
-import snpchtIcon from "./assets/appicons/snpchtIcon";
-import kooIcon from "./assets/appicons/kooIcon";
-import tgIcon from "./assets/appicons/tgIcon";
 import j2h from "../../j2h";
-import arrowRightIcon from "./assets/arrowRightIcon";
 import elements from "../element";
-import arrowLeftIcon from "../sharerHeader/assets/arrowLeftIcon";
-import sharerIcon from "../assets/sharerIcon";
+import svgs from "../svgs";
+
+let isQROpen = false;
+
+// export const openAppQR = () => {
+//     isQROpen = true;
+// };
+
+// export const closeAppQR = () => {
+//     isQROpen = false;
+// };
+
+export const isAppQROpen = () => {
+    return isQROpen;
+};
 
 const applist: {
     [_: string]: {
         id: string;
         name: string;
         theme: { primary: string; secondary: string };
-        svg: string;
         url_format: Function;
     };
 } = {
@@ -27,7 +28,6 @@ const applist: {
         id: "wa",
         name: "WhatsApp",
         theme: { primary: "#25D366", secondary: "#ffffff" },
-        svg: waIcon,
         url_format: (input_url: string, platform = "mobile", text = "") => {
             if (text != "") text += "\n";
 
@@ -42,7 +42,6 @@ const applist: {
         id: "fb",
         name: "Facebook",
         theme: { primary: "#0c87ef", secondary: "#ffffff" },
-        svg: fbIcon,
         url_format: (input_url: string, text = "") => {
             return `https://www.facebook.com/sharer/sharer.php?t=${encodeURIComponent(
                 text
@@ -53,7 +52,6 @@ const applist: {
         id: "tw",
         name: "Twitter",
         theme: { primary: "#1D9BF0", secondary: "#ffffff" },
-        svg: twIcon,
         url_format: (input_url: string, text = "") => {
             return `https://twitter.com/intent/tweet?text=${encodeURIComponent(
                 text
@@ -64,7 +62,6 @@ const applist: {
         id: "eml",
         name: "Email",
         theme: { primary: "#EA4335", secondary: "#ffffff" },
-        svg: emlIcon,
         url_format: (body: string, subject = "") => {
             return `mailto:?subject=${encodeURIComponent(
                 subject
@@ -75,7 +72,6 @@ const applist: {
         id: "lnkdn",
         name: "LinkedIn",
         theme: { primary: "#0A66C2", secondary: "#ffffff" },
-        svg: lnkdnIcon,
         url_format: (input_url: string, text = "") => {
             if (text != "") text += "\n";
             return `https://www.linkedin.com/cws/share?url=${encodeURIComponent(
@@ -87,7 +83,6 @@ const applist: {
         id: "pntrst",
         name: "Pinterest",
         theme: { primary: "#E60123", secondary: "#ffffff" },
-        svg: pntrstIcon,
         url_format: (input_url: string, text = "") => {
             return `https://www.pinterest.com/pin/create/button/?description=${encodeURIComponent(
                 text
@@ -98,7 +93,6 @@ const applist: {
         id: "rdt",
         name: "Reddit",
         theme: { primary: "#e45b34", secondary: "#ffffff" },
-        svg: rdtIcon,
         url_format: (input_url: string, text = "") => {
             return `https://reddit.com/submit?title=${encodeURIComponent(
                 text
@@ -109,7 +103,6 @@ const applist: {
         id: "snpcht",
         name: "Snapchat",
         theme: { primary: "#fffC00", secondary: "#000000" },
-        svg: snpchtIcon,
         url_format: (input_url: string) => {
             return `https://snapchat.com/scan?attachmentUrl=${encodeURIComponent(
                 input_url
@@ -120,7 +113,6 @@ const applist: {
         id: "koo",
         name: "Koo",
         theme: { primary: "#FACD00", secondary: "#383838" },
-        svg: kooIcon,
         url_format: (input_url: string, text = "") => {
             if (text != "") text += "\n";
             return `https://www.kooapp.com/create?title=${encodeURIComponent(
@@ -132,7 +124,6 @@ const applist: {
         id: "tg",
         name: "Telegram",
         theme: { primary: "#2aa1da", secondary: "#ffffff" },
-        svg: tgIcon,
         url_format: (input_url: string, text = "") => {
             return `https://t.me/share/url?url=${encodeURIComponent(
                 input_url
@@ -142,11 +133,11 @@ const applist: {
 };
 
 export const openSharerWebsite = () => {
-    window.open("https://patelka2211.github.io/sharer", "_blank");
+    window.open("https://patelka2211.github.io/sharer/", "_blank");
 };
 
 const revertBackToRoot = () => {
-    elements.header_icon_container().innerHTML = sharerIcon;
+    elements.header_icon_container().innerHTML = svgs.sharerIcon;
     elements.header_icon_container().onclick = openSharerWebsite;
 
     elements.header_title().innerText = "Sharer by KP";
@@ -155,10 +146,12 @@ const revertBackToRoot = () => {
     elements.sharer_content().style.aspectRatio = "1";
 
     setApplistHtml();
+
+    isQROpen = false;
 };
 
 const showAppQR = (appid: string) => {
-    elements.header_icon_container().innerHTML = arrowLeftIcon;
+    elements.header_icon_container().innerHTML = svgs.arrowLeftIcon;
     elements.header_icon_container().onclick = revertBackToRoot;
     elements.header_title().innerText = `Share on ${applist[appid].name}`;
 
@@ -172,6 +165,8 @@ const showAppQR = (appid: string) => {
     elements.sharer_content().style.height = `${
         elements.sharer_content().offsetHeight + 51
     }px`;
+
+    isQROpen = true;
 };
 
 export const setApplistHtml = () => {
@@ -183,7 +178,7 @@ export const setApplistHtml = () => {
                 j2h.element(
                     "div",
                     { class: "applist-icon-container" },
-                    applist[id].svg
+                    svgs[id]
                 ),
                 j2h.element(
                     "div",
@@ -193,7 +188,7 @@ export const setApplistHtml = () => {
                 j2h.element(
                     "div",
                     { class: "arrow-right-icon" },
-                    arrowRightIcon
+                    svgs.arrowRightIcon
                 ),
             ])
         );
