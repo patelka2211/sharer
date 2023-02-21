@@ -44,8 +44,8 @@ const setSharerRoot = () => {
                     { id: "sharer-footer" },
                     j2h.element(
                         "div",
-                        { id: "sharer-footer-text" },
-                        "Powered by Sharer"
+                        { id: "sharer-footer-text" }
+                        // "Powered by Sharer"
                     )
                 ),
             ])

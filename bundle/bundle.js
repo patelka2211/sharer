@@ -146,6 +146,9 @@ const elements = {
     sharer_footer: () => {
         return document.getElementById("sharer-footer");
     },
+    sharer_footer_text: () => {
+        return document.getElementById("sharer-footer-text");
+    },
     sharer_window: () => {
         return document.getElementById("sharer-window");
     },
@@ -437,13 +440,20 @@ const revertBackToRoot = () => {
     elements.header_icon_container().innerHTML = sharerIcon;
     elements.header_icon_container().onclick = openSharerWebsite;
     elements.header_title().innerText = "Sharer by KP";
+    elements.sharer_content().style.height = "auto";
+    elements.sharer_content().style.aspectRatio = "1";
     setApplistHtml();
 };
 const showAppQR = (appid) => {
     elements.header_icon_container().innerHTML = arrowLeftIcon;
     elements.header_icon_container().onclick = revertBackToRoot;
     elements.header_title().innerText = `Share on ${applist[appid].name}`;
+    elements.sharer_footer_text().innerText = `Open ${applist[appid].name}`;
+    elements.sharer_footer_text().style.color = applist[appid].theme.secondary;
+    elements.sharer_footer().style.backgroundColor =
+        applist[appid].theme.primary;
     elements.sharer_content().innerHTML = "";
+    elements.sharer_content().style.height = `${elements.sharer_content().offsetHeight + 51}px`;
 };
 const setApplistHtml = () => {
     let applist_html = j2h.setRoot(elements.sharer_content());
@@ -461,6 +471,9 @@ const setApplistHtml = () => {
                 showAppQR(id);
             };
     });
+    elements.sharer_footer_text().innerText = "Powered by Sharer";
+    elements.sharer_footer().style.backgroundColor = "#3479f614";
+    elements.sharer_footer_text().style.color = "#3479f6";
 };
 
 const closeIcon = `<svg viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -490,7 +503,9 @@ const setSharerRoot = () => {
             j2h.element("div", { id: "header-close-icon" }, closeIcon),
         ]),
         j2h.element("div", { id: "sharer-content" }),
-        j2h.element("div", { id: "sharer-footer" }, j2h.element("div", { id: "sharer-footer-text" }, "Powered by Sharer")),
+        j2h.element("div", { id: "sharer-footer" }, j2h.element("div", { id: "sharer-footer-text" }
+        // "Powered by Sharer"
+        )),
     ])));
     document.body.prepend(Sharer_By_KP);
     sharer_root.render();

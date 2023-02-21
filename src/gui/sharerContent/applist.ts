@@ -148,7 +148,11 @@ export const openSharerWebsite = () => {
 const revertBackToRoot = () => {
     elements.header_icon_container().innerHTML = sharerIcon;
     elements.header_icon_container().onclick = openSharerWebsite;
+
     elements.header_title().innerText = "Sharer by KP";
+
+    elements.sharer_content().style.height = "auto";
+    elements.sharer_content().style.aspectRatio = "1";
 
     setApplistHtml();
 };
@@ -158,7 +162,16 @@ const showAppQR = (appid: string) => {
     elements.header_icon_container().onclick = revertBackToRoot;
     elements.header_title().innerText = `Share on ${applist[appid].name}`;
 
+    elements.sharer_footer_text().innerText = `Open ${applist[appid].name}`;
+    elements.sharer_footer_text().style.color = applist[appid].theme.secondary;
+
+    elements.sharer_footer().style.backgroundColor =
+        applist[appid].theme.primary;
+
     elements.sharer_content().innerHTML = "";
+    elements.sharer_content().style.height = `${
+        elements.sharer_content().offsetHeight + 51
+    }px`;
 };
 
 export const setApplistHtml = () => {
@@ -194,4 +207,9 @@ export const setApplistHtml = () => {
                 showAppQR(id);
             };
     });
+
+    elements.sharer_footer_text().innerText = "Powered by Sharer";
+
+    elements.sharer_footer().style.backgroundColor = "#3479f614";
+    elements.sharer_footer_text().style.color = "#3479f6";
 };

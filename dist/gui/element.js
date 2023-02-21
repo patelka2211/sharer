@@ -8,6 +8,9 @@ const elements = {
     sharer_footer: () => {
         return document.getElementById("sharer-footer");
     },
+    sharer_footer_text: () => {
+        return document.getElementById("sharer-footer-text");
+    },
     sharer_window: () => {
         return document.getElementById("sharer-window");
     },
