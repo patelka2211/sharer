@@ -1,5 +1,5 @@
 const cdn = {
-    url: "http://192.168.1.6:5500/",
+    url: "http://192.168.1.4:5500/",
     // url: "http://localhost:5500/",
     getPath: (path) => {
         if (typeof path === "string")
@@ -125,7 +125,10 @@ const elements = {
 };
 
 const getCDNsvgs = (filename) => {
-    return `<img src="${cdn.getPath(["assets", filename])}"/>`;
+    return j2h.element("img", {
+        src: cdn.getPath(["assets", filename]),
+    });
+    // return `<img src="${cdn.getPath(["assets", filename])}"/>`;
 };
 const svgs = {
     sharerIcon: getCDNsvgs("sharerIcon.svg"),
@@ -142,6 +145,18 @@ const svgs = {
     snpcht: getCDNsvgs("snpchtIcon.svg"),
     koo: getCDNsvgs("kooIcon.svg"),
     tg: getCDNsvgs("tgIcon.svg"),
+};
+
+const setSharerCard = () => {
+    let sharer_content = j2h.setRoot(elements.sharer_content());
+    sharer_content
+        .append(j2h.element("div", { class: "sharer-qr-container" }))
+        .append(j2h.element("div", { class: "sharer-credits" }, j2h.element("div", { class: "credits-container" }, [
+        j2h.element("div", { class: "credits-icon-container" }, svgs.sharerIcon),
+        j2h.element("div", { class: "credits-text" }, "Powered by Sharer"),
+    ])));
+    sharer_content.render();
+    elements.sharer_content().style.height = `${elements.sharer_content().offsetWidth + 51}px`;
 };
 
 let isQROpen = false;
@@ -246,7 +261,9 @@ const openSharerWebsite = () => {
     window.open("https://patelka2211.github.io/sharer/", "_blank");
 };
 const revertBackToRoot = () => {
-    elements.header_icon_container().innerHTML = svgs.sharerIcon;
+    j2h.setRoot(elements.header_icon_container())
+        .append(svgs.sharerIcon)
+        .render();
     elements.header_icon_container().onclick = openSharerWebsite;
     elements.header_title().innerText = "Sharer by KP";
     elements.sharer_content().style.height = "auto";
@@ -255,15 +272,17 @@ const revertBackToRoot = () => {
     isQROpen = false;
 };
 const showAppQR = (appid) => {
-    elements.header_icon_container().innerHTML = svgs.arrowLeftIcon;
+    j2h.setRoot(elements.header_icon_container())
+        .append(svgs.arrowLeftIcon)
+        .render();
     elements.header_icon_container().onclick = revertBackToRoot;
     elements.header_title().innerText = `Share on ${applist[appid].name}`;
     elements.sharer_footer_text().innerText = `Open ${applist[appid].name}`;
     elements.sharer_footer_text().style.color = applist[appid].theme.secondary;
     elements.sharer_footer().style.backgroundColor =
         applist[appid].theme.primary;
-    elements.sharer_content().innerHTML = "";
     elements.sharer_content().style.height = `${elements.sharer_content().offsetHeight + 51}px`;
+    setSharerCard();
     isQROpen = true;
 };
 const setApplistHtml = () => {

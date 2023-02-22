@@ -1,10 +1,16 @@
 import cdn from "../cdn";
+import j2h from "../j2h";
 
 const getCDNsvgs = (filename: string) => {
-    return `<img src="${cdn.getPath(["assets", filename])}"/>`;
+    return j2h.element("img", {
+        src: cdn.getPath(["assets", filename]),
+    });
+    // return `<img src="${cdn.getPath(["assets", filename])}"/>`;
 };
 
-const svgs: { [_: string]: string } = {
+const svgs: {
+    [_: string]: any;
+} = {
     sharerIcon: getCDNsvgs("sharerIcon.svg"),
     closeIcon: getCDNsvgs("closeIcon.svg"),
     arrowRightIcon: getCDNsvgs("arrowRightIcon.svg"),

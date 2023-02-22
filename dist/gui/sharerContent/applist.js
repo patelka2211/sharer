@@ -1,6 +1,7 @@
 import j2h from "../../j2h";
 import elements from "../element";
 import svgs from "../svgs";
+import { setSharerCard } from "./sharerCard";
 let isQROpen = false;
 // export const openAppQR = () => {
 //     isQROpen = true;
@@ -103,7 +104,9 @@ export const openSharerWebsite = () => {
     window.open("https://patelka2211.github.io/sharer/", "_blank");
 };
 const revertBackToRoot = () => {
-    elements.header_icon_container().innerHTML = svgs.sharerIcon;
+    j2h.setRoot(elements.header_icon_container())
+        .append(svgs.sharerIcon)
+        .render();
     elements.header_icon_container().onclick = openSharerWebsite;
     elements.header_title().innerText = "Sharer by KP";
     elements.sharer_content().style.height = "auto";
@@ -112,15 +115,17 @@ const revertBackToRoot = () => {
     isQROpen = false;
 };
 const showAppQR = (appid) => {
-    elements.header_icon_container().innerHTML = svgs.arrowLeftIcon;
+    j2h.setRoot(elements.header_icon_container())
+        .append(svgs.arrowLeftIcon)
+        .render();
     elements.header_icon_container().onclick = revertBackToRoot;
     elements.header_title().innerText = `Share on ${applist[appid].name}`;
     elements.sharer_footer_text().innerText = `Open ${applist[appid].name}`;
     elements.sharer_footer_text().style.color = applist[appid].theme.secondary;
     elements.sharer_footer().style.backgroundColor =
         applist[appid].theme.primary;
-    elements.sharer_content().innerHTML = "";
     elements.sharer_content().style.height = `${elements.sharer_content().offsetHeight + 51}px`;
+    setSharerCard();
     isQROpen = true;
 };
 export const setApplistHtml = () => {
