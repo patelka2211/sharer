@@ -10,7 +10,7 @@ import svgs from "./svgs";
 let continue_to_close = true,
     resizeLock = false;
 
-const resizeSharerByKP = () => {
+function resizeSharerByKP() {
     if (resizeLock) return;
 
     resizeLock = true;
@@ -27,9 +27,9 @@ const resizeSharerByKP = () => {
             }px`;
         }
     }, 500);
-};
+}
 
-const setSharerRoot = () => {
+function setSharerRoot() {
     const Sharer_By_KP = document.createElement("div");
 
     j2h.setAttribute(Sharer_By_KP, { id: "sharer-by-KP", class: "hide" });
@@ -45,13 +45,13 @@ const setSharerRoot = () => {
                     j2h.element(
                         "div",
                         { id: "header-icon-container" },
-                        svgs.sharerIcon
+                        svgs.local.sharerIcon
                     ),
                     j2h.element("div", { id: "header-title" }, "Sharer by KP"),
                     j2h.element(
                         "div",
                         { id: "header-close-icon" },
-                        svgs.closeIcon
+                        svgs.local.closeIcon
                     ),
                 ]),
                 j2h.element("div", { id: "sharer-content" }),
@@ -70,9 +70,9 @@ const setSharerRoot = () => {
 
     document.body.prepend(Sharer_By_KP);
     sharer_root.render();
-};
+}
 
-export const openSharer = () => {
+export function openSharer ()  {
     try {
         (document.getElementById("sharer-by-KP") as HTMLElement).remove();
     } catch (error) {}
@@ -104,7 +104,7 @@ export const openSharer = () => {
     document.body.classList.add("sharer-opened");
 };
 
-const closeSharer = () => {
+function closeSharer ()  {
     if (continue_to_close) {
         elements.sharer_container().classList.add("hide");
         setTimeout(() => {

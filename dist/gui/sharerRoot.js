@@ -3,7 +3,7 @@ import elements from "./element";
 import { isAppQROpen, openSharerWebsite, setApplistHtml, } from "./sharerContent/applist";
 import svgs from "./svgs";
 let continue_to_close = true, resizeLock = false;
-const resizeSharerByKP = () => {
+function resizeSharerByKP() {
     if (resizeLock)
         return;
     resizeLock = true;
@@ -14,16 +14,16 @@ const resizeSharerByKP = () => {
             elements.sharer_content().style.height = `${elements.sharer_content().offsetWidth + 51}px`;
         }
     }, 500);
-};
-const setSharerRoot = () => {
+}
+function setSharerRoot() {
     const Sharer_By_KP = document.createElement("div");
     j2h.setAttribute(Sharer_By_KP, { id: "sharer-by-KP", class: "hide" });
     const sharer_root = j2h.setRoot(Sharer_By_KP);
     sharer_root.append(j2h.element("div", { id: "sharer-container", class: "hide" }, j2h.element("div", { id: "sharer-window" }, [
         j2h.element("div", { class: "sharer-header" }, [
-            j2h.element("div", { id: "header-icon-container" }, svgs.sharerIcon),
+            j2h.element("div", { id: "header-icon-container" }, svgs.local.sharerIcon),
             j2h.element("div", { id: "header-title" }, "Sharer by KP"),
-            j2h.element("div", { id: "header-close-icon" }, svgs.closeIcon),
+            j2h.element("div", { id: "header-close-icon" }, svgs.local.closeIcon),
         ]),
         j2h.element("div", { id: "sharer-content" }),
         j2h.element("div", { id: "sharer-footer" }, j2h.element("div", { id: "sharer-footer-text" }
@@ -32,8 +32,8 @@ const setSharerRoot = () => {
     ])));
     document.body.prepend(Sharer_By_KP);
     sharer_root.render();
-};
-export const openSharer = () => {
+}
+export function openSharer() {
     try {
         document.getElementById("sharer-by-KP").remove();
     }
@@ -55,8 +55,9 @@ export const openSharer = () => {
     resizeSharerByKP();
     window.addEventListener("resize", resizeSharerByKP);
     document.body.classList.add("sharer-opened");
-};
-const closeSharer = () => {
+}
+;
+function closeSharer() {
     if (continue_to_close) {
         elements.sharer_container().classList.add("hide");
         setTimeout(() => {
@@ -69,4 +70,5 @@ const closeSharer = () => {
         document.body.classList.remove("sharer-opened");
     }
     continue_to_close = true;
-};
+}
+;

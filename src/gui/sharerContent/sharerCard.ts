@@ -2,7 +2,7 @@ import j2h from "../../j2h";
 import elements from "../element";
 import svgs from "../svgs";
 
-export const setSharerCard = () => {
+export function setSharerCard() {
     let sharer_content = j2h.setRoot(elements.sharer_content());
 
     sharer_content
@@ -15,7 +15,7 @@ export const setSharerCard = () => {
                     j2h.element(
                         "div",
                         { class: "credits-icon-container" },
-                        svgs.sharerIcon
+                        svgs.local.sharerIcon
                     ),
                     j2h.element(
                         "div",
@@ -28,7 +28,7 @@ export const setSharerCard = () => {
 
     sharer_content.render();
 
-    elements.sharer_content().style.height = `${
-        elements.sharer_content().offsetWidth + 51
-    }px`;
-};
+    ((element) => {
+        element.style.height = `${element.offsetWidth + 51}px`;
+    })(sharer_content.root);
+}

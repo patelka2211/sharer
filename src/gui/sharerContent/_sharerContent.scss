@@ -3,7 +3,6 @@
         width: 100%;
         aspect-ratio: 1;
         overflow: auto;
-        // background-color: #f6f6f6;
         border-radius: 18px;
 
         .applist-item {
@@ -22,18 +21,14 @@
             }
 
             .applist-icon-container {
-                height: 100%;
+                height: calc(100% - 2px);
+                padding: 1px;
                 aspect-ratio: 1;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-around;
                 background-color: #f6f6f6;
                 border-radius: 7px;
 
-                // svg {
                 img {
-                    height: calc(100% - 2px);
+                    height: 100%;
                     aspect-ratio: 1;
                 }
             }
@@ -50,7 +45,7 @@
                 height: 100%;
                 aspect-ratio: 1;
 
-                img {
+                svg {
                     height: 100%;
                     aspect-ratio: 1;
                 }
@@ -81,17 +76,14 @@
                 align-items: center;
 
                 .credits-icon-container {
-                    height: 100%;
+                    height: calc(100% - 2px);
+                    padding: 1px;
                     aspect-ratio: 1;
                     background-color: #f6f6f6;
                     border-radius: 7px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: space-around;
 
-                    img {
-                        height: calc(100% - 2px);
+                    svg {
+                        height: 100%;
                         aspect-ratio: 1;
                     }
                     margin-right: 8px;

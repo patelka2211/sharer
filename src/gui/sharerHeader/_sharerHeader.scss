@@ -8,21 +8,18 @@
         margin-bottom: 21px;
 
         #header-icon-container {
-            height: 100%;
+            height: calc(100% - 2px);
+            padding: 1px;
             aspect-ratio: 1;
             background-color: #f6f6f6;
             border-radius: 7px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
 
             &:hover {
                 cursor: pointer;
             }
 
-            img {
-                height: calc(100% - 2px);
+            svg {
+                height: 100%;
                 aspect-ratio: inherit;
             }
         }
@@ -52,7 +49,7 @@
                 cursor: pointer;
             }
 
-            img {
+            svg {
                 height: 100%;
                 aspect-ratio: 1;
             }

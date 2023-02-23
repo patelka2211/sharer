@@ -5,17 +5,9 @@ import { setSharerCard } from "./sharerCard";
 
 let isQROpen = false;
 
-// export const openAppQR = () => {
-//     isQROpen = true;
-// };
-
-// export const closeAppQR = () => {
-//     isQROpen = false;
-// };
-
-export const isAppQROpen = () => {
+export function isAppQROpen() {
     return isQROpen;
-};
+}
 
 const applist: {
     [_: string]: {
@@ -133,14 +125,13 @@ const applist: {
     },
 };
 
-export const openSharerWebsite = () => {
+export function openSharerWebsite() {
     window.open("https://patelka2211.github.io/sharer/", "_blank");
-};
+}
 
-const revertBackToRoot = () => {
-    j2h.setRoot(elements.header_icon_container())
-        .append(svgs.sharerIcon)
-        .render();
+function revertBackToRoot() {
+    elements.header_icon_container().innerHTML = svgs.local.sharerIcon;
+
     elements.header_icon_container().onclick = openSharerWebsite;
 
     elements.header_title().innerText = "Sharer by KP";
@@ -150,12 +141,10 @@ const revertBackToRoot = () => {
 
     setApplistHtml();
     isQROpen = false;
-};
+}
 
-const showAppQR = (appid: string) => {
-    j2h.setRoot(elements.header_icon_container())
-        .append(svgs.arrowLeftIcon)
-        .render();
+function showAppQR(appid: string) {
+    elements.header_icon_container().innerHTML = svgs.local.arrowLeftIcon;
     elements.header_icon_container().onclick = revertBackToRoot;
     elements.header_title().innerText = `Share on ${applist[appid].name}`;
 
@@ -171,9 +160,9 @@ const showAppQR = (appid: string) => {
 
     setSharerCard();
     isQROpen = true;
-};
+}
 
-export const setApplistHtml = () => {
+export function setApplistHtml() {
     let applist_html = j2h.setRoot(elements.sharer_content());
 
     Object.keys(applist).forEach((id) => {
@@ -182,7 +171,7 @@ export const setApplistHtml = () => {
                 j2h.element(
                     "div",
                     { class: "applist-icon-container" },
-                    svgs[id]
+                    svgs.cdn[id]
                 ),
                 j2h.element(
                     "div",
@@ -192,7 +181,7 @@ export const setApplistHtml = () => {
                 j2h.element(
                     "div",
                     { class: "arrow-right-icon" },
-                    svgs.arrowRightIcon
+                    svgs.local.arrowRightIcon
                 ),
             ])
         );
@@ -211,4 +200,4 @@ export const setApplistHtml = () => {
 
     elements.sharer_footer().style.backgroundColor = "#3479f614";
     elements.sharer_footer_text().style.color = "#3479f6";
-};
+}

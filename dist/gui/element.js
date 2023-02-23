@@ -1,30 +1,12 @@
 const elements = {
-    sharer_by_KP: () => {
-        return document.getElementById("sharer-by-KP");
-    },
-    sharer_container: () => {
-        return document.getElementById("sharer-container");
-    },
-    sharer_footer: () => {
-        return document.getElementById("sharer-footer");
-    },
-    sharer_footer_text: () => {
-        return document.getElementById("sharer-footer-text");
-    },
-    sharer_window: () => {
-        return document.getElementById("sharer-window");
-    },
-    sharer_content: () => {
-        return document.getElementById("sharer-content");
-    },
-    header_close_icon: () => {
-        return document.getElementById("header-close-icon");
-    },
-    header_icon_container: () => {
-        return document.getElementById("header-icon-container");
-    },
-    header_title: () => {
-        return document.getElementById("header-title");
-    },
+    sharer_by_KP: () => document.getElementById("sharer-by-KP"),
+    sharer_container: () => document.getElementById("sharer-container"),
+    sharer_footer: () => document.getElementById("sharer-footer"),
+    sharer_footer_text: () => document.getElementById("sharer-footer-text"),
+    sharer_window: () => document.getElementById("sharer-window"),
+    sharer_content: () => document.getElementById("sharer-content"),
+    header_close_icon: () => document.getElementById("header-close-icon"),
+    header_icon_container: () => document.getElementById("header-icon-container"),
+    header_title: () => document.getElementById("header-title"),
 };
 export default elements;

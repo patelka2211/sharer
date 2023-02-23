@@ -1,10 +1,8 @@
 import cdn from "./cdn";
 import { openSharer } from "./gui/sharerRoot";
-const link = document.createElement("link");
-link.setAttribute("rel", "stylesheet");
-link.setAttribute("href", cdn.getPath(["bundle", "sharerByKP.css"]));
-document.head.appendChild(link);
-window.addEventListener("load", () => {
-    document.getElementById("share-this").onclick = openSharer;
-    // openSharer();
-});
+import j2h from "./j2h";
+document.head.appendChild(j2h.setAttribute(document.createElement("link"), {
+    rel: "stylesheet",
+    href: cdn.getPath(["bundle", "sharerByKP.css"]),
+}));
+export { openSharer as open };

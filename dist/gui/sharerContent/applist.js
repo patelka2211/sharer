@@ -3,15 +3,9 @@ import elements from "../element";
 import svgs from "../svgs";
 import { setSharerCard } from "./sharerCard";
 let isQROpen = false;
-// export const openAppQR = () => {
-//     isQROpen = true;
-// };
-// export const closeAppQR = () => {
-//     isQROpen = false;
-// };
-export const isAppQROpen = () => {
+export function isAppQROpen() {
     return isQROpen;
-};
+}
 const applist = {
     wa: {
         id: "wa",
@@ -100,24 +94,20 @@ const applist = {
         },
     },
 };
-export const openSharerWebsite = () => {
+export function openSharerWebsite() {
     window.open("https://patelka2211.github.io/sharer/", "_blank");
-};
-const revertBackToRoot = () => {
-    j2h.setRoot(elements.header_icon_container())
-        .append(svgs.sharerIcon)
-        .render();
+}
+function revertBackToRoot() {
+    elements.header_icon_container().innerHTML = svgs.local.sharerIcon;
     elements.header_icon_container().onclick = openSharerWebsite;
     elements.header_title().innerText = "Sharer by KP";
     elements.sharer_content().style.height = "auto";
     elements.sharer_content().style.aspectRatio = "1";
     setApplistHtml();
     isQROpen = false;
-};
-const showAppQR = (appid) => {
-    j2h.setRoot(elements.header_icon_container())
-        .append(svgs.arrowLeftIcon)
-        .render();
+}
+function showAppQR(appid) {
+    elements.header_icon_container().innerHTML = svgs.local.arrowLeftIcon;
     elements.header_icon_container().onclick = revertBackToRoot;
     elements.header_title().innerText = `Share on ${applist[appid].name}`;
     elements.sharer_footer_text().innerText = `Open ${applist[appid].name}`;
@@ -127,14 +117,14 @@ const showAppQR = (appid) => {
     elements.sharer_content().style.height = `${elements.sharer_content().offsetHeight + 51}px`;
     setSharerCard();
     isQROpen = true;
-};
-export const setApplistHtml = () => {
+}
+export function setApplistHtml() {
     let applist_html = j2h.setRoot(elements.sharer_content());
     Object.keys(applist).forEach((id) => {
         applist_html.append(j2h.element("div", { id: `open-${id}-qr`, class: "applist-item" }, [
-            j2h.element("div", { class: "applist-icon-container" }, svgs[id]),
+            j2h.element("div", { class: "applist-icon-container" }, svgs.cdn[id]),
             j2h.element("div", { class: "applist-app-name" }, applist[id].name),
-            j2h.element("div", { class: "arrow-right-icon" }, svgs.arrowRightIcon),
+            j2h.element("div", { class: "arrow-right-icon" }, svgs.local.arrowRightIcon),
         ]));
     });
     applist_html.render();
@@ -147,4 +137,4 @@ export const setApplistHtml = () => {
     elements.sharer_footer_text().innerText = "Powered by Sharer";
     elements.sharer_footer().style.backgroundColor = "#3479f614";
     elements.sharer_footer_text().style.color = "#3479f6";
-};
+}
