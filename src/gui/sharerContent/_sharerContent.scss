@@ -53,12 +53,12 @@
         }
 
         .sharer-qr-container {
-            width: calc(100% - 42px);
-            padding: 21px;
-            padding-bottom: 0;
+            width: 100%;
             aspect-ratio: 1;
+            border-radius: 18px;
 
-            background-color: #f6f6f6;
+            // img {
+            // }
         }
         .sharer-credits {
             height: 72px;
@@ -69,12 +69,15 @@
             align-items: center;
             justify-content: space-around;
 
-            .credits-container {
+            #credits-container {
                 height: 30px;
 
                 display: flex;
                 align-items: center;
 
+                &:hover {
+                    cursor: pointer;
+                }
                 .credits-icon-container {
                     height: calc(100% - 2px);
                     padding: 1px;

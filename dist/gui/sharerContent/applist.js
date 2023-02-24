@@ -1,20 +1,21 @@
 import j2h from "../../j2h";
 import elements from "../element";
+import { openSharerWebsite } from "../sharerWebsite";
 import svgs from "../svgs";
 import { setSharerCard } from "./sharerCard";
-let isQROpen = false;
+let QROpenLock = false;
 export function isAppQROpen() {
-    return isQROpen;
+    return QROpenLock;
 }
-const applist = {
+export const applist = {
     wa: {
         id: "wa",
         name: "WhatsApp",
         theme: { primary: "#25D366", secondary: "#ffffff" },
-        url_format: (input_url, platform = "mobile", text = "") => {
+        url_format: (input_url, text = "") => {
             if (text != "")
                 text += "\n";
-            return `http://${platform == "mobile" ? "api" : "web"}.whatsapp.com/send?text=${encodeURIComponent(`${text}${input_url}`)}`;
+            return `http://api.whatsapp.com/send?text=${encodeURIComponent(`${text}${input_url}`)}`;
         },
     },
     fb: {
@@ -71,7 +72,7 @@ const applist = {
         id: "snpcht",
         name: "Snapchat",
         theme: { primary: "#fffC00", secondary: "#000000" },
-        url_format: (input_url) => {
+        url_format: (input_url, text = "") => {
             return `https://snapchat.com/scan?attachmentUrl=${encodeURIComponent(input_url)}`;
         },
     },
@@ -94,9 +95,6 @@ const applist = {
         },
     },
 };
-export function openSharerWebsite() {
-    window.open("https://patelka2211.github.io/sharer/", "_blank");
-}
 function revertBackToRoot() {
     elements.header_icon_container().innerHTML = svgs.local.sharerIcon;
     elements.header_icon_container().onclick = openSharerWebsite;
@@ -104,7 +102,7 @@ function revertBackToRoot() {
     elements.sharer_content().style.height = "auto";
     elements.sharer_content().style.aspectRatio = "1";
     setApplistHtml();
-    isQROpen = false;
+    QROpenLock = true;
 }
 function showAppQR(appid) {
     elements.header_icon_container().innerHTML = svgs.local.arrowLeftIcon;
@@ -116,7 +114,7 @@ function showAppQR(appid) {
         applist[appid].theme.primary;
     elements.sharer_content().style.height = `${elements.sharer_content().offsetHeight + 51}px`;
     setSharerCard();
-    isQROpen = true;
+    QROpenLock = false;
 }
 export function setApplistHtml() {
     let applist_html = j2h.setRoot(elements.sharer_content());

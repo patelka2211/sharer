@@ -1,15 +1,16 @@
 import j2h from "../../j2h";
 import elements from "../element";
+import { openSharerWebsite } from "../sharerWebsite";
 import svgs from "../svgs";
 import { setSharerCard } from "./sharerCard";
 
-let isQROpen = false;
+let QROpenLock = false;
 
 export function isAppQROpen() {
-    return isQROpen;
+    return QROpenLock;
 }
 
-const applist: {
+export const applist: {
     [_: string]: {
         id: string;
         name: string;
@@ -21,12 +22,10 @@ const applist: {
         id: "wa",
         name: "WhatsApp",
         theme: { primary: "#25D366", secondary: "#ffffff" },
-        url_format: (input_url: string, platform = "mobile", text = "") => {
+        url_format: (input_url: string, text = "") => {
             if (text != "") text += "\n";
 
-            return `http://${
-                platform == "mobile" ? "api" : "web"
-            }.whatsapp.com/send?text=${encodeURIComponent(
+            return `http://api.whatsapp.com/send?text=${encodeURIComponent(
                 `${text}${input_url}`
             )}`;
         },
@@ -96,7 +95,7 @@ const applist: {
         id: "snpcht",
         name: "Snapchat",
         theme: { primary: "#fffC00", secondary: "#000000" },
-        url_format: (input_url: string) => {
+        url_format: (input_url: string, text = "") => {
             return `https://snapchat.com/scan?attachmentUrl=${encodeURIComponent(
                 input_url
             )}`;
@@ -125,10 +124,6 @@ const applist: {
     },
 };
 
-export function openSharerWebsite() {
-    window.open("https://patelka2211.github.io/sharer/", "_blank");
-}
-
 function revertBackToRoot() {
     elements.header_icon_container().innerHTML = svgs.local.sharerIcon;
 
@@ -140,7 +135,7 @@ function revertBackToRoot() {
     elements.sharer_content().style.aspectRatio = "1";
 
     setApplistHtml();
-    isQROpen = false;
+    QROpenLock = true;
 }
 
 function showAppQR(appid: string) {
@@ -159,7 +154,7 @@ function showAppQR(appid: string) {
     }px`;
 
     setSharerCard();
-    isQROpen = true;
+    QROpenLock = false;
 }
 
 export function setApplistHtml() {

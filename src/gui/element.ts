@@ -23,6 +23,8 @@ const elements = {
         document.getElementById("header-icon-container") as HTMLElement,
 
     header_title: () => document.getElementById("header-title") as HTMLElement,
+    credits_container: () =>
+        document.getElementById("credits-container") as HTMLElement,
 };
 
 export default elements;

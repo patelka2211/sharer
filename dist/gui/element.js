@@ -8,5 +8,6 @@ const elements = {
     header_close_icon: () => document.getElementById("header-close-icon"),
     header_icon_container: () => document.getElementById("header-icon-container"),
     header_title: () => document.getElementById("header-title"),
+    credits_container: () => document.getElementById("credits-container"),
 };
 export default elements;
