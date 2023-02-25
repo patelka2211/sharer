@@ -1,0 +1,21 @@
+@import "./sharerHeader/sharerHeader";
+@import "./sharerContent/sharerContent";
+@import "./sharerFooter/sharerFooter";
+
+@mixin sharerWindow {
+    #sharer-window {
+        background-color: white;
+        width: calc(100% - 42px);
+        max-height: calc(100% - 84px);
+        max-width: calc(480px - 42px);
+        padding: 21px;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include sharerHeader();
+        @include sharerContent();
+        @include sharerFooter();
+    }
+}

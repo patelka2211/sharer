@@ -1,0 +1,26 @@
+@import "./sharerWindow";
+
+@mixin sharerContainer {
+    #sharer-container {
+        position: absolute;
+        width: calc(100vw - 12px);
+        height: calc(100vh - 12px);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        top: 6px;
+        transition: top 0.6s ease;
+
+        &.hide {
+            top: 100%;
+        }
+
+        @include sharerWindow();
+    }
+}
+@mixin sharerContainer_mobile {
+    #sharer-container {
+        align-items: end;
+    }
+}

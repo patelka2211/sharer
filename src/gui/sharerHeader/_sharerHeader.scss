@@ -1,0 +1,58 @@
+@mixin sharerHeader {
+    .sharer-header {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 21px;
+
+        #header-icon-container {
+            height: calc(100% - 2px);
+            padding: 1px;
+            aspect-ratio: 1;
+            background-color: #f6f6f6;
+            border-radius: 7px;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            svg {
+                height: 100%;
+                aspect-ratio: inherit;
+            }
+        }
+
+        #header-title {
+            width: calc(100% - 76px);
+            font-weight: 500;
+            font-size: 20px;
+
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
+        }
+
+        #header-close-icon {
+            height: 100%;
+            aspect-ratio: 1;
+            background-color: #f6f6f6;
+            border-radius: 7px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            svg {
+                height: 100%;
+                aspect-ratio: 1;
+            }
+        }
+    }
+}
