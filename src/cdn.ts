@@ -1,6 +1,6 @@
 const cdn = {
-    // url: "http://192.168.1.7:5500/",
-    url: "http://localhost:5500/",
+    url: "https://cdn.jsdelivr.net/gh/patelka2211/sharer@master/",
+    // url: "http://localhost:5500/", // For development purpose only.
     getPath(path: string | string[]) {
         if (typeof path === "string") return this.url + path;
         return this.url + path.join("/");

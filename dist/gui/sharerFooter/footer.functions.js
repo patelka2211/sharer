@@ -1,6 +1,6 @@
 import elements from "../element";
-import { openSharerWebsite } from "../sharerWebsite";
-export function setFooterInterface(inputText = "Powered by Sharer", fontColor = "#3479f6", bgColor = "#3479f614", actionPerform = openSharerWebsite) {
+import { openWebsite } from "../sharerWebsite";
+export function setFooterInterface(inputText = "Powered by Sharer", fontColor = "#3479f6", bgColor = "#3479f614", actionPerform = () => openWebsite()) {
     ((element) => {
         element.innerText = inputText;
         element.style.color = fontColor;

@@ -415,8 +415,5 @@ export function qr_svg(input_data) {
         pal: ["#000000", "#ffffff"],
         // vrb: 1,
     }), _ = new XMLSerializer();
-    // return j2h.element("img", {
-    //     src: `data:image/svg+xml;base64,${btoa(_.serializeToString(svgNode))}`,
-    // });
     return `data:image/svg+xml;base64,${btoa(_.serializeToString(svgNode))}`;
 }

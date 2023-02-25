@@ -1,12 +1,3 @@
-import j2h from "../../j2h";
-import elements from "../element";
-import { openSharerWebsite } from "../sharerWebsite";
-import svgs from "../svgs";
-import { setSharerCard } from "./sharerCard";
-let QROpenLock = false;
-export function isAppQROpen() {
-    return QROpenLock;
-}
 export const applist = {
     wa: {
         id: "wa",
@@ -95,44 +86,3 @@ export const applist = {
         },
     },
 };
-function revertBackToRoot() {
-    elements.header_icon_container().innerHTML = svgs.local.sharerIcon;
-    elements.header_icon_container().onclick = openSharerWebsite;
-    elements.header_title().innerText = "Sharer by KP";
-    elements.sharer_content().style.height = "auto";
-    elements.sharer_content().style.aspectRatio = "1";
-    setApplistHtml();
-    QROpenLock = true;
-}
-function showAppQR(appid) {
-    elements.header_icon_container().innerHTML = svgs.local.arrowLeftIcon;
-    elements.header_icon_container().onclick = revertBackToRoot;
-    elements.header_title().innerText = `Share on ${applist[appid].name}`;
-    elements.sharer_footer_text().innerText = `Open ${applist[appid].name}`;
-    elements.sharer_footer_text().style.color = applist[appid].theme.secondary;
-    elements.sharer_footer().style.backgroundColor =
-        applist[appid].theme.primary;
-    elements.sharer_content().style.height = `${elements.sharer_content().offsetHeight + 51}px`;
-    setSharerCard();
-    QROpenLock = false;
-}
-export function setApplistHtml() {
-    let applist_html = j2h.setRoot(elements.sharer_content());
-    Object.keys(applist).forEach((id) => {
-        applist_html.append(j2h.element("div", { id: `open-${id}-qr`, class: "applist-item" }, [
-            j2h.element("div", { class: "applist-icon-container" }, svgs.cdn[id]),
-            j2h.element("div", { class: "applist-app-name" }, applist[id].name),
-            j2h.element("div", { class: "arrow-right-icon" }, svgs.local.arrowRightIcon),
-        ]));
-    });
-    applist_html.render();
-    Object.keys(applist).forEach((id) => {
-        document.getElementById(`open-${id}-qr`).onclick =
-            () => {
-                showAppQR(id);
-            };
-    });
-    elements.sharer_footer_text().innerText = "Powered by Sharer";
-    elements.sharer_footer().style.backgroundColor = "#3479f614";
-    elements.sharer_footer_text().style.color = "#3479f6";
-}

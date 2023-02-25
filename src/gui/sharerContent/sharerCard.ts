@@ -1,6 +1,6 @@
 import j2h from "../../j2h";
 import elements from "../element";
-import { openSharerWebsite } from "../sharerWebsite";
+import { openWebsite } from "../sharerWebsite";
 import svgs from "../svgs";
 import { qr_svg } from "./QRcode";
 
@@ -39,5 +39,5 @@ export function setSharerCard() {
         element.style.height = `${element.offsetWidth + 51}px`;
     })(sharer_content.root);
 
-    elements.credits_container().onclick = openSharerWebsite;
+    elements.credits_container().onclick = () => openWebsite();
 }

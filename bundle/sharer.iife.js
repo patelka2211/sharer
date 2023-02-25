@@ -1,27 +1,28 @@
+/**
+* "Sharer by KP"
+* - Sharer helps to share url easily to many apps.
+*
+* @author Kartavya Patel <patelka2211@gmail.com>
+*
+* @license {@link https://github.com/patelka2211/sharer/blob/main/LICENSE MIT}
+*
+* @copyright Kartavya Patel 2023
+*
+* Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
+*
+* Last updated at : 2023-02-25T09:21:21.801Z
+*/
 var sharer = (function () {
     'use strict';
 
     const cdn = {
-        // url: "http://192.168.1.7:5500/",
-        url: "http://localhost:5500/",
+        url: "https://cdn.jsdelivr.net/gh/patelka2211/sharer@master/",
+        // url: "http://localhost:5500/", // For development purpose only.
         getPath(path) {
             if (typeof path === "string")
                 return this.url + path;
             return this.url + path.join("/");
         },
-    };
-
-    const elements = {
-        sharer_by_KP: () => document.getElementById("sharer-by-KP"),
-        sharer_container: () => document.getElementById("sharer-container"),
-        sharer_footer: () => document.getElementById("sharer-footer"),
-        sharer_footer_text: () => document.getElementById("sharer-footer-text"),
-        sharer_window: () => document.getElementById("sharer-window"),
-        sharer_content: () => document.getElementById("sharer-content"),
-        header_close_icon: () => document.getElementById("header-close-icon"),
-        header_icon_container: () => document.getElementById("header-icon-container"),
-        header_title: () => document.getElementById("header-title"),
-        credits_container: () => document.getElementById("credits-container"),
     };
 
     class json2html {
@@ -110,8 +111,32 @@ var sharer = (function () {
         },
     };
 
-    function openSharerWebsite() {
-        window.open("https://patelka2211.github.io/sharer/", "_blank");
+    const elements = {
+        sharer_by_KP: () => document.getElementById("sharer-by-KP"),
+        sharer_container: () => document.getElementById("sharer-container"),
+        sharer_footer: () => document.getElementById("sharer-footer"),
+        sharer_footer_text: () => document.getElementById("sharer-footer-text"),
+        sharer_window: () => document.getElementById("sharer-window"),
+        sharer_content: () => document.getElementById("sharer-content"),
+        header_close_icon: () => document.getElementById("header-close-icon"),
+        header_icon_container: () => document.getElementById("header-icon-container"),
+        header_title: () => document.getElementById("header-title"),
+        credits_container: () => document.getElementById("credits-container"),
+    };
+
+    function openWebsite(url = "https://patelka2211.github.io/sharer/") {
+        window.open(url, "_blank");
+    }
+
+    function setFooterInterface(inputText = "Powered by Sharer", fontColor = "#3479f6", bgColor = "#3479f614", actionPerform = () => openWebsite()) {
+        ((element) => {
+            element.innerText = inputText;
+            element.style.color = fontColor;
+        })(elements.sharer_footer_text());
+        ((element) => {
+            element.style.backgroundColor = bgColor;
+            element.onclick = actionPerform;
+        })(elements.sharer_footer());
     }
 
     function getCDNsvgs(filename) {
@@ -561,28 +586,7 @@ var sharer = (function () {
             pal: ["#000000", "#ffffff"],
             // vrb: 1,
         }), _ = new XMLSerializer();
-        // return j2h.element("img", {
-        //     src: `data:image/svg+xml;base64,${btoa(_.serializeToString(svgNode))}`,
-        // });
         return `data:image/svg+xml;base64,${btoa(_.serializeToString(svgNode))}`;
-    }
-
-    function setSharerCard() {
-        let sharer_content = j2h.setRoot(elements.sharer_content());
-        sharer_content
-            .append(j2h.element("div", {
-            class: "sharer-qr-container",
-            style: `background: url(${qr_svg("Hello")})`,
-        }))
-            .append(j2h.element("div", { class: "sharer-credits" }, j2h.element("div", { id: "credits-container" }, [
-            j2h.element("div", { class: "credits-icon-container" }, svgs.local.sharerIcon),
-            j2h.element("div", { class: "credits-text" }, "Powered by Sharer"),
-        ])));
-        sharer_content.render();
-        ((element) => {
-            element.style.height = `${element.offsetWidth + 51}px`;
-        })(sharer_content.root);
-        elements.credits_container().onclick = openSharerWebsite;
     }
 
     const applist = {
@@ -673,26 +677,74 @@ var sharer = (function () {
             },
         },
     };
+
+    let QRInterfaceState = false;
+    let default_url = window.location.href, default_text = document.title;
+    function setSharerText(text) {
+        default_text = text;
+    }
+    function setSharerURL(url) {
+        default_url = url;
+    }
+    function setSharerURLToDefault() {
+        default_url = window.location.href;
+    }
+    function setSharerTextToDefault() {
+        default_text = document.title;
+    }
+    function openQRInterfaceState() {
+        QRInterfaceState = true;
+    }
+    function closeQRInterfaceState() {
+        QRInterfaceState = false;
+    }
+    function isQRInterfaceStateOpen() {
+        return QRInterfaceState;
+    }
     function revertBackToRoot() {
-        elements.header_icon_container().innerHTML = svgs.local.sharerIcon;
-        elements.header_icon_container().onclick = openSharerWebsite;
+        ((element) => {
+            element.innerHTML = svgs.local.sharerIcon;
+            element.onclick = () => openWebsite();
+        })(elements.header_icon_container());
         elements.header_title().innerText = "Sharer by KP";
-        elements.sharer_content().style.height = "auto";
-        elements.sharer_content().style.aspectRatio = "1";
-        setApplistHtml();
+        ((element) => {
+            element.style.height = "auto";
+            element.style.aspectRatio = "1";
+        })(elements.sharer_content());
+        setApplistInterface();
+        closeQRInterfaceState();
     }
-    function showAppQR(appid) {
-        elements.header_icon_container().innerHTML = svgs.local.arrowLeftIcon;
-        elements.header_icon_container().onclick = revertBackToRoot;
-        elements.header_title().innerText = `Share on ${applist[appid].name}`;
-        elements.sharer_footer_text().innerText = `Open ${applist[appid].name}`;
-        elements.sharer_footer_text().style.color = applist[appid].theme.secondary;
-        elements.sharer_footer().style.backgroundColor =
-            applist[appid].theme.primary;
-        elements.sharer_content().style.height = `${elements.sharer_content().offsetHeight + 51}px`;
-        setSharerCard();
+    function setQRInterface(appid) {
+        let sharer_content = j2h.setRoot(elements.sharer_content()), url_to_be_shared = applist[appid].url_format(default_url, default_text);
+        sharer_content
+            .append(j2h.element("div", {
+            class: "sharer-qr-container",
+        }, j2h.element("div", {
+            class: "sharer-qr",
+            style: `background: url(${qr_svg(url_to_be_shared)})`,
+        }, svgs.cdn[appid])))
+            .append(j2h.element("div", { class: "sharer-credits" }, j2h.element("div", { id: "credits-container" }, [
+            j2h.element("div", { class: "credits-icon-container" }, svgs.local.sharerIcon),
+            j2h.element("div", { class: "credits-text" }, "Powered by Sharer"),
+        ])));
+        sharer_content.render();
+        ((element) => {
+            element.style.height = `${element.offsetWidth + 51}px`;
+        })(sharer_content.root);
+        elements.credits_container().onclick = () => openWebsite();
+        openQRInterfaceState();
+        ((element) => {
+            element.innerHTML = svgs.local.arrowLeftIcon;
+            element.onclick = revertBackToRoot;
+        })(elements.header_icon_container());
+        ((app_details) => {
+            elements.header_title().innerText = `Share on ${app_details.name}`;
+            setFooterInterface(`Open ${app_details.name}`, app_details.theme.secondary, app_details.theme.primary, () => {
+                openWebsite(url_to_be_shared);
+            });
+        })(applist[appid]);
     }
-    function setApplistHtml() {
+    function setApplistInterface() {
         let applist_html = j2h.setRoot(elements.sharer_content());
         Object.keys(applist).forEach((id) => {
             applist_html.append(j2h.element("div", { id: `open-${id}-qr`, class: "applist-item" }, [
@@ -705,12 +757,11 @@ var sharer = (function () {
         Object.keys(applist).forEach((id) => {
             document.getElementById(`open-${id}-qr`).onclick =
                 () => {
-                    showAppQR(id);
+                    setQRInterface(id);
                 };
         });
-        elements.sharer_footer_text().innerText = "Powered by Sharer";
-        elements.sharer_footer().style.backgroundColor = "#3479f614";
-        elements.sharer_footer_text().style.color = "#3479f6";
+        setFooterInterface();
+        closeQRInterfaceState();
     }
 
     let resizeLock = false;
@@ -721,6 +772,9 @@ var sharer = (function () {
         setTimeout(() => {
             resizeLock = false;
             elements.sharer_container().style.height = `${document.documentElement.clientHeight - 12}px`;
+            if (isQRInterfaceStateOpen()) {
+                elements.sharer_content().style.height = `${elements.sharer_content().offsetWidth + 51}px`;
+            }
         }, 500);
     }
     function startResizeObserver() {
@@ -731,42 +785,29 @@ var sharer = (function () {
     }
 
     let continue_to_close = true;
-    function closeSharer() {
-        if (continue_to_close) {
-            elements.sharer_container().classList.add("hide");
-            setTimeout(() => {
-                elements.sharer_by_KP().classList.add("hide");
-                setTimeout(() => {
-                    elements.sharer_by_KP().remove();
-                    closeResizeObserver();
-                }, 100);
-            }, 300);
-            document.body.classList.remove("sharer-opened");
-        }
-        continue_to_close = true;
-    }
     function setContinueToCloseFalse() {
         continue_to_close = false;
     }
-    // function openSharer(){}
+    function closeSharer() {
+        if (continue_to_close) {
+            try {
+                elements.sharer_container().classList.add("hide");
+                setTimeout(() => {
+                    elements.sharer_by_KP().classList.add("hide");
+                    setTimeout(() => {
+                        elements.sharer_by_KP().remove();
+                        closeResizeObserver();
+                    }, 100);
+                }, 300);
+                document.body.classList.remove("sharer-opened");
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+        continue_to_close = true;
+    }
 
-    // let continue_to_close = true,
-    //     resizeLock = false;
-    // function resizeSharerByKP() {
-    //     if (resizeLock) return;
-    //     resizeLock = true;
-    //     setTimeout(() => {
-    //         resizeLock = false;
-    //         elements.sharer_container().style.height = `${
-    //             document.documentElement.clientHeight - 12
-    //         }px`;
-    //         if (isAppQROpen()) {
-    //             elements.sharer_content().style.height = `${
-    //                 elements.sharer_content().offsetWidth + 51
-    //             }px`;
-    //         }
-    //     }, 500);
-    // }
     function setSharerRoot() {
         const Sharer_By_KP = document.createElement("div");
         j2h.setAttribute(Sharer_By_KP, { id: "sharer-by-KP", class: "hide" });
@@ -778,9 +819,7 @@ var sharer = (function () {
                 j2h.element("div", { id: "header-close-icon" }, svgs.local.closeIcon),
             ]),
             j2h.element("div", { id: "sharer-content" }),
-            j2h.element("div", { id: "sharer-footer" }, j2h.element("div", { id: "sharer-footer-text" }
-            // "Powered by Sharer"
-            )),
+            j2h.element("div", { id: "sharer-footer" }, j2h.element("div", { id: "sharer-footer-text" })),
         ])));
         document.body.prepend(Sharer_By_KP);
         sharer_root.render();
@@ -799,27 +838,14 @@ var sharer = (function () {
         elements.sharer_container().onclick = closeSharer;
         elements.header_close_icon().onclick = closeSharer;
         [elements.header_icon_container(), elements.sharer_footer()].forEach((element) => {
-            element.onclick = openSharerWebsite;
+            element.onclick = () => openWebsite();
         });
-        setApplistHtml();
+        setApplistInterface();
+        setFooterInterface();
         resizeObserverAction();
         startResizeObserver();
         document.body.classList.add("sharer-opened");
     }
-    // export function closeSharer() {
-    //     if (continue_to_close) {
-    //         elements.sharer_container().classList.add("hide");
-    //         setTimeout(() => {
-    //             elements.sharer_by_KP().classList.add("hide");
-    //             setTimeout(() => {
-    //                 elements.sharer_by_KP().remove();
-    //                 window.removeEventListener("resize", resizeSharerByKP);
-    //             }, 100);
-    //         }, 300);
-    //         document.body.classList.remove("sharer-opened");
-    //     }
-    //     continue_to_close = true;
-    // }
 
     document.head.appendChild(j2h.setAttribute(document.createElement("link"), {
         rel: "stylesheet",
@@ -827,9 +853,19 @@ var sharer = (function () {
     }));
     var sharer = {
         setURL: function (url) {
+            setSharerURL(url);
+            return this;
+        },
+        setURLToDefault: function () {
+            setSharerURLToDefault();
             return this;
         },
         setText: function (text) {
+            setSharerText(text);
+            return this;
+        },
+        setTextToDefault: function () {
+            setSharerTextToDefault();
             return this;
         },
         open: openSharer,

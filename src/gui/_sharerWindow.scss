@@ -14,8 +14,6 @@
         flex-direction: column;
         align-items: center;
 
-        // box-shadow: 0 16px 64px 0 rgba(28, 28, 28, 0.32);
-
         @include sharerHeader();
         @include sharerContent();
         @include sharerFooter();

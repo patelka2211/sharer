@@ -1,5 +1,3 @@
-import j2h from "../../j2h";
-
 function QRCode(r) {
     var n,
         t,
@@ -525,8 +523,5 @@ export function qr_svg(input_data) {
         }),
         _ = new XMLSerializer();
 
-    // return j2h.element("img", {
-    //     src: `data:image/svg+xml;base64,${btoa(_.serializeToString(svgNode))}`,
-    // });
     return `data:image/svg+xml;base64,${btoa(_.serializeToString(svgNode))}`;
 }

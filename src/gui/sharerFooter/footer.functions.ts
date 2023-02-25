@@ -1,11 +1,11 @@
 import elements from "../element";
-import { openSharerWebsite } from "../sharerWebsite";
+import { openWebsite } from "../sharerWebsite";
 
 export function setFooterInterface(
     inputText = "Powered by Sharer",
     fontColor = "#3479f6",
     bgColor = "#3479f614",
-    actionPerform = openSharerWebsite
+    actionPerform = () => openWebsite()
 ) {
     ((element) => {
         element.innerText = inputText;

@@ -1,35 +1,14 @@
 import j2h from "../j2h";
 import elements from "./element";
 import { resizeObserverAction, startResizeObserver } from "./resizeObserver";
-import { isAppQROpen, setApplistHtml } from "./sharerContent/applist";
+import { setApplistInterface } from "./sharerContent/content.functions";
+import { setFooterInterface } from "./sharerFooter/footer.functions";
 import {
     closeSharer,
     setContinueToCloseFalse,
 } from "./sharerHeader/header.functions";
-import { openSharerWebsite } from "./sharerWebsite";
+import { openWebsite } from "./sharerWebsite";
 import svgs from "./svgs";
-
-// let continue_to_close = true,
-//     resizeLock = false;
-
-// function resizeSharerByKP() {
-//     if (resizeLock) return;
-
-//     resizeLock = true;
-//     setTimeout(() => {
-//         resizeLock = false;
-
-//         elements.sharer_container().style.height = `${
-//             document.documentElement.clientHeight - 12
-//         }px`;
-
-//         if (isAppQROpen()) {
-//             elements.sharer_content().style.height = `${
-//                 elements.sharer_content().offsetWidth + 51
-//             }px`;
-//         }
-//     }, 500);
-// }
 
 function setSharerRoot() {
     const Sharer_By_KP = document.createElement("div");
@@ -60,11 +39,7 @@ function setSharerRoot() {
                 j2h.element(
                     "div",
                     { id: "sharer-footer" },
-                    j2h.element(
-                        "div",
-                        { id: "sharer-footer-text" }
-                        // "Powered by Sharer"
-                    )
+                    j2h.element("div", { id: "sharer-footer-text" })
                 ),
             ])
         )
@@ -93,29 +68,15 @@ export function openSharer() {
 
     [elements.header_icon_container(), elements.sharer_footer()].forEach(
         (element) => {
-            element.onclick = openSharerWebsite;
+            element.onclick = () => openWebsite();
         }
     );
 
-    setApplistHtml();
+    setApplistInterface();
+
+    setFooterInterface();
 
     resizeObserverAction();
     startResizeObserver();
     document.body.classList.add("sharer-opened");
 }
-
-// export function closeSharer() {
-//     if (continue_to_close) {
-//         elements.sharer_container().classList.add("hide");
-//         setTimeout(() => {
-//             elements.sharer_by_KP().classList.add("hide");
-//             setTimeout(() => {
-//                 elements.sharer_by_KP().remove();
-//                 window.removeEventListener("resize", resizeSharerByKP);
-//             }, 100);
-//         }, 300);
-//         document.body.classList.remove("sharer-opened");
-//     }
-
-//     continue_to_close = true;
-// }

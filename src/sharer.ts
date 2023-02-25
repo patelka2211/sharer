@@ -1,4 +1,10 @@
 import cdn from "./cdn";
+import {
+    setSharerText,
+    setSharerTextToDefault,
+    setSharerURL,
+    setSharerURLToDefault,
+} from "./gui/sharerContent/content.functions";
 import { closeSharer } from "./gui/sharerHeader/header.functions";
 import { openSharer } from "./gui/sharerRoot";
 import j2h from "./j2h";
@@ -10,24 +16,21 @@ document.head.appendChild(
     })
 );
 
-let default_url = window.location.href,
-    default_text = document.title;
-
-function getSharerText(text: string) {
-    return default_text;
-}
-
-function getSharerURL(url: string) {
-    return default_url;
-}
-
 export default {
     setURL: function (url: string) {
-        default_url = url;
+        setSharerURL(url);
+        return this;
+    },
+    setURLToDefault: function () {
+        setSharerURLToDefault();
         return this;
     },
     setText: function (text: string) {
-        default_text = text;
+        setSharerText(text);
+        return this;
+    },
+    setTextToDefault: function () {
+        setSharerTextToDefault();
         return this;
     },
     open: openSharer,
