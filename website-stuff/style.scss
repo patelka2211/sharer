@@ -83,6 +83,7 @@ body {
                     height: 15px;
                     outline: 0;
                     padding: 0;
+                    border-radius: 0;
                     border-bottom-left-radius: 8px;
                     border-top-left-radius: 8px;
                     color: rgba(89, 0, 255);
@@ -101,6 +102,7 @@ body {
                     width: 30px;
                     aspect-ratio: 1;
                     background-color: rgba(89, 0, 255, 0.08);
+                    border-radius: 0;
                     border-top-right-radius: 8px;
                     border-bottom-right-radius: 8px;
                     display: flex;

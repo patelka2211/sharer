@@ -22,7 +22,7 @@ export const applist = {
         name: "Twitter",
         theme: { primary: "#1D9BF0", secondary: "#ffffff" },
         url_format: (input_url, text = "") => {
-            return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(input_url)}`;
+            return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(input_url)}&hashtags=${encodeURIComponent("SharedUsingSharer,SharerByKP")}`;
         },
     },
     eml: {

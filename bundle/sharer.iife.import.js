@@ -1,3 +1,14 @@
+/**
+ * "Sharer by KP"
+ * - Sharer is a JavaScript library that offers sharing capability with smooth transitions to share a website's URL to other applications.
+ * - This is a supporting file for Sharer.js
+ *
+ * @author Kartavya Patel <patelka2211@gmail.com>
+ *
+ * @license {@link https://github.com/patelka2211/sharer/blob/main/LICENSE MIT}
+ *
+ * @copyright Kartavya Patel 2023
+ */
 window.addEventListener("load", () => {
     let current_sha = localStorage.getItem("sharer_deployment_sha"),
         timeId = () => {

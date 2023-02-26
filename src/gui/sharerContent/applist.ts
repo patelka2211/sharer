@@ -35,7 +35,9 @@ export const applist: {
         url_format: (input_url: string, text = "") => {
             return `https://twitter.com/intent/tweet?text=${encodeURIComponent(
                 text
-            )}&url=${encodeURIComponent(input_url)}`;
+            )}&url=${encodeURIComponent(
+                input_url
+            )}&hashtags=${encodeURIComponent("SharedUsingSharer,SharerByKP")}`;
         },
     },
     eml: {

@@ -10,7 +10,7 @@
 *
 * Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
 *
-* Last updated at : 2023-02-26T16:21:56.645Z
+* Last updated at : 2023-02-26T17:33:34.405Z
 */
 var sharer = (function () {
     'use strict';
@@ -633,7 +633,7 @@ var sharer = (function () {
             name: "Twitter",
             theme: { primary: "#1D9BF0", secondary: "#ffffff" },
             url_format: (input_url, text = "") => {
-                return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(input_url)}`;
+                return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(input_url)}&hashtags=${encodeURIComponent("SharedUsingSharer,SharerByKP")}`;
             },
         },
         eml: {
