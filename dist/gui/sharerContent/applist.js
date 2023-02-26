@@ -6,7 +6,7 @@ export const applist = {
         url_format: (input_url, text = "") => {
             if (text != "")
                 text += "\n";
-            return `http://api.whatsapp.com/send?text=${encodeURIComponent(`${text}${input_url}`)}`;
+            return `https://api.whatsapp.com/send?text=${encodeURIComponent(`${text}${input_url}`)}`;
         },
     },
     fb: {

@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sharer by KP</title>
-    <script src="https://cdn.jsdelivr.net/gh/patelka2211/sharer/bundle/sharer.iife.min.js"></script>
+    <script id="sharer_latest_file_importer"
+        src="https://cdn.jsdelivr.net/gh/patelka2211/sharer/bundle/sharer.iife.import.js"></script>
     <script src="./website-stuff/script.js"></script>
     <link rel="stylesheet" href="./website-stuff/style.css">
     <link rel="shortcut icon" href="./assets/sharerIcon.svg" type="image/x-icon">
@@ -43,13 +44,10 @@
             about Sharer</a>
 
         <div class="js-files">
-            <p class="file-name">Get Sharer <a
-                    href="https://en.wikipedia.org/wiki/Immediately_invoked_function_expression" class="highlight"
-                    target="_blank">IIFE</a> JavaScript
-                file</p>
+            <p class="file-info">Import latest Sharer JavaScript
+                library. Just paste this link in head tag of your html document.</p>
             <div class="content-for-copy">
-                <input id="iife-url-input" class="file-location" type="text"
-                    value="https://cdn.jsdelivr.net/gh/patelka2211/sharer/bundle/sharer.iife.min.js">
+                <input id="iife-url-input" class="file-location" type="text" value="">
                 <button id="iife-copy-btn" class="copy-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" style="width: 64%; aspect-ratio: 1;">
                         <path
@@ -60,25 +58,17 @@
             </div>
         </div>
         <div class="js-files">
-            <p class="file-name">Get Sharer <a href="https://nodejs.org/api/esm.html" class="highlight"
-                    target="_blank">ESM</a> JavaScript file</p>
-            <div class="content-for-copy">
-                <input id="esm-url-input" class="file-location" type="text"
-                    value="https://cdn.jsdelivr.net/gh/patelka2211/sharer/bundle/sharer.esm.min.js">
-                <button id="esm-copy-btn" class="copy-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 96 960 960" style="width: 64%; aspect-ratio: 1;">
-                        <path
-                            d="M300 855q-24.75 0-42.375-17.625T240 795V235q0-24.75 17.625-42.375T300 175h440q24.75 0 42.375 17.625T800 235v560q0 24.75-17.625 42.375T740 855H300Zm0-60h440V235H300v560ZM180 975q-24.75 0-42.375-17.625T120 915V342q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T180 342v573h444q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T624 975H180Zm120-740v560-560Z"
-                            fill="#5900ff" />
-                    </svg>
-                </button>
-            </div>
+            <p class="file-info">Or to use Sharer as an <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules" class="highlight"
+                    target="_blank">JavaScript Module</a> get the file from this <a class="highlight"
+                    href="https://github.com/patelka2211/sharer/blob/main/bundle/sharer.esm.js" target="_blank">GitHub
+                    page</a>.</p>
         </div>
         <button id="sharer-in-action" onclick="sharer.open();">See <strong>Sharer</strong> in action</button>
         <p id="special-thanks">The creation of Sharer is made possible by "<a class="highlight" target="_blank"
                 href="https://github.com/patelka2211/json2html/">JSON2HTML</a>" and
             "<a class="highlight" target="_blank" href="https://github.com/datalog/qrcode-svg/">qrcode-svg</a>".</p>
-        <a id="developer-credits" href="https://linkedin.com/in/kartavyapatel">
+        <a id="developer-credits" target="_blank" href="https://linkedin.com/in/kartavyapatel/">
             <img id="kp-img" src="https://avatars.githubusercontent.com/u/82671701" alt="KP">
             <p id="developed-by-kp">Developed in India with ❤️ by <strong>KP</strong></p>
         </a>

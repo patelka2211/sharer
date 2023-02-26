@@ -10,14 +10,34 @@
 *
 * Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
 *
-* Last updated at : 2023-02-26T10:51:44.181Z
+* Last updated at : 2023-02-26T16:21:56.645Z
 */
 var sharer = (function () {
     'use strict';
 
     const cdn = {
-        url: "https://cdn.jsdelivr.net/gh/patelka2211/sharer/",
         // url: "http://localhost:5500/", // For development purpose only.
+        url: (() => {
+            let timeId = () => {
+                let time = new Date();
+                return `${time.getHours()}-${time.getDate()}-${time.getMonth()}-${time.getFullYear()}`;
+            };
+            let current_deployment_sha = localStorage.getItem("sharer_deployment_sha");
+            if (current_deployment_sha === null)
+                return "https://cdn.jsdelivr.net/gh/patelka2211/sharer/";
+            try {
+                let current_deployment_sha_object = JSON.parse(current_deployment_sha);
+                if (current_deployment_sha_object.lastUpdate === timeId()) {
+                    return `https://cdn.jsdelivr.net/gh/patelka2211/sharer@${current_deployment_sha_object.sha}/`;
+                }
+                else {
+                    return "https://cdn.jsdelivr.net/gh/patelka2211/sharer/";
+                }
+            }
+            catch (error) {
+                return "https://cdn.jsdelivr.net/gh/patelka2211/sharer/";
+            }
+        })(),
         getPath(path) {
             if (typeof path === "string")
                 return this.url + path;
@@ -597,7 +617,7 @@ var sharer = (function () {
             url_format: (input_url, text = "") => {
                 if (text != "")
                     text += "\n";
-                return `http://api.whatsapp.com/send?text=${encodeURIComponent(`${text}${input_url}`)}`;
+                return `https://api.whatsapp.com/send?text=${encodeURIComponent(`${text}${input_url}`)}`;
             },
         },
         fb: {

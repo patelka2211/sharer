@@ -61,9 +61,8 @@ body {
             border-radius: 16px;
             background-color: #f6f6f6;
 
-            .file-name {
+            .file-info {
                 margin: 0;
-                margin-bottom: 10px;
                 text-align: center;
                 .highlight {
                     text-decoration: none;
@@ -74,6 +73,7 @@ body {
             .content-for-copy {
                 width: 100%;
                 display: flex;
+                margin-top: 10px;
                 flex-direction: row;
                 align-items: center;
 
