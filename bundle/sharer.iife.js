@@ -1,6 +1,6 @@
 /**
 * "Sharer by KP"
-* - Sharer helps to share url easily to many apps.
+* - Sharer is a JavaScript library that offers sharing capability with smooth transitions to share a website's URL to other applications.
 *
 * @author Kartavya Patel <patelka2211@gmail.com>
 *
@@ -10,13 +10,13 @@
 *
 * Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
 *
-* Last updated at : 2023-02-25T09:21:21.801Z
+* Last updated at : 2023-02-26T10:51:44.181Z
 */
 var sharer = (function () {
     'use strict';
 
     const cdn = {
-        url: "https://cdn.jsdelivr.net/gh/patelka2211/sharer@master/",
+        url: "https://cdn.jsdelivr.net/gh/patelka2211/sharer/",
         // url: "http://localhost:5500/", // For development purpose only.
         getPath(path) {
             if (typeof path === "string")
@@ -128,7 +128,7 @@ var sharer = (function () {
         window.open(url, "_blank");
     }
 
-    function setFooterInterface(inputText = "Powered by Sharer", fontColor = "#3479f6", bgColor = "#3479f614", actionPerform = () => openWebsite()) {
+    function setFooterInterface(inputText = "Powered by Sharer", fontColor = "#5900ff", bgColor = "#5900ff14", actionPerform = () => openWebsite()) {
         ((element) => {
             element.innerText = inputText;
             element.style.color = fontColor;

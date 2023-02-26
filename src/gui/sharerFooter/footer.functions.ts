@@ -3,8 +3,8 @@ import { openWebsite } from "../sharerWebsite";
 
 export function setFooterInterface(
     inputText = "Powered by Sharer",
-    fontColor = "#3479f6",
-    bgColor = "#3479f614",
+    fontColor = "#5900ff",
+    bgColor = "#5900ff14",
     actionPerform = () => openWebsite()
 ) {
     ((element) => {

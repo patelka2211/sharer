@@ -2,7 +2,7 @@ const outFormats = ["iife", "esm"],
     time = new Date(),
     banner = `/**
 * "Sharer by KP"
-* - Sharer helps to share url easily to many apps.
+* - Sharer is a JavaScript library that offers sharing capability with smooth transitions to share a website's URL to other applications.
 *
 * @author Kartavya Patel <patelka2211@gmail.com>
 *

@@ -13,9 +13,16 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        box-shadow: 0 32px 128px 0 rgba(40, 40, 40, 0.32);
 
         @include sharerHeader();
         @include sharerContent();
         @include sharerFooter();
+    }
+}
+
+@mixin sharerWindow_mobile {
+    #sharer-window {
+        box-shadow: none;
     }
 }

@@ -1,5 +1,5 @@
 const cdn = {
-    url: "https://cdn.jsdelivr.net/gh/patelka2211/sharer@master/",
+    url: "https://cdn.jsdelivr.net/gh/patelka2211/sharer/",
     // url: "http://localhost:5500/", // For development purpose only.
     getPath(path) {
         if (typeof path === "string")
