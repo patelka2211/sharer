@@ -21,7 +21,7 @@ export default outFormats.map((format) => {
             input: `./dist/${format}/${format}.js`,
             output: {
                 file: `./bundle/${format}.js`,
-                format: "cjs",
+                format: "iife",
                 // name: "sharer",
                 banner: banner,
             },
@@ -31,7 +31,7 @@ export default outFormats.map((format) => {
             input: `./dist/sharer_${format}.js`,
             output: {
                 file: `./bundle/sharer.iife.${format}.js`,
-                format: "cjs",
+                format: "iife",
                 // name: "sharer",
                 banner: banner,
             },

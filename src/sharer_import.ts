@@ -1,5 +1,4 @@
 import cdn from "./cdn";
-import { getCDN_URL } from "./getLatestSHA";
 
 function importSharerScript() {
     let sharer_script = document.createElement("script");
