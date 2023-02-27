@@ -30,7 +30,7 @@ export default outFormats.map((format) => {
         return {
             input: `./dist/sharer_${format}.js`,
             output: {
-                file: `./bundle/sharer.iife.${format}.js`,
+                file: `./bundle/sharer.iife_${format}.js`,
                 format: "iife",
                 // name: "sharer",
                 banner: banner,

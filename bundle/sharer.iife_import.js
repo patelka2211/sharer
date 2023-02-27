@@ -10,7 +10,7 @@
 *
 * Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
 *
-* Last updated at : 2023-02-27T19:27:57.096Z
+* Last updated at : 2023-02-27T19:57:19.714Z
 */
 (function () {
     'use strict';
@@ -47,6 +47,40 @@
                 sha: sha,
                 lastUpdate: timeId(),
             }));
+            try {
+                ((element) => {
+                    let new_sharer_btn_script = document.createElement("script");
+                    new_sharer_btn_script.src = element.getAttribute("src");
+                    new_sharer_btn_script.id = element.id;
+                    element.remove();
+                    document.head.appendChild(new_sharer_btn_script);
+                })(document.getElementById("sharer_button_file"));
+            }
+            catch (error) { }
+            // try {
+            //     ((element) => {
+            //         let new_sharer_iife_script = document.createElement("script");
+            //         new_sharer_iife_script.src = element.getAttribute(
+            //             "src"
+            //         ) as string;
+            //         new_sharer_iife_script.id = element.id;
+            //         element.remove();
+            //         document.head.appendChild(new_sharer_iife_script);
+            //     })(
+            //         document.getElementById("sharer_iife_file") as HTMLScriptElement
+            //     );
+            // } catch (error) {}
+            try {
+                ((element) => {
+                    let new_sharer_css_file = document.createElement("link");
+                    new_sharer_css_file.rel = element.getAttribute("rel");
+                    new_sharer_css_file.id = element.id;
+                    new_sharer_css_file.href = element.href;
+                    element.remove();
+                    document.head.appendChild(new_sharer_css_file);
+                })(document.getElementById("sharer_css_file"));
+            }
+            catch (error) { }
         });
     }
     function getSHA() {

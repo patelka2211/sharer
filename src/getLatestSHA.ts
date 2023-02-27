@@ -31,6 +31,45 @@ function fetchAndStore() {
                 lastUpdate: timeId(),
             })
         );
+
+        try {
+            ((element) => {
+                let new_sharer_btn_script = document.createElement("script");
+                new_sharer_btn_script.src = element.getAttribute(
+                    "src"
+                ) as string;
+                new_sharer_btn_script.id = element.id;
+                element.remove();
+                document.head.appendChild(new_sharer_btn_script);
+            })(
+                document.getElementById(
+                    "sharer_button_file"
+                ) as HTMLScriptElement
+            );
+        } catch (error) {}
+        // try {
+        //     ((element) => {
+        //         let new_sharer_iife_script = document.createElement("script");
+        //         new_sharer_iife_script.src = element.getAttribute(
+        //             "src"
+        //         ) as string;
+        //         new_sharer_iife_script.id = element.id;
+        //         element.remove();
+        //         document.head.appendChild(new_sharer_iife_script);
+        //     })(
+        //         document.getElementById("sharer_iife_file") as HTMLScriptElement
+        //     );
+        // } catch (error) {}
+        try {
+            ((element) => {
+                let new_sharer_css_file = document.createElement("link");
+                new_sharer_css_file.rel = element.getAttribute("rel") as string;
+                new_sharer_css_file.id = element.id;
+                new_sharer_css_file.href = element.href;
+                element.remove();
+                document.head.appendChild(new_sharer_css_file);
+            })(document.getElementById("sharer_css_file") as HTMLLinkElement);
+        } catch (error) {}
     });
 }
 
