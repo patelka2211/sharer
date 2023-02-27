@@ -16,6 +16,12 @@ export function closeSharer() {
                 }, 100);
             }, 300);
             document.body.classList.remove("sharer-opened");
+            try {
+                ((sharer_button) => {
+                    sharer_button.classList.remove("hide");
+                })(document.getElementById("sharer-btn-default"));
+            }
+            catch (error) { }
         }
         catch (error) {
             console.log(error);

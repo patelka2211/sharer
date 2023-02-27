@@ -1,3 +1,3 @@
 # Sharer by KP
 
-Helps to share URL to more than one platforms.
+Sharer is a user-friendly JavaScript library that seamlessly enhances website sharing across various applications and social media platforms. Boost engagement and increase website reach with Sharer - the top-rated JavaScript library for seamless URL sharing!

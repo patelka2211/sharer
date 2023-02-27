@@ -81,14 +81,10 @@ const cdn = {
     },
 };
 
-function importSharerScript() {
-    let sharer_script = document.createElement("script");
-    sharer_script.id = "sharer_iife_file";
-    sharer_script.src = cdn.getPath(["bundle", "sharer.iife.min.js"]);
-    document.head.appendChild(sharer_script);
-    try {
-        document.getElementById("sharer_latest_file_importer").remove();
-    }
-    catch (error) { }
+function loadSharerButton() {
+    let sharer_button = document.createElement("img");
+    sharer_button.src = cdn.getPath(["assets", "sharerIcon.svg"]);
+    sharer_button.id = "sharer-btn-default";
+    document.body.appendChild(sharer_button);
 }
-window.addEventListener("load", importSharerScript);
+window.addEventListener("load", loadSharerButton);

@@ -53,6 +53,11 @@ export function openSharer() {
     try {
         (document.getElementById("sharer-by-KP") as HTMLElement).remove();
     } catch (error) {}
+    try {
+        ((sharer_button) => {
+            sharer_button.classList.add("hide");
+        })(document.getElementById("sharer-btn-default") as HTMLElement);
+    } catch (error) {}
 
     setSharerRoot();
 

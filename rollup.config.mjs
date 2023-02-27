@@ -1,8 +1,8 @@
-const outFormats = ["iife", "esm"],
+const outFormats = ["iife", "esm", "sharer_button", "import"],
     time = new Date(),
     banner = `/**
 * "Sharer by KP"
-* - Sharer is a JavaScript library that offers sharing capability with smooth transitions to share a website's URL to other applications.
+* - Sharer is a user-friendly JavaScript library that seamlessly enhances website sharing across various applications and social media platforms. Boost engagement and increase website reach with Sharer - the top-rated JavaScript library for seamless URL sharing!
 *
 * @author Kartavya Patel <patelka2211@gmail.com>
 *
@@ -16,6 +16,26 @@ const outFormats = ["iife", "esm"],
 */`;
 
 export default outFormats.map((format) => {
+    if (format === "sharer_button")
+        return {
+            input: `./dist/${format}/${format}.js`,
+            output: {
+                file: `./bundle/${format}.js`,
+                format: "cjs",
+                // name: "sharer",
+                banner: banner,
+            },
+        };
+    else if (format === "import")
+        return {
+            input: `./dist/sharer_${format}.js`,
+            output: {
+                file: `./bundle/sharer.iife.${format}.js`,
+                format: "cjs",
+                // name: "sharer",
+                banner: banner,
+            },
+        };
     return {
         input: "./dist/sharer.js",
         output: {

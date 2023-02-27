@@ -4,10 +4,10 @@
         {
             "format": "compressed",
             "extensionName": ".css",
-            // "savePath": "./bundle"
-            "savePath": "./website-stuff"
+            "savePath": "./bundle"
+            // "savePath": "./website-stuff"
         }
     ],
-    // "liveSassCompile.settings.forceBaseDirectory": "src"
-    "liveSassCompile.settings.forceBaseDirectory": "website-stuff"
+    "liveSassCompile.settings.forceBaseDirectory": "src"
+    // "liveSassCompile.settings.forceBaseDirectory": "website-stuff"
 }

@@ -27,6 +27,12 @@ export function openSharer() {
         document.getElementById("sharer-by-KP").remove();
     }
     catch (error) { }
+    try {
+        ((sharer_button) => {
+            sharer_button.classList.add("hide");
+        })(document.getElementById("sharer-btn-default"));
+    }
+    catch (error) { }
     setSharerRoot();
     setTimeout(() => {
         elements.sharer_by_KP().classList.remove("hide");

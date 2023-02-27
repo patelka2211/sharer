@@ -5,7 +5,30 @@
 body {
     margin: 0;
 
+    #sharer-btn-default {
+        position: fixed;
+        bottom: 36px;
+        right: 36px;
+        width: 64px;
+        aspect-ratio: 1;
+        z-index: 2147483646;
+        box-shadow: 0 16px 64px 0 rgba(40, 40, 40, 0.32);
+        border-radius: 16px;
+        opacity: 1;
+        transition: opacity 0.2s ease;
+        pointer-events: all;
+        &:hover {
+            cursor: pointer;
+        }
+        &.hide {
+            z-index: -2147483646;
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+
     #sharer-by-KP {
+        z-index: 2147483647;
         font-family: "Inter", sans-serif;
         position: fixed;
         width: 100vw;

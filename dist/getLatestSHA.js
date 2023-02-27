@@ -1,20 +1,4 @@
-/**
-* "Sharer by KP"
-* - Sharer is a user-friendly JavaScript library that seamlessly enhances website sharing across various applications and social media platforms. Boost engagement and increase website reach with Sharer - the top-rated JavaScript library for seamless URL sharing!
-*
-* @author Kartavya Patel <patelka2211@gmail.com>
-*
-* @license {@link https://github.com/patelka2211/sharer/blob/main/LICENSE MIT}
-*
-* @copyright Kartavya Patel 2023
-*
-* Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
-*
-* Last updated at : 2023-02-27T18:11:40.545Z
-*/
-'use strict';
-
-var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -67,28 +51,6 @@ function getSHA() {
         }
     }
 }
-function getCDN_URL() {
+export function getCDN_URL() {
     return `https://cdn\.jsdelivr\.net/gh/patelka2211/sharer@${getSHA()}/`;
 }
-
-const cdn = {
-    // url: "http://localhost:5500/", // For development purpose only.
-    url: getCDN_URL(),
-    getPath(path) {
-        if (typeof path === "string")
-            return this.url + path;
-        return this.url + path.join("/");
-    },
-};
-
-function importSharerScript() {
-    let sharer_script = document.createElement("script");
-    sharer_script.id = "sharer_iife_file";
-    sharer_script.src = cdn.getPath(["bundle", "sharer.iife.min.js"]);
-    document.head.appendChild(sharer_script);
-    try {
-        document.getElementById("sharer_latest_file_importer").remove();
-    }
-    catch (error) { }
-}
-window.addEventListener("load", importSharerScript);
