@@ -10,7 +10,7 @@
 *
 * Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
 *
-* Last updated at : 2023-02-28T16:15:59.160Z
+* Last updated at : 2023-02-28T16:38:43.515Z
 */
 (function () {
     'use strict';
@@ -29,6 +29,11 @@
         let sharer_button = document.createElement("img");
         sharer_button.src = cdn.getPath(["assets", "sharerIcon.svg"]);
         sharer_button.id = "sharer-btn-default";
+        sharer_button.setAttribute("onclick", `try {
+            sharer.open();
+        } catch { 
+            alert('It appears that the Sharer module has not been fully loaded at this time.');
+        }`.replace("\n", ""));
         document.body.appendChild(sharer_button);
     }
     window.addEventListener("load", loadSharerButton);
