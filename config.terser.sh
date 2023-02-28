@@ -1,0 +1,1 @@
+terser $1.js -c -m -o $1.min.js

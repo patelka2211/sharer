@@ -15,14 +15,14 @@ body {
         box-shadow: 0 16px 64px 0 rgba(40, 40, 40, 0.32);
         border-radius: 16px;
         opacity: 1;
-        transition: opacity 0.2s ease;
+        transition: opacity 0.6s ease, bottom 1s ease;
         pointer-events: all;
         &:hover {
             cursor: pointer;
         }
         &.hide {
-            z-index: -2147483646;
             opacity: 0;
+            bottom: -100px;
             pointer-events: none;
         }
     }

@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
                 temporary_function();
                 return temporary_function;
             })(function () {
-                element.value = `<script id="sharer_latest_file_importer" src="https://cdn.jsdelivr.net/gh/patelka2211/sharer/bundle/sharer.iife_import.min.js"></script>`;
+                element.value = `<script id="sharer_iife_script" src="https://patelka2211.github.io/sharer/bundle/sharer.iife.min.js"></script>`;
             })
         );
     })(document.getElementById(`${"iife"}-url-input`));

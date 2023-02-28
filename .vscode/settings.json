@@ -8,7 +8,6 @@
             // "savePath": "./website-stuff"
         }
     ],
-    "liveSassCompile.settings.forceBaseDirectory": "src",
-    "liveServer.settings.port": 5501
+    "liveSassCompile.settings.forceBaseDirectory": "src"
     // "liveSassCompile.settings.forceBaseDirectory": "website-stuff"
 }

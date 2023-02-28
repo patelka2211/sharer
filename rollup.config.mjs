@@ -1,4 +1,4 @@
-const outFormats = ["iife", "esm", "sharer_button", "import"],
+const outFormats = ["iife", "esm", "sharer_button"],
     time = new Date(),
     banner = `/**
 * "Sharer by KP"
@@ -21,16 +21,6 @@ export default outFormats.map((format) => {
             input: `./dist/${format}/${format}.js`,
             output: {
                 file: `./bundle/${format}.js`,
-                format: "iife",
-                // name: "sharer",
-                banner: banner,
-            },
-        };
-    else if (format === "import")
-        return {
-            input: `./dist/sharer_${format}.js`,
-            output: {
-                file: `./bundle/sharer.iife_${format}.js`,
                 format: "iife",
                 // name: "sharer",
                 banner: banner,
