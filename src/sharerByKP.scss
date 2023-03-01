@@ -13,7 +13,7 @@ body {
         height: 48px;
         z-index: 2147483646;
         box-shadow: 0 16px 64px 0 rgba(40, 40, 40, 0.32);
-        border-radius: 26px;
+        border-radius: 16px;
         opacity: 1;
         transition: opacity 0.4s ease, bottom 0.4s ease, right 0.4s ease,
             width 0.4s ease, height 0.4s ease, box-shadow 0.4s ease;
@@ -21,10 +21,10 @@ body {
         &:hover {
             cursor: pointer;
             box-shadow: 0 16px 64px 0 rgba(40, 40, 40, 0.48);
-            bottom: 17px;
-            right: 17px;
-            width: 53px;
-            height: 53px;
+            bottom: 16px;
+            right: 16px;
+            width: 56px;
+            height: 56px;
         }
         &.hide {
             opacity: 0;
