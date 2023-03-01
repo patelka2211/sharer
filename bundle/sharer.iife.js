@@ -10,7 +10,7 @@
 *
 * Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
 *
-* Last updated at : 2023-03-01T06:20:21.443Z
+* Last updated at : 2023-03-01T15:54:20.240Z
 */
 var sharer = (function () {
     'use strict';
@@ -686,10 +686,10 @@ var sharer = (function () {
     function setSharerURL(url) {
         default_url = url;
     }
-    function setSharerURLToDefault() {
+    function setDefaultSharerURL() {
         default_url = window.location.href;
     }
-    function setSharerTextToDefault() {
+    function setDefaultSharerText() {
         default_text = document.title;
     }
     function openQRInterfaceState() {
@@ -873,16 +873,16 @@ var sharer = (function () {
             setSharerURL(url);
             return this;
         },
-        setURLToDefault: function () {
-            setSharerURLToDefault();
+        setDefaultURL: function () {
+            setDefaultSharerURL();
             return this;
         },
         setText: function (text) {
             setSharerText(text);
             return this;
         },
-        setTextToDefault: function () {
-            setSharerTextToDefault();
+        setDefaultText: function () {
+            setDefaultSharerText();
             return this;
         },
         open: openSharer,

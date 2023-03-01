@@ -16,11 +16,7 @@ function loadSharerButton() {
     sharer_button.classList.add("hide");
     sharer_button.setAttribute(
         "onclick",
-        `try {
-            sharer.open();
-        } catch { 
-            alert('It appears that the Sharer module has not been fully loaded at this time.');
-        }`.replace("\n", "")
+        `try { sharer.open(); } catch { alert('It appears that the Sharer module has not been fully loaded at this time.'); }`
     );
     document.body.appendChild(sharer_button);
     setTimeout(() => {

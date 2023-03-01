@@ -1,5 +1,5 @@
 import cdn from "./cdn";
-import { setSharerText, setSharerTextToDefault, setSharerURL, setSharerURLToDefault, } from "./gui/sharerContent/content.functions";
+import { setSharerText, setDefaultSharerText, setSharerURL, setDefaultSharerURL, } from "./gui/sharerContent/content.functions";
 import { closeSharer } from "./gui/sharerHeader/header.functions";
 import { openSharer } from "./gui/sharerRoot";
 import j2h from "./j2h";
@@ -17,16 +17,16 @@ export default {
         setSharerURL(url);
         return this;
     },
-    setURLToDefault: function () {
-        setSharerURLToDefault();
+    setDefaultURL: function () {
+        setDefaultSharerURL();
         return this;
     },
     setText: function (text) {
         setSharerText(text);
         return this;
     },
-    setTextToDefault: function () {
-        setSharerTextToDefault();
+    setDefaultText: function () {
+        setDefaultSharerText();
         return this;
     },
     open: openSharer,

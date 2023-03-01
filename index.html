@@ -10,7 +10,7 @@
     <!-- Sharer content -->
     <script id="sharer_iife_script" src="https://patelka2211.github.io/sharer/bundle/sharer.iife.min.js"
         type="text/javascript"></script>
-    <!-- <script id="sharer_button_script" src="https://patelka2211.github.io/sharer/bundle/sharer_button.js"
+    <!-- <script id="sharer_button_script" src="https://patelka2211.github.io/sharer/bundle/sharer_button.min.js"
         type="text/javascript"></script> -->
 
     <!-- This website specific content -->
@@ -29,7 +29,7 @@
     <meta property="og:title" content="Sharer by KP" />
     <meta property="og:description"
         content="Sharer is a user-friendly JavaScript library that seamlessly enhances website sharing across various applications and social media platforms. Boost engagement and increase website reach with Sharer - the top-rated JavaScript library for seamless URL sharing!" />
-    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/patelka2211/sharer/assets/opengraph.jpg" />
+    <meta property="og:image" content="https://patelka2211.github.io/sharer/assets/opengraph.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -37,7 +37,7 @@
     <meta property="twitter:title" content="Sharer by KP" />
     <meta property="twitter:description"
         content="Sharer is a user-friendly JavaScript library that seamlessly enhances website sharing across various applications and social media platforms. Boost engagement and increase website reach with Sharer - the top-rated JavaScript library for seamless URL sharing!" />
-    <meta property="twitter:image" content="https://cdn.jsdelivr.net/gh/patelka2211/sharer/assets/opengraph.jpg" />
+    <meta property="twitter:image" content="https://patelka2211.github.io/sharer/assets/opengraph.jpg" />
 </head>
 
 <body>
@@ -72,11 +72,12 @@
                     href="https://github.com/patelka2211/sharer/blob/main/bundle/sharer.esm.js" target="_blank">GitHub
                     page</a>.</p>
         </div>
-        <button id="sharer-in-action" onclick="sharer.open();">Witness <strong>Sharer</strong> in action!</button>
-        <p id="special-thanks">
-            Sharer owes its creation to "<a class="highlight" target="_blank"
-                href="https://github.com/patelka2211/json2html/">JSON2HTML</a>" and
-            "<a class="highlight" target="_blank" href="https://github.com/datalog/qrcode-svg/">qrcode-svg</a>".
+        <button id="sharer-in-action"
+            onclick="try { sharer.open(); } catch { alert('It appears that the Sharer module has not been fully loaded at this time.'); }">Witness
+            <strong>Sharer</strong> in action!</button>
+        <p id="special-thanks">Sharer was created with the help of two libraries - "<a class="highlight" target="_blank"
+                href="https://github.com/patelka2211/json2html/">JSON2HTML</a>" and "<a class="highlight"
+                target="_blank" href="https://github.com/datalog/qrcode-svg/">qrcode-svg</a>".
         </p>
         <a id="developer-credits" target="_blank" href="https://linkedin.com/in/kartavyapatel/">
             <img id="kp-img" src="https://avatars.githubusercontent.com/u/82671701" alt="KP">

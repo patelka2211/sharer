@@ -19,11 +19,11 @@ export function setSharerURL(url: string) {
     default_url = url;
 }
 
-export function setSharerURLToDefault() {
+export function setDefaultSharerURL() {
     default_url = window.location.href;
 }
 
-export function setSharerTextToDefault() {
+export function setDefaultSharerText() {
     default_text = document.title;
 }
 

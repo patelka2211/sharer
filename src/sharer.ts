@@ -1,9 +1,9 @@
 import cdn from "./cdn";
 import {
     setSharerText,
-    setSharerTextToDefault,
+    setDefaultSharerText,
     setSharerURL,
-    setSharerURLToDefault,
+    setDefaultSharerURL,
 } from "./gui/sharerContent/content.functions";
 import { closeSharer } from "./gui/sharerHeader/header.functions";
 import { openSharer } from "./gui/sharerRoot";
@@ -26,16 +26,16 @@ export default {
         setSharerURL(url);
         return this;
     },
-    setURLToDefault: function () {
-        setSharerURLToDefault();
+    setDefaultURL: function () {
+        setDefaultSharerURL();
         return this;
     },
     setText: function (text: string) {
         setSharerText(text);
         return this;
     },
-    setTextToDefault: function () {
-        setSharerTextToDefault();
+    setDefaultText: function () {
+        setDefaultSharerText();
         return this;
     },
     open: openSharer,
