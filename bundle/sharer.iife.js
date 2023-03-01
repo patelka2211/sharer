@@ -10,7 +10,7 @@
 *
 * Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
 *
-* Last updated at : 2023-03-01T06:14:09.766Z
+* Last updated at : 2023-03-01T06:20:21.443Z
 */
 var sharer = (function () {
     'use strict';
@@ -866,7 +866,6 @@ var sharer = (function () {
     }));
     try {
         localStorage.removeItem("sharer_deployment_sha"); // To be removed after some time
-        document.getElementById("sharer-btn-default").classList.remove("hide");
     }
     catch (error) { }
     var sharer = {
