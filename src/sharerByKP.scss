@@ -5,34 +5,6 @@
 body {
     margin: 0;
 
-    #sharer-btn-default {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 48px;
-        height: 48px;
-        z-index: 2147483646;
-        box-shadow: 0 16px 64px 0 rgba(40, 40, 40, 0.32);
-        border-radius: 16px;
-        opacity: 1;
-        transition: opacity 0.4s ease, bottom 0.4s ease, right 0.4s ease,
-            width 0.4s ease, height 0.4s ease, box-shadow 0.4s ease;
-        pointer-events: all;
-        &:hover {
-            cursor: pointer;
-            box-shadow: 0 16px 64px 0 rgba(40, 40, 40, 0.48);
-            bottom: 16px;
-            right: 16px;
-            width: 56px;
-            height: 56px;
-        }
-        &.hide {
-            opacity: 0;
-            bottom: -68px;
-            pointer-events: none;
-        }
-    }
-
     #sharer-by-KP {
         z-index: 2147483647;
         font-family: "Inter", sans-serif;

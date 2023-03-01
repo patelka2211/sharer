@@ -1,5 +1,11 @@
 import cdn from "../cdn";
 function loadSharerButton() {
+    document.head.appendChild(((element) => {
+        element.id = "sharer_button_css_file";
+        element.rel = "stylesheet";
+        element.href = cdn.getPath(["bundle", "sharer_button.css"]);
+        return element;
+    })(document.createElement("link")));
     let sharer_button = document.createElement("img");
     sharer_button.src = cdn.getPath(["assets", "sharerIcon.svg"]);
     sharer_button.id = "sharer-btn-default";
