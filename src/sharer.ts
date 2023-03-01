@@ -18,7 +18,10 @@ document.head.appendChild(
 );
 
 try {
-    localStorage.removeItem("sharer_deployment_sha");
+    localStorage.removeItem("sharer_deployment_sha"); // To be removed after some time
+    (
+        document.getElementById("sharer-btn-default") as HTMLElement
+    ).classList.remove("hide");
 } catch (error) {}
 
 export default {

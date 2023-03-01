@@ -9,7 +9,8 @@ document.head.appendChild(j2h.setAttribute(document.createElement("link"), {
     href: cdn.getPath(["bundle", "sharerByKP.css"]),
 }));
 try {
-    localStorage.removeItem("sharer_deployment_sha");
+    localStorage.removeItem("sharer_deployment_sha"); // To be removed after some time
+    document.getElementById("sharer-btn-default").classList.remove("hide");
 }
 catch (error) { }
 export default {

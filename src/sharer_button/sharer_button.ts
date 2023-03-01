@@ -4,6 +4,7 @@ function loadSharerButton() {
     let sharer_button = document.createElement("img");
     sharer_button.src = cdn.getPath(["assets", "sharerIcon.svg"]);
     sharer_button.id = "sharer-btn-default";
+    sharer_button.classList.add("hide");
     sharer_button.setAttribute(
         "onclick",
         `try {
