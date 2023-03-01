@@ -20,8 +20,7 @@ window.addEventListener("load", () => {
                 temporary_function();
                 return temporary_function;
             })(function () {
-                element.value = `<script id="sharer_iife_script" src="https://patelka2211.github.io/sharer/bundle/sharer.iife.min.js"></script><script id="sharer_button_script" src="https://patelka2211.github.io/sharer/bundle/sharer_button.min.js"
-                type="text/javascript"></script>`;
+                element.value = `<script id="sharer_iife_script" src="https://patelka2211.github.io/sharer/bundle/sharer.iife.min.js"></script><script id="sharer_button_script" src="https://patelka2211.github.io/sharer/bundle/sharer_button.min.js" type="text/javascript"></script>`;
             })
         );
     })(document.getElementById(`${"iife"}-url-input`));
