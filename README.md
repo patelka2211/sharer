@@ -1,6 +1,8 @@
 # Sharer by KP
 
-![](./assets/opengraph.jpg)
+<!-- ![](./assets/opengraph.jpg) -->
+
+![](./assets/sharer-preview.jpg)
 
 # 📝 Description
 
