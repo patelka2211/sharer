@@ -74,10 +74,10 @@ function setQRInterface(appid) {
 export function setApplistInterface() {
     let applist_html = j2h.setRoot(elements.sharer_content());
     Object.keys(applist).forEach((id) => {
-        applist_html.append(j2h.element("div", { id: `open-${id}-qr`, class: "applist-item" }, [
-            j2h.element("div", { class: "applist-icon-container" }, svgs.cdn[id]),
-            j2h.element("div", { class: "applist-app-name" }, applist[id].name),
-            j2h.element("div", { class: "arrow-right-icon" }, svgs.local.arrowRightIcon),
+        applist_html.append(j2h.element("div", { id: `open-${id}-qr`, class: "sharer-applist-item" }, [
+            j2h.element("div", { class: "sharer-applist-icon-container" }, svgs.cdn[id]),
+            j2h.element("div", { class: "sharer-applist-app-name" }, applist[id].name),
+            j2h.element("div", { class: "sharer-applist-arrow-right-icon" }, svgs.local.arrowRightIcon),
         ]));
     });
     applist_html.render();

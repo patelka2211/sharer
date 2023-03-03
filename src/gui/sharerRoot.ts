@@ -35,7 +35,7 @@ function setSharerRoot() {
                         svgs.local.closeIcon
                     ),
                 ]),
-                j2h.element("div", { id: "sharer-content" }),
+                j2h.element("div", { id: "sharer-content-main" }),
                 j2h.element(
                     "div",
                     { id: "sharer-footer" },

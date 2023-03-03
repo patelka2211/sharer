@@ -14,7 +14,7 @@ const elements = {
         document.getElementById("sharer-window") as HTMLElement,
 
     sharer_content: () =>
-        document.getElementById("sharer-content") as HTMLElement,
+        document.getElementById("sharer-content-main") as HTMLElement,
 
     header_close_icon: () =>
         document.getElementById("header-close-icon") as HTMLElement,

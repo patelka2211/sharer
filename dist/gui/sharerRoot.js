@@ -16,7 +16,7 @@ function setSharerRoot() {
             j2h.element("div", { id: "header-title" }, "Sharer by KP"),
             j2h.element("div", { id: "header-close-icon" }, svgs.local.closeIcon),
         ]),
-        j2h.element("div", { id: "sharer-content" }),
+        j2h.element("div", { id: "sharer-content-main" }),
         j2h.element("div", { id: "sharer-footer" }, j2h.element("div", { id: "sharer-footer-text" })),
     ])));
     document.body.prepend(Sharer_By_KP);

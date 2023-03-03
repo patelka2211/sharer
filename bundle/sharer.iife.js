@@ -10,7 +10,7 @@
 *
 * Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
 *
-* Last updated at : 2023-03-01T15:54:20.240Z
+* Last updated at : 2023-03-03T13:39:39.733Z
 */
 var sharer = (function () {
     'use strict';
@@ -117,7 +117,7 @@ var sharer = (function () {
         sharer_footer: () => document.getElementById("sharer-footer"),
         sharer_footer_text: () => document.getElementById("sharer-footer-text"),
         sharer_window: () => document.getElementById("sharer-window"),
-        sharer_content: () => document.getElementById("sharer-content"),
+        sharer_content: () => document.getElementById("sharer-content-main"),
         header_close_icon: () => document.getElementById("header-close-icon"),
         header_icon_container: () => document.getElementById("header-icon-container"),
         header_title: () => document.getElementById("header-title"),
@@ -747,10 +747,10 @@ var sharer = (function () {
     function setApplistInterface() {
         let applist_html = j2h.setRoot(elements.sharer_content());
         Object.keys(applist).forEach((id) => {
-            applist_html.append(j2h.element("div", { id: `open-${id}-qr`, class: "applist-item" }, [
-                j2h.element("div", { class: "applist-icon-container" }, svgs.cdn[id]),
-                j2h.element("div", { class: "applist-app-name" }, applist[id].name),
-                j2h.element("div", { class: "arrow-right-icon" }, svgs.local.arrowRightIcon),
+            applist_html.append(j2h.element("div", { id: `open-${id}-qr`, class: "sharer-applist-item" }, [
+                j2h.element("div", { class: "sharer-applist-icon-container" }, svgs.cdn[id]),
+                j2h.element("div", { class: "sharer-applist-app-name" }, applist[id].name),
+                j2h.element("div", { class: "sharer-applist-arrow-right-icon" }, svgs.local.arrowRightIcon),
             ]));
         });
         applist_html.render();
@@ -824,7 +824,7 @@ var sharer = (function () {
                 j2h.element("div", { id: "header-title" }, "Sharer by KP"),
                 j2h.element("div", { id: "header-close-icon" }, svgs.local.closeIcon),
             ]),
-            j2h.element("div", { id: "sharer-content" }),
+            j2h.element("div", { id: "sharer-content-main" }),
             j2h.element("div", { id: "sharer-footer" }, j2h.element("div", { id: "sharer-footer-text" })),
         ])));
         document.body.prepend(Sharer_By_KP);
