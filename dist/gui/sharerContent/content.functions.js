@@ -65,7 +65,8 @@ function setQRInterface(appid) {
         element.onclick = revertBackToRoot;
     })(elements.header_icon_container());
     ((app_details) => {
-        elements.header_title().innerText = `Share on ${app_details.name}`;
+        // elements.header_title().innerText = `Share on ${app_details.name}`;
+        elements.header_title().innerText = `Scan to open ${app_details.name}`;
         setFooterInterface(`Open ${app_details.name}`, app_details.theme.secondary, app_details.theme.primary, () => {
             openWebsite(url_to_be_shared);
         });

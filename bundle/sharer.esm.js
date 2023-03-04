@@ -10,7 +10,7 @@
 *
 * Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
 *
-* Last updated at : 2023-03-03T13:39:39.733Z
+* Last updated at : 2023-03-04T13:14:47.047Z
 */
 const cdn = {
     url: "https://patelka2211.github.io/sharer/",
@@ -735,7 +735,8 @@ function setQRInterface(appid) {
         element.onclick = revertBackToRoot;
     })(elements.header_icon_container());
     ((app_details) => {
-        elements.header_title().innerText = `Share on ${app_details.name}`;
+        // elements.header_title().innerText = `Share on ${app_details.name}`;
+        elements.header_title().innerText = `Scan to open ${app_details.name}`;
         setFooterInterface(`Open ${app_details.name}`, app_details.theme.secondary, app_details.theme.primary, () => {
             openWebsite(url_to_be_shared);
         });

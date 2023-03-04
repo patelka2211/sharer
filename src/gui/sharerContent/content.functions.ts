@@ -109,7 +109,8 @@ function setQRInterface(appid: string) {
     })(elements.header_icon_container());
 
     ((app_details) => {
-        elements.header_title().innerText = `Share on ${app_details.name}`;
+        // elements.header_title().innerText = `Share on ${app_details.name}`;
+        elements.header_title().innerText = `Scan to open ${app_details.name}`;
         setFooterInterface(
             `Open ${app_details.name}`,
             app_details.theme.secondary,
