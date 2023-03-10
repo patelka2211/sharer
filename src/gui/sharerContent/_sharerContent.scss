@@ -1,5 +1,6 @@
 @mixin sharerContent {
     #sharer-content-main {
+        box-sizing: content-box;
         width: 100%;
         aspect-ratio: 1;
         overflow: auto;
@@ -34,6 +35,7 @@
             }
 
             .sharer-applist-app-name {
+                text-align: left;
                 font-family: "Inter", sans-serif;
                 width: calc(100% - 76px);
                 display: inline-block;
