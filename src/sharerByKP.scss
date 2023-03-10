@@ -6,6 +6,10 @@ body {
     margin: 0;
 
     #sharer-by-KP {
+        box-sizing: content-box;
+        * {
+            box-sizing: content-box;
+        }
         z-index: 2147483647;
         font-family: "Inter", sans-serif;
         position: fixed;
