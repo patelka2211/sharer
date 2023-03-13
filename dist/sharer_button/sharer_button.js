@@ -10,7 +10,7 @@ function loadSharerButton() {
     sharer_button.src = cdn.getPath(["assets", "sharerIcon.svg"]);
     sharer_button.id = "sharer-btn-default";
     sharer_button.classList.add("hide");
-    sharer_button.setAttribute("onclick", `try { sharer.open(); } catch { alert('It appears that the Sharer module has not been fully loaded at this time.'); }`);
+    sharer_button.setAttribute("onclick", `try { sharer.setDefaultURL().setDefaultText().open(); } catch { alert('It appears that the Sharer module has not been fully loaded at this time.'); }`);
     document.body.appendChild(sharer_button);
     setTimeout(() => {
         sharer_button.classList.remove("hide");
