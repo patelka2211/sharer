@@ -2,7 +2,7 @@
 
 <!-- ![](./assets/opengraph.jpg) -->
 
-![](./assets/sharer-preview.jpg)
+![](./assets/sharer-preview-mac-iphone.png)
 
 # 📝 Description
 
