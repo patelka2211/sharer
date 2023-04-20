@@ -10,7 +10,7 @@
 *
 * Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
 *
-* Last updated at : 2023-03-04T13:14:47.047Z
+* Last updated at : 2023-04-20T09:31:49.006Z
 */
 const cdn = {
     url: "https://patelka2211.github.io/sharer/",
@@ -857,16 +857,7 @@ function openSharer() {
     document.body.classList.add("sharer-opened");
 }
 
-document.head.appendChild(j2h.setAttribute(document.createElement("link"), {
-    id: "sharer_css_file",
-    rel: "stylesheet",
-    href: cdn.getPath(["bundle", "sharerByKP.css"]),
-}));
-try {
-    localStorage.removeItem("sharer_deployment_sha"); // To be removed after some time
-}
-catch (error) { }
-var sharer = {
+var sharer_functions = {
     setURL: function (url) {
         setSharerURL(url);
         return this;
@@ -883,8 +874,25 @@ var sharer = {
         setDefaultSharerText();
         return this;
     },
-    open: openSharer,
-    close: closeSharer,
+    open: function () {
+        openSharer();
+    },
+    close: function () {
+        closeSharer();
+    },
 };
+// Adding Sharer css programmatically
+document.head.appendChild(j2h.setAttribute(document.createElement("link"), {
+    id: "sharer_css_file",
+    rel: "stylesheet",
+    href: cdn.getPath(["bundle", "sharerByKP.css"]),
+}));
+try {
+    localStorage.removeItem("sharer_deployment_sha"); // To be removed after some time
+}
+catch (error) { }
 
-export { sharer as default };
+// Destructuring all the functions
+const { setURL, setDefaultURL, setText, setDefaultText, open, close } = sharer_functions;
+
+export { close as closeSharer, open as openSharer, setDefaultText as setDefaultSharerText, setDefaultURL as setDefaultSharerURL, setText as setSharerText, setURL as setSharerURL };

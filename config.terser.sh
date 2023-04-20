@@ -1,1 +1,6 @@
-terser $1.js -c -m -o $1.min.js
+#!/bin/bash
+
+input=$1
+output="${input/.js/.min.js}"
+
+terser $input -c -m -o $output

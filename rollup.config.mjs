@@ -22,12 +22,11 @@ export default outFormats.map((format) => {
             output: {
                 file: `./bundle/${format}.js`,
                 format: "iife",
-                // name: "sharer",
                 banner: banner,
             },
         };
     return {
-        input: "./dist/sharer.js",
+        input: `./dist/sharer_${format}.js`,
         output: {
             file: `./bundle/sharer.${format}.js`,
             format: format,
