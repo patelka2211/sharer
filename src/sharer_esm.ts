@@ -1,14 +1,18 @@
 import sharer_functions from "./sharer_functions";
 
 // Destructuring all the functions
-const { setURL, setDefaultURL, setText, setDefaultText, open, close } =
-    sharer_functions;
+const setSharerURL = sharer_functions.setURL,
+    setDefaultSharerURL = sharer_functions.setDefaultURL,
+    setSharerText = sharer_functions.setText,
+    setDefaultSharerText = sharer_functions.setDefaultText,
+    openSharer = sharer_functions.open,
+    closeSharer = sharer_functions.close;
 
 export {
-    setURL as setSharerURL,
-    setDefaultURL as setDefaultSharerURL,
-    setText as setSharerText,
-    setDefaultText as setDefaultSharerText,
-    open as openSharer,
-    close as closeSharer,
+    setSharerURL,
+    setDefaultSharerURL,
+    setSharerText,
+    setDefaultSharerText,
+    openSharer,
+    closeSharer,
 };

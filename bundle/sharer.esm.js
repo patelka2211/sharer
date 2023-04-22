@@ -10,7 +10,7 @@
 *
 * Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
 *
-* Last updated at : 2023-04-20T09:31:49.006Z
+* Last updated at : 2023-04-22T09:23:57.921Z
 */
 const cdn = {
     url: "https://patelka2211.github.io/sharer/",
@@ -677,16 +677,16 @@ const applist = {
 
 let QRInterfaceState = false;
 let default_url = window.location.href, default_text = document.title;
-function setSharerText(text) {
+function setSharerText$1(text) {
     default_text = text;
 }
-function setSharerURL(url) {
+function setSharerURL$1(url) {
     default_url = url;
 }
-function setDefaultSharerURL() {
+function setDefaultSharerURL$1() {
     default_url = window.location.href;
 }
-function setDefaultSharerText() {
+function setDefaultSharerText$1() {
     default_text = document.title;
 }
 function openQRInterfaceState() {
@@ -786,7 +786,7 @@ let continue_to_close = true;
 function setContinueToCloseFalse() {
     continue_to_close = false;
 }
-function closeSharer() {
+function closeSharer$1() {
     if (continue_to_close) {
         try {
             elements.sharer_container().classList.add("hide");
@@ -828,7 +828,7 @@ function setSharerRoot() {
     document.body.prepend(Sharer_By_KP);
     sharer_root.render();
 }
-function openSharer() {
+function openSharer$1() {
     try {
         document.getElementById("sharer-by-KP").remove();
     }
@@ -845,8 +845,8 @@ function openSharer() {
         elements.sharer_container().classList.remove("hide");
     }, 10);
     elements.sharer_window().onclick = setContinueToCloseFalse;
-    elements.sharer_container().onclick = closeSharer;
-    elements.header_close_icon().onclick = closeSharer;
+    elements.sharer_container().onclick = closeSharer$1;
+    elements.header_close_icon().onclick = closeSharer$1;
     [elements.header_icon_container(), elements.sharer_footer()].forEach((element) => {
         element.onclick = () => openWebsite();
     });
@@ -859,26 +859,26 @@ function openSharer() {
 
 var sharer_functions = {
     setURL: function (url) {
-        setSharerURL(url);
+        setSharerURL$1(url);
         return this;
     },
     setDefaultURL: function () {
-        setDefaultSharerURL();
+        setDefaultSharerURL$1();
         return this;
     },
     setText: function (text) {
-        setSharerText(text);
+        setSharerText$1(text);
         return this;
     },
     setDefaultText: function () {
-        setDefaultSharerText();
+        setDefaultSharerText$1();
         return this;
     },
     open: function () {
-        openSharer();
+        openSharer$1();
     },
     close: function () {
-        closeSharer();
+        closeSharer$1();
     },
 };
 // Adding Sharer css programmatically
@@ -893,6 +893,6 @@ try {
 catch (error) { }
 
 // Destructuring all the functions
-const { setURL, setDefaultURL, setText, setDefaultText, open, close } = sharer_functions;
+const setSharerURL = sharer_functions.setURL, setDefaultSharerURL = sharer_functions.setDefaultURL, setSharerText = sharer_functions.setText, setDefaultSharerText = sharer_functions.setDefaultText, openSharer = sharer_functions.open, closeSharer = sharer_functions.close;
 
-export { close as closeSharer, open as openSharer, setDefaultText as setDefaultSharerText, setDefaultURL as setDefaultSharerURL, setText as setSharerText, setURL as setSharerURL };
+export { closeSharer, openSharer, setDefaultSharerText, setDefaultSharerURL, setSharerText, setSharerURL };
