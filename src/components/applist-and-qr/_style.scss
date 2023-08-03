@@ -1,0 +1,96 @@
+@mixin sharerApplistAndQR {
+    #sharer-applist-n-qr {
+        margin: $padding;
+        margin-bottom: 0;
+        aspect-ratio: 1;
+        border-radius: 6.9px;
+
+        overflow: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .applist-item {
+            padding: $padding;
+            width: calc(100% - 2 * $padding);
+            height: calc(50px - 2 * $padding);
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-bottom: 1px solid
+                rgba(var(--sharer-dc-secondaryContainer-rgb), 32%);
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .applist-item-icon-container {
+                padding: 1px;
+                height: calc(100% - 2px);
+                aspect-ratio: 1;
+                background-color: rgba(
+                    var(--sharer-dc-onSecondaryContainer-rgb),
+                    8%
+                );
+                border-radius: 23%;
+                .applist-item-icon-image {
+                    width: 100%;
+                    border-radius: 23%;
+                }
+            }
+
+            .applist-item-name {
+                font-size: 18px;
+                font-weight: 500;
+                width: calc(100% - 120px);
+                color: var(--sharer-dc-onBackground);
+                &:hover {
+                    cursor: default;
+                }
+
+                white-space: nowrap;
+                overflow: hidden !important;
+                text-overflow: ellipsis;
+            }
+
+            .applist-item-qr-icon,
+            .applist-item-open-icon {
+                height: 100%;
+                aspect-ratio: 1;
+                border-radius: 23%;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: var(--sharer-dc-secondaryContainer);
+
+                    .applist-btns-icon-svg {
+                        path {
+                            fill: var(--sharer-dc-onSecondaryContainer);
+                        }
+                    }
+                }
+
+                .applist-btns-icon-svg {
+                    path {
+                        fill: rgba(
+                            var(--sharer-dc-onSecondaryContainer-rgb),
+                            32%
+                        );
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: rgba(
+                    var(--sharer-dc-secondaryContainer-rgb),
+                    32%
+                );
+            }
+        }
+    }
+}

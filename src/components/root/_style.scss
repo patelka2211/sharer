@@ -1,0 +1,41 @@
+@import "../window/style";
+
+@mixin kpverseSharer {
+    #kpverse-sharer {
+        font-family: "Inter", sans-serif;
+
+        transition: opacity 0.4s ease;
+        opacity: 1;
+
+        box-sizing: content-box;
+
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 32%);
+        backdrop-filter: blur(6px);
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        &.hide {
+            opacity: 0;
+        }
+
+        * {
+            box-sizing: content-box;
+        }
+
+        @include sharerWindow();
+    }
+}
+
+@mixin kpverseSharerMaxWidth434px {
+    #kpverse-sharer {
+        align-items: end;
+
+        @include sharerWindowMaxWidth434px();
+    }
+}

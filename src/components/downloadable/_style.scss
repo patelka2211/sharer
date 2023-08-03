@@ -1,0 +1,44 @@
+$padding: 10px;
+
+@import "../applist-and-qr/style";
+
+@mixin sharerDownloadableComponent {
+    #sharer-downloadable-component {
+        width: 100%;
+        background-color: var(--sharer-dc-background);
+
+        .powered-by-sharer,
+        #sharer-applist-n-qr {
+            width: calc(100% - 2 * $padding);
+        }
+
+        @include sharerApplistAndQR();
+
+        .powered-by-sharer-container {
+            padding: $padding;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+
+            #powered-by-sharer-svg {
+                max-width: 195px;
+                width: calc(100% - 20px);
+                .svg-fonts {
+                    fill: var(--sharer-dc-onBackground);
+                }
+
+                .sharer-logo-bg {
+                    fill: var(--sharer-dc-secondaryContainer);
+                }
+                .sharer-logo-fg {
+                    fill: var(--sharer-dc-onSecondaryContainer);
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

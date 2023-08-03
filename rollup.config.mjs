@@ -1,37 +1,50 @@
-const outFormats = ["iife", "esm", "sharer_button"],
-    time = new Date(),
-    banner = `/**
-* "Sharer by KP"
-* - Sharer is a user-friendly JavaScript library that seamlessly enhances website sharing across various applications and social media platforms. Boost engagement and increase website reach with Sharer - the top-rated JavaScript library for seamless URL sharing!
-*
-* @author Kartavya Patel <patelka2211@gmail.com>
-*
-* @license {@link https://github.com/patelka2211/sharer/blob/main/LICENSE MIT}
-*
-* @copyright Kartavya Patel ${time.getFullYear()}
-*
-* Includes {@link https://github.com/patelka2211/json2html JSON2HTML} and {@link https://github.com/datalog/qrcode-svg qrcode-svg}.
-*
-* Last updated at : ${time.toISOString()}
-*/`;
+import dts from "rollup-plugin-dts";
 
-export default outFormats.map((format) => {
-    if (format === "sharer_button")
-        return {
-            input: `./dist/${format}/${format}.js`,
-            output: {
-                file: `./bundle/${format}.js`,
-                format: "iife",
-                banner: banner,
-            },
-        };
-    return {
-        input: `./dist/sharer_${format}.js`,
+const currentDate = new Date(),
+    options = { year: "numeric", month: "long", day: "numeric" },
+    formattedDate = currentDate.toLocaleDateString("en-US", options),
+    banner = `/**
+ * Sharer from KPVERSE
+ *
+ * v0.1.0
+ *
+ * Updated on ${formattedDate}.
+ *
+ * Copyright © 2023-present, Kartavya Patel. All rights reserved.
+ *
+ * @author Kartavya Patel <patelka2211@gmail.com>
+ *
+ * @license {@link https://github.com/patelka2211/sharer/blob/main/LICENSE MIT}
+ */`;
+
+export default [
+    process.env.format === "esm" && {
+        input: "./lib/index.js",
         output: {
-            file: `./bundle/sharer.${format}.js`,
-            format: format,
-            name: "sharer",
-            banner: banner,
+            file: "index.js",
+            format: "es",
+            banner: `'use strict';`,
         },
-    };
-});
+    },
+    process.env.format === "esm" && {
+        input: "./src/index.ts",
+        output: {
+            file: "index.d.ts",
+            format: "es",
+        },
+        plugins: [dts()],
+    },
+    process.env.format === "iife" && {
+        input: "./build.iife.js",
+        output: {
+            file: "./Sharer.js",
+            format: "iife",
+            banner: banner,
+            globals: {
+                "@patelka2211/dominar": "Dominar",
+                "dynamic-colors": "DynamicColors",
+                html2canvas: "html2canvas",
+            },
+        },
+    },
+].filter(Boolean);

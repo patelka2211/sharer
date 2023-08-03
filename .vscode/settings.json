@@ -1,13 +1,10 @@
 {
-    "liveSassCompile.settings.generateMap": false,
     "liveSassCompile.settings.formats": [
         {
             "format": "compressed",
             "extensionName": ".css",
-            "savePath": "./bundle"
-            // "savePath": "./website-stuff"
+            "savePath": "./src"
         }
     ],
-    "liveSassCompile.settings.forceBaseDirectory": "src"
-    // "liveSassCompile.settings.forceBaseDirectory": "website-stuff"
+    "liveSassCompile.settings.generateMap": false
 }

@@ -1,6 +1,8 @@
-# Sharer by KP
+# Sharer
 
-<!-- ![](./assets/opengraph.jpg) -->
+Currently in testing mode. Coming soon.
+
+<!-- # Sharer by KP
 
 ![](./assets/sharer-preview-mac-iphone.png)
 
@@ -58,4 +60,4 @@ sharer.setDefaultURL().setDefaultText().open();
 
 # 🙌🏻 Credits
 
-I would like to acknowledge and give credit to the creator of "[qrcode-svg](https://github.com/datalog/qrcode-svg/)", [@datalog](https://github.com/datalog/), for providing the library that enabled me to create SVG QR codes for Sharer, significantly enhancing its functionality and user experience. Furthermore, I would like to invite you to check out my other project, "[JSON2HTML](https://github.com/patelka2211/json2html/)", which was also utilized in the creation of Sharer.
+I would like to acknowledge and give credit to the creator of "[qrcode-svg](https://github.com/datalog/qrcode-svg/)", [@datalog](https://github.com/datalog/), for providing the library that enabled me to create SVG QR codes for Sharer, significantly enhancing its functionality and user experience. Furthermore, I would like to invite you to check out my other project, "[JSON2HTML](https://github.com/patelka2211/json2html/)", which was also utilized in the creation of Sharer. -->

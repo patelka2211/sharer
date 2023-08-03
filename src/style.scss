@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+@import "./components/button/style";
+@import "./components/root/style";
+
+body {
+    margin: 0;
+
+    &.sharer-is-open {
+        overflow: hidden;
+    }
+
+    @include sharerButton();
+    @include kpverseSharer();
+}
+
+@media (max-width: 434px) {
+    body {
+        @include kpverseSharerMaxWidth434px();
+    }
+}

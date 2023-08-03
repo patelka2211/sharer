@@ -1,0 +1,69 @@
+@mixin sharerButton {
+    #kpverse-sharer-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+
+        width: 48px;
+        height: 48px;
+
+        border-radius: 23%;
+
+        box-shadow: inset 0 1px 0 transparent, 0 22px 70px 4px rgba(0, 0, 0, 0),
+            0 0 0 1px rgba(0, 0, 0, 0);
+
+        transition: all 0.4s ease;
+
+        &.hide {
+            bottom: -32px;
+            right: 28px;
+            width: 32px;
+            height: 32px;
+        }
+        #sharer-icon-svg {
+            .icon-bg {
+                transition: all 0.4s ease;
+                fill: var(--sharer-dc-secondaryContainer);
+            }
+            .icon-fg {
+                transition: all 0.4s ease;
+                fill: var(--sharer-dc-onSecondaryContainer);
+            }
+            .icon-border {
+                transition: all 0.4s ease;
+                fill: rgba(var(--sharer-dc-onSecondaryContainer-rgb), 16%);
+            }
+
+            .icon-stroke {
+                transition: all 0.4s ease;
+                stroke: rgba(var(--sharer-dc-onSecondaryContainer-rgb), 16%);
+            }
+        }
+
+        &.sharer-icon-hover {
+            cursor: none;
+            width: 56px;
+            height: 56px;
+            bottom: 16px;
+            right: 16px;
+            box-shadow: inset 0 1px 0 transparent,
+                0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0);
+
+            #sharer-icon-svg {
+                .icon-bg {
+                    fill: var(--sharer-dc-primaryContainer);
+                }
+                .icon-fg {
+                    fill: var(--sharer-dc-onPrimaryContainer);
+                }
+                .icon-border {
+                    fill: rgba(var(--sharer-dc-onPrimaryContainer-rgb), 24%);
+                }
+
+                .icon-stroke {
+                    stroke: rgba(var(--sharer-dc-onPrimaryContainer-rgb), 32%);
+                }
+            }
+        }
+    }
+}
