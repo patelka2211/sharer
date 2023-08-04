@@ -12,7 +12,9 @@
     "terser-esm": "terser ./index.js -c -m --toplevel -o ./index.js",
     "terser-iife": "terser ./Sharer.js -c -m -o ./Sharer.js",
     "prerelease-build": "npm run tsc-build && npm run rollup-esm && npm run rollup-iife && rm -rf ./lib/",
-    "build": "npm run tsc-build && npm run rollup-esm && npm run rollup-iife && npm run terser-esm && npm run terser-iife && rm -rf ./lib/",
+    "utility-build": "tsc utility.ts",
+    "utility-minify": "terser ./utility.js -c -m -o ./utility.js",
+    "build": "npm run tsc-build && npm run rollup-esm && npm run rollup-iife && npm run terser-esm && npm run terser-iife && rm -rf ./lib/ && npm run utility-build && npm run utility-minify",
     "test-build": "npm run tsc-build && npm run rollup-esm && tsc ./test/index.ts -t es6 && rollup ./test/index.js -o ./test/out.js && rm -rf ./lib/"
   },
   "files": [
