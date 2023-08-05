@@ -4,10 +4,10 @@ import { updateRecord } from "../storage/main";
 import { sharerDynamicColors } from "./main";
 
 /**
- * Sets the color to a new value.
+ * Sets Sharer color.
  *
  * @param {string} newColor - The new color value.
- * @returns {object} - An object with open and close functions.
+ * @returns {object} An object containing open and close functions.
  * @property {function} open - The function to open the Sharer.
  * @property {function} close - The function to close the Sharer.
  */

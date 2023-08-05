@@ -1,7 +1,12 @@
+import { render } from "@patelka2211/dominar";
 import { DynamicColorsType, create, getInstanceByName } from "dynamic-colors";
+import { sharerControlButtonLeftElement } from "../elements/sharerControlButtonLeft";
 import { formatURL } from "../helper/formatURL";
 import { currentThemeIcon } from "../helper/getCurrentThemeIcon";
+import { isSharerOpen } from "../operations/main";
+import { basicDecrypt } from "../storage/basicDecrypt";
 import { readRecord, createRecord } from "../storage/main";
+import { storageKeyFormat } from "../storage/storageKeyFormat";
 
 export let share_url: URL | undefined = undefined;
 
@@ -43,3 +48,25 @@ try {
 sharerDynamicColors?.restrictRemove();
 
 currentThemeIcon(true);
+
+addEventListener("storage", (ev) => {
+    ev.preventDefault();
+    if (ev.key === storageKeyFormat("Color")) {
+        let { newValue } = ev;
+        if (newValue)
+            try {
+                sharerDynamicColors?.setColor(basicDecrypt(newValue));
+            } catch (error) {
+                console.log(error);
+            }
+    } else if (ev.key === storageKeyFormat("Theme")) {
+        let { newValue } = ev;
+        if (newValue) {
+            let themeIcon = currentThemeIcon(true);
+            if (isSharerOpen) {
+                let button = sharerControlButtonLeftElement();
+                if (button) render(button, themeIcon);
+            }
+        }
+    }
+});

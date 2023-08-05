@@ -17,6 +17,9 @@ index.d.ts
 .parcel-cache
 dist
 
+# testing files and folder
+testing
+
 # Build
 build.iife.js
 # build.main.sh

@@ -1,7 +1,7 @@
 {
   "name": "@patelka2211/sharer",
-  "version": "0.1.0",
-  "description": "Sharer from KPVERSE!",
+  "version": "0.1.1",
+  "description": "A URL Sharing Tool for Websites and Web Apps, from KPVERSE",
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
@@ -25,7 +25,19 @@
     "type": "git",
     "url": "git+https://github.com/patelka2211/sharer.git"
   },
-  "keywords": [],
+  "keywords": [
+    "Sharer",
+    "KPVERSE",
+    "patelka2211",
+    "Website Sharing",
+    "JavaScript Library",
+    "Social Media",
+    "Web Development",
+    "Boost Traffic",
+    "Share URLs",
+    "Web App Integration",
+    "Simplify Sharing"
+  ],
   "author": "Kartavya Patel <patelka2211@gmail.com>",
   "license": "MIT",
   "bugs": {

@@ -1,63 +1,104 @@
 # Sharer
 
-Currently in testing mode. Coming soon.
+Currently in testing mode. Stable version releasing soon.
 
-<!-- # Sharer by KP
+<!-- [![](./sharer-from-kpverse.jpg)](https://kpverse.in/sharer/ "Sharer from KPVERSE")
 
-![](./assets/sharer-preview-mac-iphone.png)
+### <div align="center"><a href="https://kpverse.in/sharer/">Sharer</a> - A URL Sharing Tool for Websites and Web Apps, from <a href="https://kpverse.in/">KPVERSE</a></div>
 
-# 📝 Description
+---
 
-Sharer is a user-friendly JavaScript library that seamlessly enhances website sharing across various applications and social media platforms. Boost engagement and increase website reach with Sharer - the top-rated JavaScript library for seamless URL sharing!
+## Installation
 
-# 📚 Usage
+[![npm (scoped)](https://img.shields.io/npm/v/@patelka2211/sharer)](https://www.npmjs.com/package/@patelka2211/sharer)
+[![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@patelka2211/sharer)](https://bundlephobia.com/package/@patelka2211/sharer@1.0.0)
+[![npm](https://img.shields.io/npm/dy/@patelka2211/sharer)](https://www.npmjs.com/package/@patelka2211/sharer)
+[![jsDelivr hits (npm scoped)](https://img.shields.io/jsdelivr/gh/hy/patelka2211/sharer)](https://cdn.jsdelivr.net/gh/patelka2211/sharer@1.0.0/)
 
-| Provided files                                                                                                             | File location                                                                               |
-| -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Sharer [IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) file (It can be directly imported into your website) | [sharer.iife.js](https://github.com/patelka2211/sharer/tree/main/bundle/sharer.iife.js)     |
-| Sharer [ESM](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) file (To use Sharer in your project)   | [sharer.esm.js](https://github.com/patelka2211/sharer/tree/main/bundle/sharer.esm.js)       |
-| Sharer button ( to offer convenient sharing options with Sharer button!)                                                   | [sharer_button.js](https://github.com/patelka2211/sharer/tree/main/bundle/sharer_button.js) |
+To install Sharer using npm, run the following command:
 
--   Both Sharer IIFE and ESM files provide a total of 6 functions.
-
-| Function Name  | Method chaining supported | Parameters       | Description                                                                                     |
-| -------------- | ------------------------- | ---------------- | ----------------------------------------------------------------------------------------------- |
-| setURL         | Yes                       | `url`: `String`  | To share a customized URL using the Sharer (`default URL` is the `current URL of the page`)     |
-| setDefaultURL  | Yes                       | none             | To `assign the URL variable` of the Sharer feature to the `current URL of the page`             |
-| setText        | Yes                       | `text`: `String` | To share a customized text using the Sharer (`default text` is the `current title of the page`) |
-| setDefaultText | Yes                       | none             | To `assign the text variable` of the Sharer feature to the `current title of the page`          |
-| open           | No                        | none             | To open the Sharer                                                                              |
-| close          | No                        | none             | To close the Sharer                                                                             |
-
-# 💡 Examples
-
--   If you want to share a customized URL and text, such as sharing information about "ChatGPT," you can use the following code to set the URL and text of "ChatGPT" for sharing.
-
-```js
-sharer.setURl("https://chat.openai.com/").setText("ChatGPT").open();
+```sh
+npm i @patelka2211/sharer
 ```
 
--   If you want to set URL and text to default, you can use the following code.
+Alternatively, you can include `Sharer and its dependency modules` in your website using a HTML `<script>` tag:
 
-`NOTE: By default, the URL and text values are automatically set to the URL and title of the current page, respectively.`
+```html
+<script src="https://cdn.jsdelivr.net/gh/patelka2211/dynamic-colors@1.1.4/DynamicColors.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/patelka2211/dominar@1.2.4/Dominar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/patelka2211/sharer@1.0.0/Sharer.js"></script>
 
-```js
-sharer.setDefaultURL().setDefaultText().open();
+Below given code is optional. But important.
+<script defer>
+    // To activate Sharer button, following line of code must be present.
+    Sharer.button.activate();
+
+    // To change color theme of Sharer, replace <YOUR_FAVORITE_COLOR> with your favorite HEX color.
+    Sharer.setColor("<YOUR_FAVORITE_COLOR>");
+</script>
 ```
 
-# 📄 License
+---
 
--   This project is licensed under the [MIT License](./LICENSE)
--   The MIT License permits the following actions:
-    -   Use the software
-    -   Copy the software
-    -   Modify the software
-    -   Merge the software with other software
-    -   Publish the software
-    -   Distribute the software
-    -   Sublicense the software
--   The permitted actions are subject to the conditions stated in the [LICENSE file](./LICENSE).
+## Usage
 
-# 🙌🏻 Credits
+### open - type `function`
 
-I would like to acknowledge and give credit to the creator of "[qrcode-svg](https://github.com/datalog/qrcode-svg/)", [@datalog](https://github.com/datalog/), for providing the library that enabled me to create SVG QR codes for Sharer, significantly enhancing its functionality and user experience. Furthermore, I would like to invite you to check out my other project, "[JSON2HTML](https://github.com/patelka2211/json2html/)", which was also utilized in the creation of Sharer. -->
+```ts
+/**
+ * Opens the Sharer with the specified options.
+ * @param option — Optional configuration for the Sharer.
+ */
+function openSharer(option?: { url?: string; text?: string }): void;
+```
+
+### close - type `function`
+
+```ts
+/**
+ * Closes the Sharer.
+ *
+ * @returns {void}
+ */
+function closeSharer(): void;
+```
+
+### setColor - type `function`
+
+```ts
+/**
+ * Sets Sharer color.
+ * @param newColor — The new color value.
+ * @returns — An object containing `open` and `close` functions.
+ */
+function setColor(newColor: string): object;
+```
+
+---
+
+### button - type `object`
+
+Sharer button is an object containing [`activate`](#buttonactivate---activates-the-sharer-button) and [`deactivate`](#buttondeactivate---deactivates-the-sharer-button) methods.
+
+```ts
+const button: {
+    activate: () => void;
+    deactivate: () => void;
+};
+```
+
+#### `button.activate` - Activates the Sharer button.
+
+#### `button.deactivate` - Deactivates the Sharer button.
+
+### License
+
+[MIT License](./LICENSE)
+
+---
+
+### <div align="center"><a href="https://kpverse.in"><img style="height: 86px;" src="./kpverse-sharer.svg"></a></div>
+
+<div align="center">© 2023 <a href="https://kpverse.in/about/">Kartavya Patel</a>. All rights reserved.</div>
+ -->

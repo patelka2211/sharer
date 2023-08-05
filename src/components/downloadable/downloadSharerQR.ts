@@ -15,7 +15,7 @@ export function downloadSharerQR(website: string, platform: string) {
                 tag("a", {
                     attributes: {
                         id: "temporary-SharerQR",
-                        download: `${`SharerQR share ${website} on ${platform}`
+                        download: `${`SharerQR ${website} ${platform}`
                             .replaceAll(" ", "-")
                             .replaceAll(".", "_")}.png`,
                         href: canvas.toDataURL("image/png"),
