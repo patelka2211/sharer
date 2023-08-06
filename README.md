@@ -24,7 +24,7 @@ npm i @patelka2211/sharer
 Alternatively, you can include `Sharer and its dependency modules` in your website using a HTML `<script>` tag:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/patelka2211/dynamic-colors@1.1.4/DynamicColors.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/patelka2211/dynamic-colors@1.1.5/DynamicColors.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/patelka2211/dominar@1.2.4/Dominar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/patelka2211/sharer@1.0.0/Sharer.js"></script>
@@ -69,10 +69,13 @@ function closeSharer(): void;
 ```ts
 /**
  * Sets Sharer color.
- * @param newColor — The new color value.
- * @returns — An object containing `open` and `close` functions.
+ *
+ * @param {string | undefined} newColor - The new color value.
+ * @returns {object} An object containing open and close functions.
+ * @property {function} open - The function to open the Sharer.
+ * @property {function} close - The function to close the Sharer.
  */
-function setColor(newColor: string): object;
+function setColor(newColor?: string): object;
 ```
 
 ---
@@ -100,5 +103,4 @@ const button: {
 
 ### <div align="center"><a href="https://kpverse.in"><img style="height: 86px;" src="./kpverse-sharer.svg"></a></div>
 
-<div align="center">© 2023 <a href="https://kpverse.in/about/">Kartavya Patel</a>. All rights reserved.</div>
- -->
+<div align="center">© 2023 <a href="https://kpverse.in/about/">Kartavya Patel</a>. All rights reserved.</div> -->

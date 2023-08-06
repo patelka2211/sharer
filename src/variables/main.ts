@@ -34,7 +34,6 @@ export let sharerDynamicColors: DynamicColorsType | undefined = undefined;
 let color = readRecord("Color");
 if (typeof color !== "string") {
     color = "#2596D1";
-    // color = "#5900ff";
     createRecord("Color", color);
 }
 

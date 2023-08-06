@@ -6,20 +6,26 @@ import { sharerDynamicColors } from "./main";
 /**
  * Sets Sharer color.
  *
- * @param {string} newColor - The new color value.
+ * @param {string | undefined} newColor - The new color value.
  * @returns {object} An object containing open and close functions.
  * @property {function} open - The function to open the Sharer.
  * @property {function} close - The function to close the Sharer.
  */
-export function setColor(newColor: string): object {
-    try {
-        sharerDynamicColors?.setColor(newColor);
-        updateRecord("Color", newColor);
-    } catch (error) {
-        console.log(error);
-    }
-    return {
+export function setColor(newColor?: string): object {
+    const output = {
         open: openSharer,
         close: closeSharer,
     };
+
+    if (sharerDynamicColors) {
+        try {
+            sharerDynamicColors.setColor(newColor || "#2596D1");
+        } catch (error) {
+            console.warn(error);
+        }
+
+        updateRecord("Color", newColor || "#2596D1");
+    } else console.warn(`"sharerDynamicColors" is not defined.`);
+
+    return output;
 }

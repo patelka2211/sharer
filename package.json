@@ -1,6 +1,6 @@
 {
   "name": "@patelka2211/sharer",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "A URL Sharing Tool for Websites and Web Apps, from KPVERSE",
   "main": "index.js",
   "module": "index.js",
@@ -46,7 +46,7 @@
   "homepage": "https://kpverse.in/sharer/",
   "dependencies": {
     "@patelka2211/dominar": "^1.2.4",
-    "dynamic-colors": "^1.1.4",
+    "dynamic-colors": "^1.1.5",
     "html2canvas": "^1.4.1"
   },
   "devDependencies": {

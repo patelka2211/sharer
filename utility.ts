@@ -1,12 +1,13 @@
 (function () {
+    function SHARER_UTILITY_PROBLEM_FORMAT(problem: string) {
+        return `Sharer utility script tag doesn't have ${problem}.`;
+    }
+
     const SHARER_NOT_DEFINED =
-            "Sharer is not defined. Get it from kpverse.in/sharer/.",
-        SHARER_UTILITY_PROBLEM_FORMAT = function (problem: string) {
-            return `Sharer utility script tag doesn't have ${problem}.`;
-        };
+        "Sharer is not defined. Get it from kpverse.in/sharer/.";
 
     if (!(window as any).Sharer) {
-        console.log(SHARER_NOT_DEFINED);
+        console.warn(SHARER_NOT_DEFINED);
         return;
     }
 
@@ -29,14 +30,14 @@
             try {
                 (window as any).Sharer.button.activate();
             } catch (error) {
-                console.log(SHARER_NOT_DEFINED);
+                console.warn(error);
             }
         } else if (className.indexOf("set-color-") === 0) {
             let color = className.replace("set-color-", "#");
             try {
                 (window as any).Sharer.setColor(color);
             } catch (error) {
-                console.log(SHARER_NOT_DEFINED);
+                console.warn(error);
             }
         }
     });
