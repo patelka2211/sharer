@@ -1,0 +1,54 @@
+@mixin sharerConntrolButtonsContainer {
+    #sharer-cntrl-btns-container {
+        padding: $padding;
+        width: calc(100% - 2 * $padding);
+        height: calc(50px - 2 * $padding);
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        .sharer-cntrl-btn-corner,
+        #sharer-cntrl-btn-center {
+            height: 100%;
+            border: none;
+            border-radius: 6.9px;
+            padding: 0;
+
+            // background-color: var(--sharer-dc-secondaryContainer);
+            background-color: var(--sharer-dc-secondaryContainer);
+            &:hover {
+                cursor: pointer;
+            }
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .sharer-cntrl-btn-corner {
+            aspect-ratio: 1;
+            .icon-svg {
+                path {
+                    // fill: var(--sharer-dc-onSecondaryContainer);
+                    fill: var(--sharer-dc-onSecondaryContainer);
+                }
+            }
+        }
+
+        #sharer-cntrl-btn-center {
+            width: calc(100% - 8 * $padding - 8px);
+            font-size: 18px;
+            // color: var(--sharer-dc-onSecondaryContainer);
+            color: var(--sharer-dc-onSecondaryContainer);
+            padding: 4px;
+            height: calc(100% - 8px);
+
+            white-space: nowrap;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
+        }
+    }
+}

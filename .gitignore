@@ -1,2 +1,31 @@
-.ds_store
-**/.ds_store
+# macOS .DS_Store file
+**/.DS_Store
+
+# Development purpose files and folders
+node_modules
+/lib
+/test
+
+# VSCode settings
+.vscode
+
+# Distribution files
+/index.js
+index.d.ts
+
+# parcel folders
+.parcel-cache
+dist
+
+# testing files and folder
+testing
+
+# Build
+build.iife.js
+# build.main.sh
+# build.test.sh
+
+# # website stuff
+# website-stuff/config.build.sh
+# website-stuff/config.terser.sh
+# website-stuff/rollup.config.mjs

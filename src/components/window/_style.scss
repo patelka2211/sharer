@@ -1,0 +1,40 @@
+@import "../downloadable/style";
+@import "../control-buttons/style";
+
+@mixin sharerWindow {
+    .sharer-window {
+        width: 100%;
+        max-width: 414px;
+        max-height: calc(100% - 20px);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        border-radius: 16.9px;
+        box-shadow: inset 0 1px 0 transparent,
+            0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.08);
+
+        background-color: var(--sharer-dc-background);
+
+        overflow: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        @include sharerDownloadableComponent();
+        @include sharerConntrolButtonsContainer();
+    }
+}
+
+@mixin sharerWindowMaxWidth434px {
+    .sharer-window {
+        max-width: 100%;
+        box-shadow: inset 0 1px 0 transparent,
+            0 -22px 70px 4px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(0, 0, 0, 0.08);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}

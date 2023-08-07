@@ -1,0 +1,60 @@
+{
+  "name": "@patelka2211/sharer",
+  "version": "1.0.0",
+  "description": "Seamlessly Share URLs and Generate SharerQR Codes!",
+  "main": "index.js",
+  "module": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "tsc-build": "tsc -p ./tsconfig.json",
+    "rollup-esm": "rollup -c --environment format:esm",
+    "rollup-iife": "rollup -c --environment format:iife",
+    "terser-esm": "terser ./index.js -c -m --toplevel -o ./index.js",
+    "terser-iife": "terser ./Sharer.js -c -m -o ./Sharer.js",
+    "prerelease-build": "npm run tsc-build && npm run rollup-esm && npm run rollup-iife && rm -rf ./lib/",
+    "utility-build": "tsc utility.ts",
+    "utility-minify": "terser ./utility.js -c -m -o ./utility.js",
+    "build": "npm run tsc-build && npm run rollup-esm && npm run rollup-iife && npm run terser-esm && npm run terser-iife && rm -rf ./lib/ && npm run utility-build && npm run utility-minify",
+    "test-build": "npm run tsc-build && npm run rollup-esm && tsc ./test/index.ts -t es6 && rollup ./test/index.js -o ./test/out.js && rm -rf ./lib/"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patelka2211/sharer.git"
+  },
+  "keywords": [
+    "Sharer",
+    "KPVERSE",
+    "patelka2211",
+    "Website Sharing",
+    "JavaScript Library",
+    "Social Media",
+    "Web Development",
+    "Boost Traffic",
+    "Share URLs",
+    "Web App Integration",
+    "Simplify Sharing"
+  ],
+  "author": "Kartavya Patel <patelka2211@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/patelka2211/sharer/issues"
+  },
+  "homepage": "https://kpverse.in/sharer/",
+  "dependencies": {
+    "@patelka2211/dominar": "^1.2.4",
+    "dynamic-colors": "^1.1.5",
+    "html2canvas": "^1.4.1"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.9.3",
+    "parcel": "^2.9.3",
+    "rollup": "^3.27.1",
+    "rollup-plugin-dts": "^5.3.1",
+    "terser": "^5.19.2",
+    "typescript": "^5.1.6"
+  }
+}
