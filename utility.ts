@@ -1,10 +1,10 @@
 (function () {
-    function SHARER_UTILITY_PROBLEM_FORMAT(problem: string) {
-        return `Sharer utility script tag doesn't have ${problem}.`;
-    }
-
-    const SHARER_NOT_DEFINED =
-        "Sharer is not defined. Get it from kpverse.in/sharer/.";
+    const SHARER_UTILITY_PROBLEM_FORMAT = function (problem: string) {
+            return `Sharer utility script tag doesn't have ${problem}.`;
+        },
+        SHARER_NOT_DEFINED =
+            "Sharer is not defined. Get it today from https://kpverse.in/sharer/.",
+        SCRIPT_TAG_ID = "sharer-utility-js";
 
     if (!(window as any).Sharer) {
         console.warn(SHARER_NOT_DEFINED);
@@ -16,10 +16,10 @@
         return;
     }
 
-    let script = document.getElementById("sharer-utility-js");
+    let script = document.getElementById(SCRIPT_TAG_ID);
 
     if (!script) {
-        console.warn(SHARER_UTILITY_PROBLEM_FORMAT(`id="sharer-utility-js"`));
+        console.warn(SHARER_UTILITY_PROBLEM_FORMAT(`id="${SCRIPT_TAG_ID}"`));
         return;
     }
 

@@ -2,8 +2,7 @@ import { activate } from "./activate";
 import { deactivate } from "./deactivate";
 
 /**
- * ### SharerButton
- * - An object containing `activate` and `deactivate` methods.
+ * Sharer button is An object containing `activate` and `deactivate` methods.
  */
 export const button: {
     /**

@@ -6,7 +6,7 @@ const currentDate = new Date(),
     banner = `/**
  * Sharer from KPVERSE
  *
- * v0.1.0
+ * v1.0.0
  *
  * Updated on ${formattedDate}.
  *

@@ -1,7 +1,7 @@
 {
   "name": "@patelka2211/sharer",
-  "version": "0.1.0",
-  "description": "A URL Sharing Tool for Websites and Web Apps, from KPVERSE",
+  "version": "1.0.0",
+  "description": "Seamlessly Share URLs and Generate SharerQR Codes!",
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",

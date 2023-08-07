@@ -1,8 +1,4 @@
-# Sharer
-
-Currently in testing mode. Stable version releasing soon.
-
-<!-- [![](./sharer-from-kpverse.jpg)](https://kpverse.in/sharer/ "Sharer from KPVERSE")
+[![](./sharer-from-kpverse.jpg)](https://kpverse.in/sharer/ "Sharer from KPVERSE")
 
 ### <div align="center"><a href="https://kpverse.in/sharer/">Sharer</a> - A URL Sharing Tool for Websites and Web Apps, from <a href="https://kpverse.in/">KPVERSE</a></div>
 
@@ -15,35 +11,34 @@ Currently in testing mode. Stable version releasing soon.
 [![npm](https://img.shields.io/npm/dy/@patelka2211/sharer)](https://www.npmjs.com/package/@patelka2211/sharer)
 [![jsDelivr hits (npm scoped)](https://img.shields.io/jsdelivr/gh/hy/patelka2211/sharer)](https://cdn.jsdelivr.net/gh/patelka2211/sharer@1.0.0/)
 
-To install Sharer using npm, run the following command:
+To install Sharer from NPM, run the following command:
 
 ```sh
 npm i @patelka2211/sharer
 ```
 
-Alternatively, you can include `Sharer and its dependency modules` in your website using a HTML `<script>` tag:
+Alternatively, you can visit [this page](kpverse.in/sharer/#install) and configure Sharer to work the best way and directly in your website using a HTML `<script>` tag. Or simply paste the below given code as high as possible in your website or web app's `<head>` tag .
 
 ```html
+<!-- Sharer scripts start -->
 <script src="https://cdn.jsdelivr.net/gh/patelka2211/dynamic-colors@1.1.5/DynamicColors.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/patelka2211/dominar@1.2.4/Dominar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/patelka2211/sharer@1.0.0/Sharer.js"></script>
-
-Below given code is optional. But important.
-<script defer>
-    // To activate Sharer button, following line of code must be present.
-    Sharer.button.activate();
-
-    // To change color theme of Sharer, replace <YOUR_FAVORITE_COLOR> with your favorite HEX color.
-    Sharer.setColor("<YOUR_FAVORITE_COLOR>");
-</script>
+<script
+    defer
+    id="sharer-utility-js"
+    class="activate-button"
+    src="https://cdn.jsdelivr.net/gh/patelka2211/sharer@1.0.0/utility.js"
+></script>
+<!-- Sharer scripts end -->
 ```
 
 ---
 
-## Usage
+## Available APIs
 
-### open - type `function`
+### open - type _`function`_
 
 ```ts
 /**
@@ -53,7 +48,7 @@ Below given code is optional. But important.
 function openSharer(option?: { url?: string; text?: string }): void;
 ```
 
-### close - type `function`
+### close - type _`function`_
 
 ```ts
 /**
@@ -64,7 +59,7 @@ function openSharer(option?: { url?: string; text?: string }): void;
 function closeSharer(): void;
 ```
 
-### setColor - type `function`
+### setColor - type _`function`_
 
 ```ts
 /**
@@ -80,9 +75,9 @@ function setColor(newColor?: string): object;
 
 ---
 
-### button - type `object`
+### button - type _`object`_
 
-Sharer button is an object containing [`activate`](#buttonactivate---activates-the-sharer-button) and [`deactivate`](#buttondeactivate---deactivates-the-sharer-button) methods.
+Sharer button is an object containing [`activate`](#buttonactivate---activates-the-sharer-button) and [`deactivate`](#buttondeactivate---deactivates-the-sharer-button) functions.
 
 ```ts
 const button: {
@@ -95,6 +90,25 @@ const button: {
 
 #### `button.deactivate` - Deactivates the Sharer button.
 
+---
+
+### Method chaining
+
+You can use method chaining in [`setColor`](#setcolor---type-function) function.
+
+Suppose you need to [set color](#setcolor---type-function) theme of Sharer and then you immediately want to [open Sharer](#open---type-function), you can do this using method chaining with just single line of code.
+
+```js
+// The given example code will set color theme to "#2596D1" and will open Sharer.
+// There is only one line of code present in the given example. It looks like 4 lines of code because it is formatted, to make sure it is easily readable.
+setColor("#2596D1").open({
+    url: "https://kpverse.in/",
+    text: "The official KPVERSE website.",
+});
+```
+
+---
+
 ### License
 
 [MIT License](./LICENSE)
@@ -103,4 +117,4 @@ const button: {
 
 ### <div align="center"><a href="https://kpverse.in"><img style="height: 86px;" src="./kpverse-sharer.svg"></a></div>
 
-<div align="center">© 2023 <a href="https://kpverse.in/about/">Kartavya Patel</a>. All rights reserved.</div> -->
+<div align="center">© 2023 <a href="https://kpverse.in/about/">Kartavya Patel</a>. All rights reserved.</div>
