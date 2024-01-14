@@ -1,4 +1,4 @@
-[![](https://cdn.jsdelivr.net/gh/patelka2211/sharer/sharer-from-kpverse.jpg)](https://kpverse.in/sharer/ "Sharer from KPVERSE")
+[![](./kpverse-sharer.jpg)](https://kpverse.in/sharer/ "Sharer from KPVERSE")
 
 ### <div align="center"><a href="https://kpverse.in/sharer/">Sharer</a> - A URL Sharing Tool for Websites and Web Apps, from <a href="https://kpverse.in/">KPVERSE</a></div>
 
@@ -115,6 +115,6 @@ setColor("#2596D1").open({
 
 ---
 
-### <div align="center"><a href="https://kpverse.in"><img style="height: 86px;" src="https://cdn.jsdelivr.net/gh/patelka2211/sharer/kpverse-sharer.svg"></a></div>
+<!-- ### <div align="center"><a href="https://kpverse.in"><img style="height: 86px;" src="https://cdn.jsdelivr.net/gh/patelka2211/sharer/kpverse-sharer.svg"></a></div> -->
 
 <div align="center">© 2023 <a href="https://kpverse.in/about/">Kartavya Patel</a>. All rights reserved.</div>

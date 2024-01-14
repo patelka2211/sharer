@@ -1,7 +1,7 @@
 import { initializeIfNot } from "./intialization/intializeIfNot";
 
 if (document.readyState === "loading")
-    window.addEventListener("load", function runAfterLoad() {
+    window.addEventListener("load", function runAfterLoad(): void {
         initializeIfNot();
 
         setTimeout(() => {

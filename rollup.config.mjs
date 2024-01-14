@@ -23,7 +23,7 @@ export default [
         output: {
             file: "index.js",
             format: "es",
-            banner: `'use strict';`,
+            banner: `${banner}'use strict';`,
         },
     },
     process.env.format === "esm" && {
